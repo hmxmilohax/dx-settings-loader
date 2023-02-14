@@ -1,0 +1,23 @@
+_build/ps3/USRDIR/gen/patch_ps3_0.ark
+_build/ps3/USRDIR/gen/patch_ps3.hdr
+_build_rpcs3.bat
+_build/xbox/gen/*.ark
+_build/xbox/gen/*.hdr
+_build/xbox/videos/*.bik
+_build_rpcs3.bat
+_build/wii/
+_xenia/cache/*
+_xenia/content/45410829/Headers/*
+_xenia/xenia.log
+_xenia/content/45410829/00000001/RB1DISCCUSTOMPACKWITHUNEXPORTABLES
+_xenia/content/45410829/00000002/*
+_xenia/content/45410829/00000001/*
+_xenia/content/45410869
+_xenia/content/45410829
+_build_xbox - Copy.bat
+_run_xenia - Copy.bat
+_xenia/recent.toml
+_xenia/content/454108B1
+_xenia/content/454108E7
+_xenia/content/45410914
+_xenia/content/575207F0
