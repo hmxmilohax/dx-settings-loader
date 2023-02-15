@@ -7,13 +7,9 @@
 (
    (
       {if_else $mod_auto_vocals mod_auto_vocals mod_auto_vocals_off}
-      {if_else $mod_staticfills mod_staticfills mod_staticfills_off}
       {if_else $mod_chord_numbers mod_chord_numbers mod_chord_numbers_off}
       {if_else $mod_nohud mod_nohud mod_nohud_off}
       {if_else $mod_miss_sounds mod_miss_sounds mod_miss_sounds_off}
-      {if_else $mod_whammyfx mod_whammyfx mod_whammyfx_off}
-      {if_else $mod_nocrowd mod_nocrowd mod_nocrowd_off}
-      {if_else $mod_nosustain mod_nosustain mod_nosustain_off}
       {if_else $mod_rb2sustain mod_rb2sustain mod_rb2sustain_off}
       {if_else $mod_songselectnoise mod_songselectnoise mod_songselectnoise_off}
       {if_else $mod_nobre mod_nobre mod_nobre_off}
@@ -23,7 +19,6 @@
       {if_else $mod_chmode mod_chmode mod_chmode_off}
       {if_else $mod_nomv mod_nomv mod_nomv_off}
       {if_else $mod_blackmenu mod_blackmenu mod_blackmenu_off}
-      {if_else $mod_noflames mod_noflames mod_noflames_off}
       {if_else $mod_noflares mod_noflares mod_noflares_off}
       {if_else $mod_nopart mod_nopart mod_nopart_off}
       {if_else $mod_rb4trk mod_rb4trk mod_rb4trk_off}
@@ -55,12 +50,7 @@
    )
    (SELECT_MSG
       {switch {$component selected_sym}
-         (mod_staticfills
-            {set $mod_staticfills {! $mod_staticfills}}
-         )
-         (mod_staticfills_off
-            {set $mod_staticfills {! $mod_staticfills}}
-         )
+         
          (mod_auto_vocals
             {set $mod_auto_vocals {! $mod_auto_vocals}}
          )
@@ -84,24 +74,6 @@
          )
          (mod_miss_sounds_off
             {set $mod_miss_sounds {! $mod_miss_sounds}}
-         )
-         (mod_whammyfx
-            {set $mod_whammyfx {! $mod_whammyfx}}
-         )
-         (mod_whammyfx_off
-            {set $mod_whammyfx {! $mod_whammyfx}}
-         )
-         (mod_nocrowd
-            {set $mod_nocrowd {! $mod_nocrowd}}
-         )
-         (mod_nocrowd_off
-            {set $mod_nocrowd {! $mod_nocrowd}}
-         )
-         (mod_nosustain
-            {set $mod_nosustain {! $mod_nosustain}}
-         )
-         (mod_nosustain_off
-            {set $mod_nosustain {! $mod_nosustain}}
          )
          (mod_rb2sustain
             {set $mod_rb2sustain {! $mod_rb2sustain}}
@@ -156,12 +128,6 @@
          )
          (mod_blackmenu_off
             {set $mod_blackmenu {! $mod_blackmenu}}
-         )
-         (mod_noflames
-            {set $mod_noflames {! $mod_noflames}}
-         )
-         (mod_noflames_off
-            {set $mod_noflames {! $mod_noflames}}
          )
          (mod_noflares
             {set $mod_noflares {! $mod_noflares}}

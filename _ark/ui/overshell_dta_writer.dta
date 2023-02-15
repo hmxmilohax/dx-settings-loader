@@ -10,10 +10,10 @@
                (gem_colors $slot1_color $slot2_color $slot3_color $slot4_color $slot5_color)
             )
             (sustain_colors
-               (sustain_colors $sus1_color $sus2_color $sus3_color $sus4_color $sus5_color)
+               (sustain_colors $slot1_color $slot2_color $slot3_color $slot4_color $slot5_color)
             )
             (smasher_colors
-               (smasher_colors $fret1_color $fret2_color $fret3_color $fret4_color $fret5_color)
+               (smasher_colors $slot1_color $slot2_color $slot3_color $slot4_color $slot5_color)
             )
             (drum_smasher_colors
                (drum_smasher_colors $smasher1_color $smasher2_color $smasher3_color $smasher4_color)
@@ -150,8 +150,41 @@
             (mod_rb4ui
                (mod_rb4ui {if_else $mod_rb4ui TRUE FALSE})
             )
+            (mod_fakejuke
+               (mod_fakejuke {if_else $mod_fakejuke TRUE FALSE})
+            )
+            (mod_flashbang
+               (mod_flashbang {if_else $mod_flashbang TRUE FALSE})
+            )
             (mod_auto_kick
                (mod_auto_kick {if_else $mod_auto_kick TRUE FALSE})
+            )
+            (mod_rb3sustain
+               (mod_rb3sustain {if_else $mod_rb3sustain TRUE FALSE})
+            )
+            (mod_legacybass
+               (mod_legacybass {if_else $mod_legacybass TRUE FALSE})
+            )
+            (mod_vocalgender
+               (mod_vocalgender {if_else $mod_vocalgender TRUE FALSE})
+            )
+            (mod_paddrum
+               (mod_paddrum {if_else $mod_paddrum TRUE FALSE})
+            )
+            (mod_padguitar
+               (mod_padguitar {if_else $mod_padguitar TRUE FALSE})
+            )
+            (mod_mididrum
+               (mod_mididrum {if_else $mod_mididrum TRUE FALSE})
+            )
+            (mod_freestyledrums
+               (mod_freestyledrums {if_else $mod_freestyledrums TRUE FALSE})
+            )
+            (mod_songtitlestats
+               (mod_songtitlestats {if_else $mod_songtitlestats TRUE FALSE})
+            )
+            (mod_nofail
+               (mod_nofail {if_else $mod_nofail TRUE FALSE})
             )
          )
       }

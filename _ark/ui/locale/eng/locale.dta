@@ -87,6 +87,10 @@
    "Auto Kick : ON")
 (mod_black_bg
    "Black Background : ON")
+(mod_auto_vocals
+   "All Instruments Mode : ON")
+(mod_auto_vocals_off
+   "All Instruments Mode : OFF")
 (mod_noflames
    "No Flames : ON")
 (mod_songtitle

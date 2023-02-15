@@ -2,6 +2,11 @@
 #include overshell_slider.dta
 #include overshell_mic_vols.dta
 #include overshell_dta_writer.dta
+#define UNIVERSAL_LIST_HANDLER
+(
+   {set $universalmodifierpos {sel_section.lst selected_sym}}
+   {$this lst_reset}
+)
 ;
 {new
    UIPanel
@@ -52,9 +57,12 @@
       os_micvols
       os_gems
       {if_else $songtitle os_songtitle1 os_songtitle0}
-      {if_else $blackbg os3 os3}
-      {if_else $blackbg os4 os4}
-      {if_else $blackbg os5 os5}
+      {if_else $blackbg mod_black_bg mod_black_bg_off}
+      {if_else $mod_whammyfx mod_whammyfx mod_whammyfx_off}
+      {if_else $mod_staticfills mod_staticfills mod_staticfills_off}
+      {if_else $mod_nocrowd mod_nocrowd mod_nocrowd_off}
+      {if_else $mod_noflames mod_noflames mod_noflames_off}
+      {if_else $mod_nosustain mod_nosustain mod_nosustain_off}
    )
 )
 {new
@@ -70,49 +78,65 @@
    )
    (lst_reset
       {sel_section.lst set_data UNIVERSAL_DATA}
-      {if $vismodifierpos
-         {sel_section.lst set_selected $vismodifierpos}
+      {if $universalmodifierpos
+         {sel_section.lst set_selected $universalmodifierpos}
       }
    )
    (SELECT_MSG
       {switch {$component selected_sym}
          (os_spd
             {ui push_screen options_milo_screen}
-            {set $vismodifierpos {sel_section.lst selected_sym}}
-            {$this lst_reset}
          )
          (os_micvols
             {ui push_screen options_micvols_screen}
-            {set $vismodifierpos {sel_section.lst selected_sym}}
-            {$this lst_reset}
          )
          (os_gems
             {ui push_screen options_color_screen}
-            {set $vismodifierpos {sel_section.lst selected_sym}}
-            {$this lst_reset}
          )
          (os_songtitle1
             {set $songtitle {! $songtitle}}
-            {set $vismodifierpos {sel_section.lst selected_sym}}
-            {$this lst_reset}
          )
          (os_songtitle0
             {set $songtitle {! $songtitle}}
-            {set $vismodifierpos {sel_section.lst selected_sym}}
-            {$this lst_reset}
          )
-         (os_blackbg1
+         (mod_black_bg
             {set $blackbg {! $blackbg}}
-            {set $vismodifierpos {sel_section.lst selected_sym}}
-            {$this lst_reset}
          )
-         (os_blackbg0
+         (mod_black_bg_off
             {set $blackbg {! $blackbg}}
-            {set $vismodifierpos {sel_section.lst selected_sym}}
-            {$this lst_reset}
+         )
+         (mod_nocrowd
+            {set $mod_nocrowd {! $mod_nocrowd}}
+         )
+         (mod_nocrowd_off
+            {set $mod_nocrowd {! $mod_nocrowd}}
+         )
+         (mod_whammyfx
+            {set $mod_whammyfx {! $mod_whammyfx}}
+         )
+         (mod_whammyfx_off
+            {set $mod_whammyfx {! $mod_whammyfx}}
+         )
+         (mod_staticfills
+            {set $mod_staticfills {! $mod_staticfills}}
+         )
+         (mod_staticfills_off
+            {set $mod_staticfills {! $mod_staticfills}}
+         )
+         (mod_nosustain
+            {set $mod_nosustain {! $mod_nosustain}}
+         )
+         (mod_nosustain_off
+            {set $mod_nosustain {! $mod_nosustain}}
+         )
+         (mod_noflames
+            {set $mod_noflames {! $mod_noflames}}
+         )
+         (mod_noflames_off
+            {set $mod_noflames {! $mod_noflames}}
          )
       }
-      {play_instr_sfx $user button_select}
+      UNIVERSAL_LIST_HANDLER
    )
    (BUTTON_DOWN_MSG
       {if {== $action kAction_Cancel}
