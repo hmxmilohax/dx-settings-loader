@@ -29,3 +29,4 @@
 (os_songtitle1 "Song Title Always: ON")
 (os_blackbg0 "Disable Venues: OFF")
 (os_songtitle0 "Song Title Always: OFF")
+(os_writefile "Write Settings File")

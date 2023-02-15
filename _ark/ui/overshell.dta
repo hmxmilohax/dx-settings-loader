@@ -1,10 +1,25 @@
-{new
+
+#define INIT_DTA_WRITER
+(
+   {write_file #ifdef HX_XBOX "GAME:/dx.dta" #endif #ifdef HX_PS3 "GD:/dev_hdd0/game/BLUS30050/USRDIR/dx.dta" #endif
+      {array
+        (
+            (emulate_fps
+               (emulate_fps $emulatefps)
+            )
+            (track_speed
+               (track_speed $trackspeed)
+            )
+         )
+      }
+   }
+){new
    UIPanel
    overshell_main_panel
    (file practice/practice_sel_section.milo)
    (focus sel_section.lst)
    (enter
-      {sel_section.lst set_data (os_spd os_vis os3 os4 os5 os6)}
+      {sel_section.lst set_data (os_spd os_vis os_writefile os3 os4 os5)}
       {title.lbl set text_token os_dxsettings}
       {$this pause_if_local})
    (exit)
@@ -16,12 +31,12 @@
          (os_vis
             {ui push_screen overshell_visual_screen}
          )
+         (os_writefile
+            INIT_DTA_WRITER
+         )
       }
    )
    (BUTTON_DOWN_MSG
-      {if {== $action kAction_Cancel}
-         {ui pop_screen}
-      }
       kDataUnhandled
    )
 }
@@ -35,6 +50,8 @@
 ((
    {if_else $blackbg os_blackbg1 os_blackbg0}
    {if_else $songtitle os_songtitle1 os_songtitle0}
+   {if_else $blackbg os3 os3}
+   {if_else $blackbg os4 os4}
 ))
 {new
    UIPanel

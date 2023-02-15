@@ -72,6 +72,9 @@
                do_next_fast}
             {$this toggle_focus -1})})
    (enter
+      {logo_RockBand2.mesh set_showing FALSE}
+      {logo_beatles.mesh set_showing FALSE}
+      {ui push_screen overshell_main_screen}
       {do
          ($start
             {rb2_beatles_fade.anim start_frame})
