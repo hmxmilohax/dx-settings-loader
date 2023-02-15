@@ -189,3 +189,37 @@
 
 (colrsliderlbl "Gem Colors")
 (os_gems "Gem Colors")
+
+(mod_fakejuke 
+   "Jukebox Mode : ON")
+(mod_flashbang 
+   "Firework Gems : ON")
+(mod_rb3sustain "RB3 Sustain Tails : ON")
+(mod_legacybass
+   "Legacy Bass Streak : ON")
+(mod_vocalgender
+   "Don't Force Vocal Gender : ON")
+(mod_paddrum "Pad is Drum : ON") ;paddrum shit
+(mod_mididrum
+   "Midi Drum Bass Kick Fix : ON")
+(mod_freestyledrums
+   "Freestyle Drums : ON")
+(mod_songtitlestats
+   "Detailed Song Title : ON")
+
+(mod_fakejuke_off
+   "Jukebox Mode : OFF")
+(mod_flashbang_off
+   "Firework Gems : OFF")
+(mod_rb3sustain_off "RB3 Sustain Tails : OFF")
+(mod_legacybass_off
+   "Legacy Bass Streak : OFF")
+(mod_vocalgender_off
+   "Don't Force Vocal Gender : OFF")
+(mod_paddrum_off "Pad is Drum : OFF") ;paddrum shit
+(mod_mididrum_off
+   "Midi Drum Bass Kick Fix : OFF")
+(mod_freestyledrums_off
+   "Freestyle Drums : OFF")
+(mod_songtitlestats_off
+   "Detailed Song Title : OFF")

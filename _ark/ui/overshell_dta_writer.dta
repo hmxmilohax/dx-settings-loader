@@ -90,6 +90,9 @@
             (mod_nocrowd
                (mod_nocrowd {if_else $mod_nocrowd TRUE FALSE})
             )
+            (blackbg
+               (blackbg {if_else $blackbg TRUE FALSE})
+            )
             (mod_nosustain
                (mod_nosustain {if_else $mod_nosustain TRUE FALSE})
             )

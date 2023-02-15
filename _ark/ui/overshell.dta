@@ -1,4 +1,5 @@
 #include overshell_rb3dx.dta
+#include overshell_rb2dx.dta
 #include overshell_slider.dta
 #include overshell_mic_vols.dta
 #include overshell_dta_writer.dta
@@ -26,6 +27,9 @@
          )
          (os_rb3dx
             {ui push_screen overshell_rb3dx_screen}
+         )
+         (os_rb2dx
+            {ui push_screen overshell_rb2dx_screen}
          )
          (os_spd
             {ui push_screen options_milo_screen}
