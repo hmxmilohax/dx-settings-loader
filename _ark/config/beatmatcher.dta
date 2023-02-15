@@ -1,7 +1,69 @@
 (controller
-   #include beatmatch_controller.dta)
-(midi_parsers
-   #include midi_parsers.dta)
+   (joypad
+   (dpad_for_navigation FALSE)
+   (slots kPad_L2 0 kPad_L1 1 kPad_R1 2 kPad_R2 3 kPad_X 4)
+   (force_mercury kPad_Select))
+(guitar
+   (dpad_for_navigation FALSE)
+   (slots kPad_R2 0 kPad_Circle 1 kPad_Tri 2 kPad_X 3 kPad_Square 4)
+   (force_mercury kPad_Select))
+(ro_guitar_xbox
+   (slots 6 0 5 1 4 2 7 3 2 4)
+   (shift_button kPad_L3)
+   (controller_style hx_xbox)
+   (force_mercury kPad_Select))
+(hx_guitar_ps3
+   (slots 6 0 5 1 4 2 7 3 2 4)
+   (shift_button 0)
+   (controller_style hx_ps3)
+   (force_mercury kPad_Select))
+(ro_guitar_ps3
+   (slots 6 0 5 1 7 2 4 3 2 4)
+   (shift_button 0)
+   (controller_style ro_ps3)
+   (force_mercury kPad_Select))
+(hx_drums_xbox_rb2
+   (dpad_for_navigation FALSE)
+   (slots 2 0 5 1 4 2 7 3 6 4)
+   (velocity_axes
+      (1 LX)
+      (2 LY)
+      (3 RX)
+      (4 RY))
+   (force_mercury kPad_Select))
+(hx_drums_xbox
+   (dpad_for_navigation FALSE)
+   (slots 2 0 5 1 4 2 7 3 6 4)
+   (velocity_axes
+      (1 LY)
+      (2 RX)
+      (3 RX)
+      (4 LY))
+   (force_mercury kPad_Select))
+(hx_drums_ps3
+   (dpad_for_navigation FALSE)
+   (slots kPad_L1 0 kPad_Circle 1 kPad_Tri 2 kPad_Square 3 kPad_X 4)
+   (velocity_pressures
+      (1 kPad_Circle)
+      (2 kPad_Tri)
+      (3 kPad_Square)
+      (4 kPad_X))
+   (force_mercury kPad_Select))
+(joypad_guitar_xbox
+   (dpad_for_navigation FALSE)
+   (slots kPad_RStickRight 0 kPad_L1 1 kPad_L2 2 kPad_RStickLeft 3 kPad_X 4)
+   (force_mercury kPad_Select))
+(joypad_guitar
+   (dpad_for_navigation FALSE)
+   (slots kPad_L2 0 kPad_L1 1 kPad_R1 2 kPad_R2 3 kPad_X 4)
+   (force_mercury kPad_Select))
+(lefty_joypad_guitar
+   (dpad_for_navigation FALSE)
+   (slots kPad_X 0 kPad_R2 1 kPad_R1 2 kPad_L1 3 kPad_L2 4)
+   (force_mercury kPad_Select))
+(midi_drums
+   (slots kPad_L2 0 kPad_L1 1 kPad_R1 2 kPad_R2 3 kPad_X 4)))
+(midi_parsers)
 (callbacks
    (sixteenth_note
       {if_else
@@ -63,5 +125,121 @@
    (auto_miss_sound_timeout_seconds 5.0)
    (auto_miss_sound_timeout_gems 5)
    (auto_miss_sound_timeout_gems_remote 10)
-   #include drum_mixes.dta)
+   (flipped_submixes
+   (drums0d drums0)
+   (drums1d drums1)
+   (drums2d drums2)
+   (drums3d drums3)
+   (drums4d drums4))
+(submixes
+   (basic
+      (0 1 2 3 4))
+   (drums0
+      ((0 1)
+         (0 1)
+         (0 1)
+         (0 1)
+         (0 1)))
+   (drums0d
+      ((0 1)
+         (0 1)
+         (0 1)
+         (0 1)
+         (0 1)))
+   (drums1
+      ((0)
+         (1)
+         (2 3)
+         (2 3)
+         (2 3)))
+   (drums1easy
+      ((0)
+         (1 2 3)
+         (1 2 3)
+         (1 2 3)
+         (1 2 3)))
+   (drums1easynokick
+      ((0)
+         (1 2 3)
+         (0 1 2 3)
+         (0 1 2 3)
+         (0 1 2 3)))
+   (drums1d
+      ((0)
+         (2 3)
+         (1)
+         (2 3)
+         (2 3)))
+   (drums2
+      ((0)
+         (1 2)
+         (3 4)
+         (3 4)
+         (3 4)))
+   (drums2easy
+      ((0)
+         (1 2 3 4)
+         (1 2 3 4)
+         (1 2 3 4)
+         (1 2 3 4)))
+   (drums2easynokick
+      ((0)
+         (1 2)
+         (0 3 4)
+         (0 3 4)
+         (0 3 4)))
+   (drums2easysnareonly
+      ((0)
+         (0 1 2 3 4)
+         (0 3 4)
+         (0 3 4)
+         (0 3 4)))
+   (drums2d
+      ((0)
+         (3 4)
+         (1 2)
+         (3 4)
+         (3 4)))
+   (drums3
+      ((0 1)
+         (2 3)
+         (4 5)
+         (4 5)
+         (4 5)))
+   (drums3d
+      ((0 1)
+         (4 5)
+         (2 3)
+         (4 5)
+         (4 5)))
+   (drums3easy
+      ((0 1)
+         (2 3 4 5)
+         (2 3 4 5)
+         (2 3 4 5)
+         (2 3 4 5)))
+   (drums3easynokick
+      ((0 1)
+         (2 3)
+         (0 1 4 5)
+         (0 1 4 5)
+         (0 1 4 5)))
+   (drums4
+      ((0)
+         (1 2)
+         (1 2)
+         (1 2)
+         (1 2)))
+   (drums4d
+      ((0)
+         (1 2)
+         (1 2)
+         (1 2)
+         (1 2)))
+   (drums4easynokick
+      ((0)
+         (0 1 2)
+         (0 1 2)
+         (0 1 2)
+         (0 1 2)))))
 #merge ../../../system/run/config/beatmatch.dta

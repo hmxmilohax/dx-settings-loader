@@ -16,7 +16,7 @@
 ){new
    UIPanel
    overshell_main_panel
-   (file practice/practice_sel_section.milo)
+   (file options/practice_sel_section.milo)
    (focus sel_section.lst)
    (enter
       {sel_section.lst set_data (os_spd os_vis os_writefile os3 os4 os5)}
@@ -56,7 +56,7 @@
 {new
    UIPanel
    overshell_visual_panel
-   (file practice/practice_sel_section.milo)
+   (file options/practice_sel_section.milo)
    (focus sel_section.lst)
    (enter
       {$this lst_reset}

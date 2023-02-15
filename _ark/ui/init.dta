@@ -5,7 +5,6 @@
 #include global.dta
 #include cheats_funcs.dta
 #include meta.dta
-#include main/main.dta
 #include demolauncher/demo_launcher.dta
 #include overshell.dta
 {platform_mgr set_notify_ui_location kOSNotifyBottomCenter}

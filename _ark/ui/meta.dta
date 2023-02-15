@@ -15,8 +15,9 @@
       {set
          [is_crowd_playing]
          FALSE}
-      {$this music_stop}
-      {synth stop shell_crowd_muffled.cue})
+      ;{$this music_stop}
+      ;{synth stop shell_crowd_muffled.cue}
+      )
    (music_start
       {if
          {&&

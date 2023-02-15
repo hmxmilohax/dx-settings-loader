@@ -4,95 +4,19 @@
    (file
       "demo_launcher_splash.milo")
    (focus proj9)
-   (focus_time 0)
-   (enter_time 0.0)
-   (attract_timeout_done FALSE)
-   (focus_debounce 0.1)
-   (attract_mode_timeout 60.0)
-   (launch_focus
-      {launch_demo
-         [focus]})
-   (toggle_focus
-      ($direction)
-      {if
-         {>
-            {-
-               {taskmgr ui_seconds}
-               [focus_time]}
-            [focus_debounce]}
-         {switch
-            [focus]
-            (proj9
-               {set
-                  [focus]
-                  band2})
-            (band2
-               {set
-                  [focus]
-                  proj9})}
-         {if
-            {==
-               demo_launcher_screen
-               {ui current_screen}}
-            {$this update_focus}}})
-   (update_focus
-      {switch
-         [focus]
-         (proj9
-            {rb2_launcher.trg basic_cleanup}
-            {p9_launcher.trg trigger}
-            {meta set_group proj9})
-         (band2
-            {p9_launcher.trg basic_cleanup}
-            {rb2_launcher.trg trigger}
-            {meta set_group band2})}
-      {set
-         [focus_time]
-         {taskmgr ui_seconds}}
-      {meta music_start})
-   (BUTTON_DOWN_MSG
-      {set
-         [enter_time]
-         {taskmgr ui_seconds}}
-      {switch
-         $action
-         ((kAction_Confirm kAction_Start)
-            {switch
-         [focus]
-         (proj9
-            {ui push_screen overshell_main_screen})
-         (band2
-            {ui push_screen options_milo_screen})})
-         ((kAction_Up kAction_Left)
-            {{meta meta_music}
-               do_next_fast}
-            {$this toggle_focus 1})
-         ((kAction_Right kAction_Down)
-            {{meta meta_music}
-               do_next_fast}
-            {$this toggle_focus -1})})
    (enter
       {logo_RockBand2.mesh set_showing FALSE}
       {logo_beatles.mesh set_showing FALSE}
       {ui push_screen overshell_main_screen}
       {do
-         ($start
-            {rb2_beatles_fade.anim start_frame})
-         ($end
-            {rb2_beatles_fade.anim end_frame})
-         {rb2_beatles_fade.anim
-            set_frame
-            {/
-               {- $end $start}
-               2.0}}}
-      {$this update_focus}
-      {set
-         [attract_timeout_done]
-         FALSE})
-   (TRANSITION_COMPLETE_MSG
-      {set
-         [enter_time]
-         {taskmgr ui_seconds}})}
+         ($start {rb2_beatles_fade.anim start_frame})
+         ($end {rb2_beatles_fade.anim end_frame})
+         {rb2_beatles_fade.anim set_frame {/ {- $end $start}2.0}}
+      }
+      {meta set_group proj9}
+      {meta music_start}
+   )
+}
 {new
    UIScreen
    demo_launcher_screen
