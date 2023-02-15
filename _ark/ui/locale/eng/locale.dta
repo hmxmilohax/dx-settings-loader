@@ -14,3 +14,18 @@
 (attract_press_start
    "PRESS START")
 #endif
+(milosliderlbl
+   "Speed / Framerate")
+(speed_msg
+   "SONG SPEED: %d%%")
+(trackspeed_msg
+   "NOTE SPEED: %d%%")
+(fps_msg
+   "VENUE FPS: %dFPS")
+(os_dxsettings "DELUXE SETTINGS")
+(os_spd "Speed Modifiers")
+(os_vis "Visual Modifiers")
+(os_blackbg1 "Disable Venues: ON")
+(os_songtitle1 "Song Title Always: ON")
+(os_blackbg0 "Disable Venues: OFF")
+(os_songtitle0 "Song Title Always: OFF")

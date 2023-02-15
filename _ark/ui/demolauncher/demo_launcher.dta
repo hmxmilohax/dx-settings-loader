@@ -57,7 +57,12 @@
       {switch
          $action
          ((kAction_Confirm kAction_Start)
-            {$this launch_focus})
+            {switch
+         [focus]
+         (proj9
+            {ui push_screen overshell_main_screen})
+         (band2
+            {ui push_screen options_milo_screen})})
          ((kAction_Up kAction_Left)
             {{meta meta_music}
                do_next_fast}
