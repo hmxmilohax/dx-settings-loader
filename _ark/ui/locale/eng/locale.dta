@@ -183,4 +183,5 @@
 (gemcolor_3 "blue")
 (gemcolor_4 "orange")
 
-(colrsliderlbl "Note Colors")
+(colrsliderlbl "Gem Colors")
+(os_gems "Gem Colors")

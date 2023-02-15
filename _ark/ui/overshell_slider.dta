@@ -197,11 +197,11 @@
       {sfx.sld set_current $slot5_color} ;set slider 5 to slot 5 color value
       {background_music.btn get_local_pos $labelpos_x $labelpos_y $labelpos_z}
       {background_music.btn set_local_pos {- $labelpos_x 13.2} $labelpos_y $labelpos_z} ;fix the fucking text position so it doesn't look ugly, for real this time
-      {instruments.btn set_localized {localize {sprintf "gemcolor_%i" $slot1_color}}} ;update text for button 1
-      {background_music.btn set_localized {localize {sprintf "gemcolor_%i" $slot2_color}}} ;update text for button 2
-      {vocal_track.btn set_localized {localize {sprintf "gemcolor_%i" $slot3_color}}} ;update text for button 3
-      {crowd.btn set_localized {localize {sprintf "gemcolor_%i" $slot4_color}}} ;update text for button 4
-      {sfx.btn set_localized {localize {sprintf "gemcolor_%i" $slot5_color}}} ;update text for button 5
+      {instruments.btn set text_token {localize {sprintf "gemcolor_%i" $slot1_color}}} ;update text for button 1
+      {background_music.btn set text_token {localize {sprintf "gemcolor_%i" $slot2_color}}} ;update text for button 2
+      {vocal_track.btn set text_token {localize {sprintf "gemcolor_%i" $slot3_color}}} ;update text for button 3
+      {crowd.btn set text_token {localize {sprintf "gemcolor_%i" $slot4_color}}} ;update text for button 4
+      {sfx.btn set text_token {localize {sprintf "gemcolor_%i" $slot5_color}}} ;update text for button 5
    )
    (exit
    {set $leaderspeed $speedmod}
@@ -304,14 +304,14 @@
             {do 
                {set $component current}
                {set $slot1_color {$this current}} ;set color to slider value
-               {instruments.btn set_localized {localize {sprintf "gemcolor_%i" $slot1_color}}} ;update text for button 1
+               {instruments.btn set text_token {localize {sprintf "gemcolor_%i" $slot1_color}}} ;update text for button 1
             }
          )
          (background.sld
             {do 
                {set $component current}
                {set $slot2_color {$this current}} ;set color to slider value
-               {background_music.btn set_localized {localize {sprintf "gemcolor_%i" $slot2_color}}} ;update text for button 2
+               {background_music.btn set text_token {localize {sprintf "gemcolor_%i" $slot2_color}}} ;update text for button 2
 
             }
          )
@@ -319,21 +319,21 @@
             {do
                {set $component current}
                {set $slot3_color {$this current}} ;set color to slider value
-               {vocal_track.btn set_localized {localize {sprintf "gemcolor_%i" $slot3_color}}} ;update text for button 3
+               {vocal_track.btn set text_token {localize {sprintf "gemcolor_%i" $slot3_color}}} ;update text for button 3
             }
          )
          (crowd.sld
             {do
                {set $component current}
                {set $slot4_color {$this current}} ;set color to slider value
-               {crowd.btn set_localized {localize {sprintf "gemcolor_%i" $slot4_color}}} ;update text for button 4
+               {crowd.btn set text_token {localize {sprintf "gemcolor_%i" $slot4_color}}} ;update text for button 4
             }
          )
          (sfx.sld
             {do
                {set $component current}
                {set $slot5_color {$this current}} ;set color to slider value
-               {sfx.btn set_localized {localize {sprintf "gemcolor_%i" $slot5_color}}} ;update text for button 5
+               {sfx.btn set text_token {localize {sprintf "gemcolor_%i" $slot5_color}}} ;update text for button 5
             }
          )
       })
