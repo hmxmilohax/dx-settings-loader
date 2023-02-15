@@ -49,6 +49,9 @@
 ('Main Heading Sans Serif'
    (resource_file
       "resource/bureaugrotwide-black(bld54).milo"))
+('bipolar_decorative'
+   (resource_file
+      "resource/bureaugrotwide-black(bld54).milo"))
 ('Gamertag Bold'
    (resource_file
       "resource/farnhamdisplay-bold(63).milo"))
@@ -56,6 +59,9 @@
    (resource_file
       "resource/bright_numbers_groovy.milo"))
 ('BureauGrotWide-Medium(58)'
+   (resource_file
+      "resource/bureaugrotwide-medium(58).milo"))
+('button'
    (resource_file
       "resource/bureaugrotwide-medium(58).milo"))
 ('BureauGrotWide-Medium(58)_main'

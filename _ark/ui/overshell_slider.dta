@@ -185,6 +185,12 @@
 ;      {content_mgr refresh_done}
    kDataUnhandled)
    (enter
+      {$this set_showing TRUE}
+      {options_audio.grp set_local_pos_index 2 15}
+      {audio_options.lbl set all_caps TRUE}
+      {audio_options.lbl set text_size 50}
+      {audio_options.lbl set width 400}
+      {audio_options.lbl set_local_pos_index 2 170}
       {instruments.sld set_num_steps 5} ;slot 1
       {background.sld set_num_steps 5} ;slot 2
       {vocal_track.sld set_num_steps 5} ;slot 3
@@ -290,12 +296,11 @@
                   {sfx.sld undo $player}
                   {$this set_focus sfx.btn})
                kDataUnhandled})
-         {if_else
-            {== $action kAction_Cancel}
-            {do
-            {ui pop_screen}
-            {ui pop_screen}}
-         kDataUnhandled}})
+         {if_else {== $action kAction_Cancel}
+            {do {ui pop_screen} {$this set_showing FALSE}}
+            kDataUnhandled}
+      }
+   )
    (on_slider_change
       ($component)
       {switch

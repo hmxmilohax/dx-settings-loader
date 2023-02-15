@@ -4,7 +4,7 @@
    {$this iterate Mat $m {$m set color_adjust TRUE}} ;allow the materials to be affected by the environment color
    ;{$this iterate Environ $l {$l set color {pack_color 1 0 0}}} ;actually applying the hue shift after we run the math in the below script task
    ;{$this iterate PostProc $l {$l set color {pack_color 1 0 0}}} ;actually applying the hue shift after we run the math in the below script task
-   {$this iterate Light $l {$l set color {pack_color 1 .3 .5}}} ;actually applying the hue shift after we run the math in the below script task
+   ;{$this iterate Light $l {$l set color {pack_color 1 .3 .5}}} ;actually applying the hue shift after we run the math in the below script task
 )
 {new
    UIPanel
