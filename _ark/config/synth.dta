@@ -21,14 +21,32 @@
       (slow_fade_time 3.0)
       (play_from_memory FALSE)
       (start_time_range 0.0 0.0)
-      (music shellmusic_variation1))
+      (music
+      a_punk buriedalive dreamgenie eiham flytrap
+      herecomestheguns lightupthenight livingwell
+      loveandtonic more shellmusic_29fingers
+      shellmusic_blooddoll shellmusic_cantletgo
+      shellmusic_daylate shellmusic_epic
+      shellmusic_gowiththeflow shellmusic_imsosick
+      shellmusic_missqueen shellmusic_nightmare
+      shellmusic_pleasure shellmusic_seven
+      shellmusic_suffragette shellmusic_thehandthatfeeds
+      shellmusic_variation1 shellmusic_variation10
+      shellmusic_variation11 shellmusic_variation12
+      shellmusic_variation13 shellmusic_variation2
+      shellmusic_variation3 shellmusic_variation4
+      shellmusic_variation5 shellmusic_variation6
+      shellmusic_variation7 shellmusic_variation8
+      shellmusic_variation9 suddenly_i_see swing_swing
+      vbomb word_up
+      ))
    (band2
       (volume -8.0)
       (fast_fade_time 0.5)
       (slow_fade_time 3.0)
       (start_time_range 5.0 50.0)
       (play_from_memory FALSE)
-      (music shellmusic_aceofspades)))
+      (music dreamgenie)))
 (fx
    (chain FALSE)
    (core_0
