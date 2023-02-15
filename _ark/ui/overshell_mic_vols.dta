@@ -1,0 +1,166 @@
+{new
+   UIPanel
+   options_micvols_panel
+   (file
+      "options/options_audio.milo")
+   (focus background_music.btn)
+   (enter
+      WORLD_COLOR
+	  {background.sld set_num_steps 9} ;number of steps for note speed slider
+      {crowd.sld set_num_steps 9} ;number of steps for song speed slider
+      {sfx.sld set_num_steps 9} ;number of steps for venue fps slider
+	  {background.sld set_current {int $mic_vol_1}} ;set note speed slider based on current value
+      {crowd.sld set_current {int $mic_vol_2}} ;set song speed slider based on current value
+      {sfx.sld set_current {int $mic_vol_3}} ;set FPS slider based on current value
+	  {background_music.btn set text_token {sprint {localize mic_vol_1_msg} {int $mic_vol_1}}} ;set note speed msg
+	  {crowd.btn set text_token {sprint {localize mic_vol_2_msg} {int $mic_vol_2}}} ;set song speed msg
+	  {sfx.btn set text_token {sprint {localize mic_vol_3_msg} {int $mic_vol_3}}}  ;set venue fps msg
+      {audio_options.lbl set text_token os_micvols}
+      {karaoke.btn set_showing FALSE}
+      {$this disable karaoke.btn}
+	  {$this update_all_from_profile})
+   (save_load_all_complete_msg
+      {$this update_all_from_profile})
+   (TRANSITION_COMPLETE_MSG
+      {$this
+         update_helpbar
+         {$this focus_name}}
+      kDataUnhandled)
+   (FOCUS_MSG
+      {$this update_helpbar $new_focus})
+   (SCROLL_SELECT_MSG
+      {$this on_slider_change $component})
+   (SCROLL_MSG
+      {$this on_slider_change $component})
+   (SELECT_MSG
+      {switch
+         $component
+         (background_music.btn
+            {background.sld store}
+            {$this set_focus background.sld})
+         (crowd.btn
+            {crowd.sld store}
+            {$this set_focus crowd.sld})
+         (sfx.btn
+            {sfx.sld store}
+            {$this set_focus sfx.sld})}
+       {play_instr_sfx $user button_select})
+   (BUTTON_DOWN_MSG
+      {switch
+         {$this focus_name}
+         (background.sld
+            {switch
+               $action
+               (kAction_Confirm
+                  {background.sld confirm}
+                  {play_instr_sfx $user button_select}
+                  {$this set_focus background_music.btn})
+               (kAction_Cancel
+                  {background.sld undo $user}
+                  {$this set_focus background_music.btn})
+               kDataUnhandled})
+         (crowd.sld
+            {switch
+               $action
+               (kAction_Confirm
+                  {crowd.sld confirm}
+                  {play_instr_sfx $user button_select}
+                  {$this set_focus crowd.btn})
+               (kAction_Cancel
+                  {crowd.sld undo $user}
+                  {$this set_focus crowd.btn})
+               kDataUnhandled})
+         (sfx.sld
+            {switch
+               $action
+               (kAction_Confirm
+                  {sfx.sld confirm}
+                  {play_instr_sfx $user button_select}
+                  {$this set_focus sfx.btn})
+               (kAction_Cancel
+                  {sfx.sld undo $user}
+                  {$this set_focus sfx.btn})
+               kDataUnhandled})
+      }
+      {if_else {== $action kAction_Cancel}
+         {do {ui pop_screen} {meta music_start}}
+         kDataUnhandled
+      }
+   )
+   (on_slider_change
+      ($component)
+      {switch
+         $component
+         (background.sld
+            {do {set $component current}}
+            {$this set_speeds})
+         (crowd.sld
+            {do {set $component current}}
+            {$this set_speeds})
+         (sfx.sld
+            {do {set $component current}}
+            {$this set_speeds})})
+   (update_all_from_profile
+      {$this
+         iterate
+         UISlider
+         $s
+         {$this update_from_profile $s}})
+   (update_from_profile
+      ($component)
+      {switch
+         $component
+         (background.sld
+            {$component
+               set_current
+               {int $mic_vol_1}})
+         (crowd.sld
+            {$component
+               set_current
+               {int $mic_vol_2}})
+         (sfx.sld
+            {$component
+               set_current
+               {int $mic_vol_3}})})
+	(set_speeds
+         {do
+            {set $mic_vol_1
+               {background.sld current}}
+            {set $mic_vol_2
+               {crowd.sld current}}
+            {set $mic_vol_3
+               {sfx.sld current}}
+         }
+         {$this display_trackspeed_msg $mic_vol_1}
+         {$this display_speed_msg $mic_vol_2}
+         {$this display_fps_msg $mic_vol_3})
+   (display_trackspeed_msg
+      ($mic_vol_1)
+      {background_music.btn set text_token {sprint {localize mic_vol_1_msg} {int $mic_vol_1}}})
+   (display_speed_msg
+      ($mic_vol_2)
+     {crowd.btn set text_token {sprint {localize mic_vol_2_msg} {int $mic_vol_2}}})
+   (display_fps_msg
+      ($mic_vol_3)
+     {sfx.btn set text_token {sprint {localize mic_vol_3_msg} {int $mic_vol_3}}}) ;don't add 1 here because this is being fed the actual fps
+   (update_helpbar
+      ($new_focus)
+      {switch
+         $new_focus
+         ((background_music.btn crowd.btn sfx.btn voicechat.btn)
+            {helpbar
+               set_config
+               ((cancel helpbar_back)
+                  (confirm helpbar_changesetting))})
+         ((background.sld crowd.sld sfx.sld voicechat.sld)
+            {helpbar
+               set_config
+               ((cancel helpbar_cancel)
+                  (confirm helpbar_confirmsetting))})})}
+{new
+   UIScreen
+   options_micvols_screen
+   (panels meta overshell_blank_panel options_micvols_panel)
+   (focus options_micvols_panel)
+   (helpbar
+      (helpbar_back helpbar_select))}

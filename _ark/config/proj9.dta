@@ -46,7 +46,7 @@
    (language
    (default eng)
    (supported
-      (eng fre ita deu esl))
+      (eng))
    #ifndef _SHIP
    (cheat_supported
       (eng fre ita deu esl jpn pse))

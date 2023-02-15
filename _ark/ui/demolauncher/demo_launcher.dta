@@ -1,3 +1,11 @@
+#define WORLD_COLOR
+(
+   {$this iterate Mat $m {$m set use_environ TRUE}} ;allow the materials to be affected by the environment color
+   {$this iterate Mat $m {$m set color_adjust TRUE}} ;allow the materials to be affected by the environment color
+   ;{$this iterate Environ $l {$l set color {pack_color 1 0 0}}} ;actually applying the hue shift after we run the math in the below script task
+   ;{$this iterate PostProc $l {$l set color {pack_color 1 0 0}}} ;actually applying the hue shift after we run the math in the below script task
+   {$this iterate Light $l {$l set color {pack_color 1 .3 .5}}} ;actually applying the hue shift after we run the math in the below script task
+)
 {new
    UIPanel
    demo_launcher_panel
@@ -5,8 +13,10 @@
       "demo_launcher_splash.milo")
    (focus proj9)
    (enter
+      WORLD_COLOR
       {logo_RockBand2.mesh set_showing FALSE}
       {logo_beatles.mesh set_showing FALSE}
+      {$this iterate ParticleSys $l {$l set max_parts 10000}}
       {ui push_screen overshell_main_screen}
       {do
          ($start {rb2_beatles_fade.anim start_frame})

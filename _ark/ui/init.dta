@@ -9,7 +9,108 @@
 #include overshell.dta
 {platform_mgr set_notify_ui_location kOSNotifyBottomCenter}
 {set $saveload_skip_upload FALSE}
+;sets default highway. must set variable to TRUE, name your selected texture
+;list can be found in _ark\ui\track\highways\highways.dta
+{set $highway none}
+
+;sets default spotlight (any instrument max multiplier).
+;list can be found in _ark\ui\track\spotlights\spotlights.dta
+{set $spotlight none}
+
+;sets default emissive (in overdrive texture).
+;list can be found in _ark\ui\track\emissives\emissives.dta
+{set $emissive none}
+
+;sets default keyboard track colors.
+;list can be found in _ark\ui\track\keyboards\keyboards.dta
+{set $keyboard none}
+
+;sets default smasher track textures.
+;list can be found in _ark\ui\track\smashers\smashers.dta
+{set $smasher none}
+
+;sets default gem track textures.
+;list can be found in _ark\ui\track\gems\gems.dta
+{set $gem none}
+
+;sets default track speed. 1.15 is 115%, 1.30 is 130% and so on.
 {set $trackspeed 1.0}
+
+;sets default song speed 1.15 is 115%, 1.30 is 130% and so on.
 {set $speedmod 1.0}
-{set $emulatefps 60}
+
+;set default venue fps.
+{set $emulatefps 30}
+
+;animated texture name. must have ran "enable_animation.bat" first. current animated highways are
+;rb4_new rb4effect5_color4 rb4effect6_color7 rb4effect4_color1 rb4effect9_color1
+{set $animatedhighwayname none}
+
+;animated texture name. must have ran "enable_animation.bat" first. current animated gems are
+;rb4
+{set $animatedgemname none}
+
+;controls animated texture toggles. must have ran "enable_animation.bat" first. current animated smashers are
+;shiny starlight
+{set $animatedsmashername none}
+
+;chooses which main menu to load, if you dont like the new one, vanilla is "3"
+;valid sv values are 2, 3, 4, 5, 7, 8
+{set $svnumber 8}
+
+;set default volumes for mics
+;0-11, default is "8"
+{set $mic_vol_1 8}
+{set $mic_vol_2 8}
+{set $mic_vol_3 8}
+
+
+;set default colors for notes
+;5 is overdrive (white)
+{set $slot1_color 0} ;green
+{set $slot2_color 1} ;red
+{set $slot3_color 2} ;yellow
+{set $slot4_color 3} ;blue
+{set $slot5_color 4} ;orange
+
+;set default colors for frets
+{set $fret1_color 0} ;green
+{set $fret2_color 1} ;red
+{set $fret3_color 2} ;yellow
+{set $fret4_color 3} ;blue
+{set $fret5_color 4} ;orange
+
+;set default colors for sustains
+;5 is overdrive (white)
+{set $sus1_color 0} ;green
+{set $sus2_color 1} ;red
+{set $sus3_color 2} ;yellow
+{set $sus4_color 3} ;blue
+{set $sus5_color 4} ;orange
+
+;set default colors for tom notes
+;4 is overdrive (white)
+{set $drum1_color 0} ;red
+{set $drum2_color 1} ;yellow
+{set $drum3_color 2} ;blue
+{set $drum4_color 3} ;green
+
+;set default colors for kick note
+;1 is overdrive (white)
+{set $kick_color 0} ;orange
+
+;set default colors for cymbal notes
+;4 is overdrive (white)
+{set $cym1_color 0} ;red
+{set $cym2_color 1} ;yellow
+{set $cym3_color 2} ;blue
+{set $cym4_color 3} ;green
+
+;set default colors for drum smashers (frets)
+{set $smasher1_color 0} ;red
+{set $smasher2_color 1} ;yellow
+{set $smasher3_color 2} ;blue
+{set $smasher4_color 3} ;green
+
+
 #endif

@@ -22,11 +22,158 @@
    "NOTE SPEED: %d%%")
 (fps_msg
    "VENUE FPS: %dFPS")
+(mic_vol_1_msg
+   "MIC 1: ")
+(mic_vol_2_msg
+   "MIC 2: ")
+(mic_vol_3_msg
+   "MIC 3: ")
 (os_dxsettings "DELUXE SETTINGS")
 (os_spd "Speed Modifiers")
+(os_micvols "Microphone Volumes")
 (os_vis "Visual Modifiers")
 (os_blackbg1 "Disable Venues: ON")
 (os_songtitle1 "Song Title Always: ON")
 (os_blackbg0 "Disable Venues: OFF")
 (os_songtitle0 "Song Title Always: OFF")
 (os_writefile "Write Settings File")
+(os_rb1dx "Rock Band 1 DX")
+(os_rb2dx "Rock Band 2 DX")
+(os_rb3dx "Rock Band 3 DX")
+(os_lrbdx "LEGO Rock Band DX")
+(os_tbrbdx "The Beatles Rock Band DX")
+(os_gdrbdx "Green Day Rock Band DX")
+(os_universal "Universal Settings")
+(mod_videobg "Video Backgrounds : ON")
+(mod_xboxos "Xbox Overshell Color : ON")
+(mod_rb2ui "Rock Band 2 UI : ON")
+(mod_rb2trk "Rock Band 2 Track : ON")
+(mod_rb4ui "Rock Band 4 UI : ON")
+(mod_rb4trk "Rock Band 4 Track : ON")
+(mod_fakebrutal "Brutal Mode : ON")
+(mod_nobre "Disable BRE's : ON")
+(mod_practiceoverdrive "OD in Practice : ON")
+(mod_nolanes "No Lanes : ON")
+(mod_rb4lanes "RB4 Lanes : ON")
+(mod_nomv "No Music Videos : ON")
+(mod_blackmenu "No Menu Backgrounds : ON")
+(mod_starlightsmashers "Galaxy Frets : ON")
+(mod_shinysmashers "Shiny Frets : ON")
+(mod_animatedgems "Animated Gems : ON")
+(mod_animatedhighway "Animated Highway : ON")
+(mod_ps3os "PS3 Overshell Color : ON")
+(mod_wiios "Wii Overshell Color : ON")
+(mod_staticfills
+   "Drum Auto Deploy : ON")
+(mod_songselectnoise
+   "Song Select Ambience : ON")
+(mod_nocrowd
+   "No Crowd : ON")
+(mod_whammyfx "No Whammy FX : ON")
+(mod_nosustain "No Sustain Tails : ON")
+(mod_rb2sustain "RB2 Sustain Tails : ON")
+(mod_ghdrums
+   "GH Drums are Protar : ON")
+(mod_video
+   "Video Backgrounds : ON")
+(mod_rrdrums
+   "RR Drums are Keys : ON")
+(mod_padguitar
+   "Pad is Guitar : ON")
+(mod_auto_play
+   "Autoplay : ON")
+(mod_chmode_short "CH Mode : ON")
+(mod_auto_kick
+   "Auto Kick : ON")
+(mod_black_bg
+   "Black Background : ON")
+(mod_noflames
+   "No Flames : ON")
+(mod_songtitle
+   "Song Title Always : ON")
+(mod_doublespeed_1.25x
+   "breakneck speed 1.25x : ON")
+(mod_doublespeed "breakneck speed : ON")
+(mod_stopcrashing "Disable Custom Textures : ON")
+(mod_rb4os "Rock Band 4 Overshell : ON")
+(mod_chmode "Clone Hero Mode : ON")
+(mod_nopart "No Particle Effects : ON")
+(mod_noflares "No Flares : ON")
+(mod_flames "Smoke is Flames : ON")
+(mod_black_background "Black Background : ON")
+(mod_force_hopos "Force HOPOs : ON")
+(mod_mirror_mode "Mirror Mode (Guitar Only) : ON")
+(mod_color_shuffle "Gem Color Shuffle : ON")
+(mod_chord_numbers
+   "Chord Numbering : ON")
+(mod_nohud
+   "Performance Mode : ON")
+(mod_miss_sounds
+   "Miss Sounds : ON")
+
+(mod_videobg_off "Video Backgrounds : OFF")
+(mod_xboxos_off "Xbox Overshell Color : OFF")
+(mod_rb2ui_off "Rock Band 2 UI : OFF")
+(mod_rb2trk_off "Rock Band 2 Track : OFF")
+(mod_rb4ui_off "Rock Band 4 UI : OFF")
+(mod_rb4trk_off "Rock Band 4 Track : OFF")
+(mod_fakebrutal_off "Brutal Mode : OFF")
+(mod_nobre_off "Disable BRE's : OFF")
+(mod_practiceoverdrive_off "OD in Practice : OFF")
+(mod_nolanes_off "No Lanes : OFF")
+(mod_rb4lanes_off "RB4 Lanes : OFF")
+(mod_nomv_off "No Music Videos : OFF")
+(mod_blackmenu_off "No Menu Backgrounds : OFF")
+(mod_starlightsmashers_off "Galaxy Frets : OFF")
+(mod_shinysmashers_off "Shiny Frets : OFF")
+(mod_animatedgems_off "Animated Gems : OFF")
+(mod_animatedhighway_off "Animated Highway : OFF")
+(mod_ps3os_off "PS3 Overshell Color : OFF")
+(mod_wiios_off "Wii Overshell Color : OFF")
+(mod_staticfills_off
+   "Drum Auto Deploy : OFF")
+(mod_songselectnoise_off
+   "Song Select Ambience : OFF")
+(mod_nocrowd_off
+   "No Crowd : OFF")
+(mod_whammyfx_off "No Whammy FX : OFF")
+(mod_nosustain_off "No Sustain Tails : OFF")
+(mod_rb2sustain_off "RB2 Sustain Tails : OFF")
+(mod_ghdrums_off
+   "GH Drums are Protar : OFF")
+(mod_video_off
+   "Video Backgrounds : OFF")
+(mod_rrdrums_off
+   "RR Drums are Keys : OFF")
+(mod_padguitar_off
+   "Pad is Guitar : OFF")
+(mod_auto_play_off
+   "Autoplay : OFF")
+(mod_chmode_short_off "CH Mode : OFF")
+(mod_auto_kick_off
+   "Auto Kick : OFF")
+(mod_black_bg_off
+   "Black Background : OFF")
+(mod_noflames_off
+   "No Flames : OFF")
+(mod_songtitle_off
+   "Song Title Always : OFF")
+(mod_doublespeed_1.25x_off
+   "breakneck speed 1.25x : OFF")
+(mod_doublespeed_off "breakneck speed : OFF")
+(mod_stopcrashing_off "Disable Custom Textures : OFF")
+(mod_rb4os_off "Rock Band 4 Overshell : OFF")
+(mod_chmode_off "Clone Hero Mode : OFF")
+(mod_nopart_off "No Particle Effects : OFF")
+(mod_noflares_off "No Flares : OFF")
+(mod_flames_off "Smoke is Flames : OFF")
+(mod_black_background_off "Black Background : OFF")
+(mod_force_hopos_off "Force HOPOs : OFF")
+(mod_mirror_mode_off "Mirror Mode (Guitar Only) : OFF")
+(mod_color_shuffle_off "Gem Color Shuffle : OFF")
+(mod_chord_numbers_off
+   "Chord Numbering : OFF")
+(mod_nohud_off
+   "Performance Mode : OFF")
+(mod_miss_sounds_off
+   "Miss Sounds : OFF")

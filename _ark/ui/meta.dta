@@ -33,12 +33,7 @@
                TRUE}}
          {platform_mgr enable_xmp}})
    (music_stop
-      {{$this meta_music}
-         stop}
-      {synth stop shell_crowd.cue}
-      {set
-         [is_crowd_playing]
-         FALSE})
+      kDataUnhandled)
    (play_postset_loop
       ($play)
       {if_else
