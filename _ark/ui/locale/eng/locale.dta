@@ -177,3 +177,10 @@
    "Performance Mode : OFF")
 (mod_miss_sounds_off
    "Miss Sounds : OFF")
+(gemcolor_0 "green") ;strings for gem colors and related shit
+(gemcolor_1 "red")
+(gemcolor_2 "yellow")
+(gemcolor_3 "blue")
+(gemcolor_4 "orange")
+
+(colrsliderlbl "Note Colors")

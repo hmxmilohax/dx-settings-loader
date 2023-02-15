@@ -169,9 +169,201 @@
    )
 }
 {new
+   UIPanel
+   options_color_panel
+   (file
+      "options/options_color.milo")
+   (focus instruments.btn)
+   (load
+;      {content_mgr start_refresh}
+;      {content_loading_panel allowed_to_show TRUE}
+   kDataUnhandled) ;prevent softlock on screen entry while also preventing it from waiting to "load additional content"
+   (finish_load
+;      {content_loading_panel allowed_to_show FALSE}
+   kDataUnhandled)
+   (is_loaded
+;      {content_mgr refresh_done}
+   kDataUnhandled)
+   (enter
+      {instruments.sld set_num_steps 5} ;slot 1
+      {background.sld set_num_steps 5} ;slot 2
+      {vocal_track.sld set_num_steps 5} ;slot 3
+      {crowd.sld set_num_steps 5} ;slot 4
+      {sfx.sld set_num_steps 5} ;slot 5
+      {instruments.sld set_current $slot1_color} ;set slider 1 to slot 1 color value
+      {background.sld set_current $slot2_color} ;set slider 2 to slot 2 color value
+      {vocal_track.sld set_current $slot3_color} ;set slider 3 to slot 3 color value
+      {crowd.sld set_current $slot4_color} ;set slider 4 to slot 4 color value
+      {sfx.sld set_current $slot5_color} ;set slider 5 to slot 5 color value
+      {background_music.btn get_local_pos $labelpos_x $labelpos_y $labelpos_z}
+      {background_music.btn set_local_pos {- $labelpos_x 13.2} $labelpos_y $labelpos_z} ;fix the fucking text position so it doesn't look ugly, for real this time
+      {instruments.btn set_localized {localize {sprintf "gemcolor_%i" $slot1_color}}} ;update text for button 1
+      {background_music.btn set_localized {localize {sprintf "gemcolor_%i" $slot2_color}}} ;update text for button 2
+      {vocal_track.btn set_localized {localize {sprintf "gemcolor_%i" $slot3_color}}} ;update text for button 3
+      {crowd.btn set_localized {localize {sprintf "gemcolor_%i" $slot4_color}}} ;update text for button 4
+      {sfx.btn set_localized {localize {sprintf "gemcolor_%i" $slot5_color}}} ;update text for button 5
+   )
+   (exit
+   {set $leaderspeed $speedmod}
+   {do
+      {set $leaderspeed $speedmod}})
+   (TRANSITION_COMPLETE_MSG
+      {$this
+         update_helpbar
+         {$this focus_name}}
+      kDataUnhandled)
+   (FOCUS_MSG
+      {$this update_helpbar $new_focus})
+   (SCROLL_SELECT_MSG
+      {$this on_slider_change $component})
+   (SCROLL_MSG
+      {$this on_slider_change $component})
+   (SELECT_MSG
+      {switch
+         $component
+         (instruments.btn
+            {instruments.sld store}
+            {$this set_focus instruments.sld})
+         (background_music.btn
+            {background.sld store}
+            {$this set_focus background.sld})
+         (vocal_track.btn
+            {vocal_track.sld store}
+            {$this set_focus vocal_track.sld})
+         (crowd.btn
+            {crowd.sld store}
+            {$this set_focus crowd.sld})
+         (sfx.btn
+            {sfx.sld store}
+            {$this set_focus sfx.sld})
+      })
+   (BUTTON_DOWN_MSG
+      {switch
+         {$this focus_name}
+         (vocal_track.sld
+            {switch
+               $action
+               (kAction_Confirm
+                  {vocal_track.sld confirm}
+                  {$this set_focus vocal_track.btn})
+               (kAction_Cancel
+                  {vocal_track.sld undo $player}
+                  {$this set_focus vocal_track.btn})
+               kDataUnhandled})
+         (instruments.sld
+            {switch
+               $action
+               (kAction_Confirm
+                  {instruments.sld confirm}
+                  {$this set_focus instruments.btn})
+               (kAction_Cancel
+                  {instruments.sld undo $player}
+                  {$this set_focus instruments.btn})
+               kDataUnhandled})
+         (background.sld
+            {switch
+               $action
+               (kAction_Confirm
+                  {background.sld confirm}
+                  {$this set_focus background_music.btn})
+               (kAction_Cancel
+                  {background.sld undo $player}
+                  {$this set_focus background_music.btn})
+               kDataUnhandled})
+         (crowd.sld
+            {switch
+               $action
+               (kAction_Confirm
+                  {crowd.sld confirm}
+                  {$this set_focus crowd.btn})
+               (kAction_Cancel
+                  {crowd.sld undo $player}
+                  {$this set_focus crowd.btn})
+               kDataUnhandled})
+         (sfx.sld
+            {switch
+               $action
+               (kAction_Confirm
+                  {sfx.sld confirm}
+                  {$this set_focus sfx.btn})
+               (kAction_Cancel
+                  {sfx.sld undo $player}
+                  {$this set_focus sfx.btn})
+               kDataUnhandled})
+         {if_else
+            {== $action kAction_Cancel}
+            {do
+            {ui goto_screen overshell_track_screen}
+            {ui pop_screen}}
+         kDataUnhandled}})
+   (on_slider_change
+      ($component)
+      {switch
+         $component
+         (instruments.sld
+            {do 
+               {set $component current}
+               {set $slot1_color {$this current}} ;set color to slider value
+               {instruments.btn set_localized {localize {sprintf "gemcolor_%i" $slot1_color}}} ;update text for button 1
+            }
+         )
+         (background.sld
+            {do 
+               {set $component current}
+               {set $slot2_color {$this current}} ;set color to slider value
+               {background_music.btn set_localized {localize {sprintf "gemcolor_%i" $slot2_color}}} ;update text for button 2
+
+            }
+         )
+         (vocal_track.sld
+            {do
+               {set $component current}
+               {set $slot3_color {$this current}} ;set color to slider value
+               {vocal_track.btn set_localized {localize {sprintf "gemcolor_%i" $slot3_color}}} ;update text for button 3
+            }
+         )
+         (crowd.sld
+            {do
+               {set $component current}
+               {set $slot4_color {$this current}} ;set color to slider value
+               {crowd.btn set_localized {localize {sprintf "gemcolor_%i" $slot4_color}}} ;update text for button 4
+            }
+         )
+         (sfx.sld
+            {do
+               {set $component current}
+               {set $slot5_color {$this current}} ;set color to slider value
+               {sfx.btn set_localized {localize {sprintf "gemcolor_%i" $slot5_color}}} ;update text for button 5
+            }
+         )
+      })
+   (update_helpbar
+      ($new_focus)
+      {switch
+         $new_focus
+         ((vocal_track.btn background_music.btn crowd.btn instruments.btn sfx.btn)
+            {helpbar
+               set_config
+               ((cancel helpbar_back)
+                  (confirm helpbar_changesetting))})
+         ((vocal_track.sld background.sld crowd.sld instruments.sld sfx.sld)
+            {helpbar
+               set_config
+               ((cancel helpbar_cancel)
+                  (confirm helpbar_confirmsetting))})}
+   )
+}
+{new
    UIScreen
    options_milo_screen
    (panels meta overshell_blank_panel options_milo_panel)
    (focus options_milo_panel)
+   (helpbar
+      (helpbar_back helpbar_select))}
+{new
+   UIScreen
+   options_color_screen
+   (panels meta overshell_blank_panel options_color_panel)
+   (focus options_color_panel)
    (helpbar
       (helpbar_back helpbar_select))}

@@ -50,6 +50,7 @@
    (
       os_spd
       os_micvols
+      os_colors
       {if_else $songtitle os_songtitle1 os_songtitle0}
       {if_else $blackbg os3 os3}
       {if_else $blackbg os4 os4}
@@ -82,6 +83,11 @@
          )
          (os_micvols
             {ui push_screen options_micvols_screen}
+            {set $vismodifierpos {sel_section.lst selected_sym}}
+            {$this lst_reset}
+         )
+         (os_colors
+            {ui push_screen options_color_screen}
             {set $vismodifierpos {sel_section.lst selected_sym}}
             {$this lst_reset}
          )
