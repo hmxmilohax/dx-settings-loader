@@ -1,0 +1,127 @@
+{new
+   UIPanel
+   dialog_panel
+   (set_custom
+      ($msg $opt1 $opt2 $focus)
+      {dialog_title.lbl set_showing FALSE}
+      {msg.lbl set_token_fmt $msg}
+      {opt1.btn set_token_fmt $opt1}
+      {opt2.btn set_token_fmt $opt2}
+      {opt1.btn set_showing TRUE}
+      {opt2.btn set_showing FALSE}
+      {$this disable opt2.btn}
+      {yes.btn set_showing FALSE}
+      {no.btn set_showing FALSE}
+      {ok.btn set_showing FALSE}
+      {helpbar
+         set_config
+         ((confirm helpbar_select))
+         FALSE}
+      {$this set_focus $focus})
+   (set_custom2
+      ($msg $opt1 $opt2 $focus)
+      {dialog_title.lbl set_showing FALSE}
+      {msg.lbl set_token_fmt $msg}
+      {opt1.btn set_token_fmt $opt1}
+      {opt2.btn set_token_fmt $opt2}
+      {opt1.btn set_showing FALSE}
+      {opt2.btn set_showing TRUE}
+      {$this disable opt1.btn}
+      {yes.btn set_showing FALSE}
+      {no.btn set_showing FALSE}
+      {ok.btn set_showing FALSE}
+      {helpbar
+         set_config
+         ((confirm helpbar_select))
+         FALSE}
+      {$this set_focus $focus})
+   (set_yesno
+      ($msg $focus)
+      {dialog_title.lbl set_showing FALSE}
+      {msg.lbl set_token_fmt $msg}
+      {opt1.btn set_showing FALSE}
+      {opt2.btn set_showing FALSE}
+      {yes.btn set_showing TRUE}
+      {no.btn set_showing TRUE}
+      {ok.btn set_showing FALSE}
+      {helpbar
+         set_config
+         ((confirm helpbar_select))
+         FALSE}
+      {$this set_focus $focus})
+   (set_ok
+      ($msg)
+      {dialog_title.lbl set_showing FALSE}
+      {msg.lbl set_token_fmt $msg}
+      {opt1.btn set_showing FALSE}
+      {opt2.btn set_showing FALSE}
+      {yes.btn set_showing FALSE}
+      {no.btn set_showing FALSE}
+      {ok.btn set_showing TRUE}
+      {helpbar
+         set_config
+         ((confirm helpbar_confirm))
+         FALSE}
+      {$this set_focus ok.btn})
+   (set_msg
+      ($msg)
+      {dialog_title.lbl set_showing FALSE}
+      {msg.lbl set_token_fmt $msg}
+      {msg.lbl set_showing TRUE}
+      {opt1.btn set_showing FALSE}
+      {opt2.btn set_showing FALSE}
+      {yes.btn set_showing FALSE}
+      {no.btn set_showing FALSE}
+      {ok.btn set_showing FALSE}
+      {helpbar
+         set_config
+         ()}
+      {$this set_focus msg.lbl})
+   (set_title
+      ($msg)
+      {dialog_title.lbl set_showing TRUE}
+      {dialog_title.lbl set_token_fmt $msg})
+   (file
+      "dialog.milo")}
+{new
+   UIScreen
+   nogame_warning_screen
+   (panels dialog_panel)
+   (focus dialog_panel)
+   (enter
+      {dialog_panel set_custom os_lostthegame os_okay store_cache_button_cancel opt1.btn})
+   (SELECT_MSG
+      {switch
+         $component
+         (opt1.btn
+            {ui pop_screen})
+         (opt2.btn
+            {ui pop_screen})})}
+{new
+   UIScreen
+   noxex_warning_screen
+   (panels dialog_panel)
+   (focus dialog_panel)
+   (enter
+      {dialog_panel set_custom os_lostthexex os_okay store_cache_button_cancel opt1.btn})
+   (SELECT_MSG
+      {switch
+         $component
+         (opt1.btn
+            {ui pop_screen})
+         (opt2.btn
+            {ui pop_screen})})}
+{new
+   UIScreen
+   welcome_warning_screen
+   (panels dialog_panel)
+   (focus dialog_panel)
+   (enter
+      {dialog_panel set_custom2 os_welcome store_cache_button_cancel os_okay opt2.btn})
+   (SELECT_MSG
+      {switch
+         $component
+         (opt1.btn
+            {ui pop_screen})
+         (opt2.btn
+            {ui pop_screen})})}

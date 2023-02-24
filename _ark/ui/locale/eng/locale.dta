@@ -38,7 +38,7 @@
 (os_songtitle1 "Song Title Always: ON")
 (os_blackbg0 "Disable Venues: OFF")
 (os_songtitle0 "Song Title Always: OFF")
-(os_writefile "Write Settings File")
+(os_writefile "Write DX.dta")
 (os_rb1dx "Rock Band 1 DX")
 (os_rb2dx "Rock Band 2 DX")
 (os_rb3dx "Rock Band 3 DX")
@@ -65,6 +65,10 @@
 (mod_animatedhighway "Animated Highway : ON")
 (mod_ps3os "PS3 Overshell Color : ON")
 (mod_wiios "Wii Overshell Color : ON")
+(os_lostthexex "It appears DX Settings Loader cannot detect another game to load. In order to boot into another game, you must place dx-settings-loader.xex and its gen folder next to the xex you want to launch.")
+(os_lostthegame "It appears you have not installed the base game files. In order to launch the game, you must find your own copy of the base game, and extract the \qgen\q folder into your current game folder. The game cannot run without the base game files.")
+(os_welcome "Welcome to DX Settings Loader. Here you can create a \qdx.dta\q file for use in Rock Band Deluxe projects. Simply navigate through the menus and choose your desired default settings, and choose \qWrite DX.dta\q from the main menu. If everything is installed properly, you can even boot directly into Deluxe. Consult the readme for each game on GitHub for more information.")
+(os_okay "okay")
 (mod_staticfills
    "Drum Auto Deploy : ON")
 (mod_songselectnoise

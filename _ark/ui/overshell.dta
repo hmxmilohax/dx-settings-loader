@@ -4,6 +4,7 @@
 #include overshell_slider.dta
 #include overshell_mic_vols.dta
 #include overshell_dta_writer.dta
+#include warning_screens.dta
 #define UNIVERSAL_LIST_HANDLER
 (
    {set $universalmodifierpos {sel_section.lst selected_sym}}
@@ -19,15 +20,21 @@
       WORLD_COLOR
       {sel_section.lst set_data ({if_else {file_exists "GAME:/default.xex"} "os_launchgame" "os_nogame"} os_writefile os_universal os_rb1dx os_rb2dx os_rb3dx os_lrbdx os_tbrbdx os_gdrbdx)}
       {title.lbl set text_token os_dxsettings}
-      {$this pause_if_local})
+      {$this pause_if_local}
+      {unless {file_exists "GAME:/dx.dta"} {ui push_screen welcome_warning_screen}})
    (exit)
    (SELECT_MSG
       {switch {$component selected_sym}
          (os_launchgame
-            {if_else {file_exists "GAME:/default.xex"}
+            {if_else {|| {&& {file_exists "GAME:/gen/main_xbox.hdr"} {file_exists "GAME:/gen/main_xbox_0.ark"}}
+                          {&& {file_exists "GAME:/gen/main.hdr"} {file_exists "GAME:/gen/main_0.ark"}}
+                      }
                {launch_demo ''}
-               kDataUnhandled
+               {ui push_screen nogame_warning_screen}
             }
+         )
+         (os_nogame
+            {ui push_screen noxex_warning_screen}
          )
          (os_universal
             {ui push_screen overshell_universal_screen}
