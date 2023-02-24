@@ -17,7 +17,7 @@
    (focus sel_section.lst)
    (enter
       WORLD_COLOR
-      {sel_section.lst set_data ({if_else {file_exists "GAME:/default.xex"} "os_launchgame" "os_nogame"} os_writefile os_universal os_rb1dx os_rb2dx os_rb3dx os_lrbdx os_tbrbdx os_gdrbdx)}
+      {sel_section.lst set_data ({if_else {file_exists "GAME:/default.xex"} "os_launchgame" "os_nogame"} os_writefile os_universal os_rb1dx os_rb2dx os_rb3dx os_lrbdx os_tbrbdx os_gdrbdx test_commit)}
       {title.lbl set text_token os_dxsettings}
       {$this pause_if_local})
    (exit)
