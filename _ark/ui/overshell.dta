@@ -1,5 +1,6 @@
 #include overshell_rb3dx.dta
 #include overshell_rb2dx.dta
+#include overshell_lrbdx.dta
 #include overshell_slider.dta
 #include overshell_mic_vols.dta
 #include overshell_dta_writer.dta
@@ -16,12 +17,18 @@
    (focus sel_section.lst)
    (enter
       WORLD_COLOR
-      {sel_section.lst set_data (os_writefile os_universal os_rb1dx os_rb2dx os_rb3dx os_lrbdx os_tbrbdx os_gdrbdx)}
+      {sel_section.lst set_data ({if_else {file_exists "GAME:/default.xex"} "os_launchgame" "os_nogame"} os_writefile os_universal os_rb1dx os_rb2dx os_rb3dx os_lrbdx os_tbrbdx os_gdrbdx)}
       {title.lbl set text_token os_dxsettings}
       {$this pause_if_local})
    (exit)
    (SELECT_MSG
       {switch {$component selected_sym}
+         (os_launchgame
+            {if_else {file_exists "GAME:/default.xex"}
+               {launch_demo ''}
+               kDataUnhandled
+            }
+         )
          (os_universal
             {ui push_screen overshell_universal_screen}
          )
@@ -30,6 +37,10 @@
          )
          (os_rb2dx
             {ui push_screen overshell_rb2dx_screen}
+         )
+         (os_lrbdx
+            kDataUnhandled
+            ;{ui push_screen overshell_lrbdx_screen} ;dx needs modifiers first
          )
          (os_spd
             {ui push_screen options_milo_screen}
@@ -60,7 +71,7 @@
       os_spd
       os_micvols
       os_gems
-      {if_else $songtitle os_songtitle1 os_songtitle0}
+      {if_else $mod_songtitle os_songtitle1 os_songtitle0}
       {if_else $blackbg mod_black_bg mod_black_bg_off}
       {if_else $mod_whammyfx mod_whammyfx mod_whammyfx_off}
       {if_else $mod_staticfills mod_staticfills mod_staticfills_off}
@@ -98,10 +109,10 @@
             {ui push_screen options_color_screen}
          )
          (os_songtitle1
-            {set $songtitle {! $songtitle}}
+            {set $mod_songtitle {! $mod_songtitle}}
          )
          (os_songtitle0
-            {set $songtitle {! $songtitle}}
+            {set $mod_songtitle {! $mod_songtitle}}
          )
          (mod_black_bg
             {set $blackbg {! $blackbg}}

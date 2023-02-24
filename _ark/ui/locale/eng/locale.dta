@@ -29,6 +29,8 @@
 (mic_vol_3_msg
    "MIC 3: ")
 (os_dxsettings "DELUXE SETTINGS")
+(os_launchgame "Launch Game")
+(os_nogame "No Game Detected")
 (os_spd "Speed Modifiers")
 (os_micvols "Microphone Volumes")
 (os_vis "Visual Modifiers")

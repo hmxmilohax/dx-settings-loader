@@ -112,5 +112,391 @@
 {set $smasher3_color 2} ;blue
 {set $smasher4_color 3} ;green
 
-
 #endif
+
+#define INIT_DTA_READER
+(
+   {foreach $entry {read_file #ifdef HX_XBOX "GAME:/dx.dta" #endif #ifdef HX_PS3 "GD:/dev_hdd0/game/BLUS30463/USRDIR/dx.dta" #endif}
+      {if {== {elem $entry 0} {basename mic_vols}}
+         {set $mic_vol_1
+            {elem {find $entry mic_vols} 1}
+         }
+         {set $mic_vol_2
+            {elem {find $entry mic_vols} 2}
+         }
+         {set $mic_vol_3
+            {elem {find $entry mic_vols} 3}
+         }
+      }
+      {if {== {elem $entry 0} {basename gem_colors}}
+         {set $slot1_color
+            {elem {find $entry gem_colors} 1}
+         }
+         {set $slot2_color
+            {elem {find $entry gem_colors} 2}
+         }
+         {set $slot3_color
+            {elem {find $entry gem_colors} 3}
+         }
+         {set $slot4_color
+            {elem {find $entry gem_colors} 4}
+         }
+         {set $slot5_color
+            {elem {find $entry gem_colors} 5}
+         }
+      }
+      {if {== {elem $entry 0} {basename sustain_colors}}
+         {set $sus1_color
+            {elem {find $entry sustain_colors} 1}
+         }
+         {set $sus2_color
+            {elem {find $entry sustain_colors} 2}
+         }
+         {set $sus3_color
+            {elem {find $entry sustain_colors} 3}
+         }
+         {set $sus4_color
+            {elem {find $entry sustain_colors} 4}
+         }
+         {set $sus5_color
+            {elem {find $entry sustain_colors} 5}
+         }
+      }
+      {if {== {elem $entry 0} {basename smasher_colors}}
+         {set $fret1_color
+            {elem {find $entry smasher_colors} 1}
+         }
+         {set $fret2_color
+            {elem {find $entry smasher_colors} 2}
+         }
+         {set $fret3_color
+            {elem {find $entry smasher_colors} 3}
+         }
+         {set $fret4_color
+            {elem {find $entry smasher_colors} 4}
+         }
+         {set $fret5_color
+            {elem {find $entry smasher_colors} 5}
+         }
+      }
+      {if {== {elem $entry 0} {basename drum_smasher_colors}}
+         {set $smasher1_color
+            {elem {find $entry drum_smasher_colors} 1}
+         }
+         {set $smasher2_color
+            {elem {find $entry drum_smasher_colors} 2}
+         }
+         {set $smasher3_color
+            {elem {find $entry drum_smasher_colors} 3}
+         }
+         {set $smasher4_color
+            {elem {find $entry drum_smasher_colors} 4}
+         }
+      }
+      {if {== {elem $entry 0} {basename drum_tom_colors}}
+         {set $drum1_color
+            {elem {find $entry drum_tom_colors} 1}
+         }
+         {set $drum2_color
+            {elem {find $entry drum_tom_colors} 2}
+         }
+         {set $drum3_color
+            {elem {find $entry drum_tom_colors} 3}
+         }
+         {set $drum4_color
+            {elem {find $entry drum_tom_colors} 4}
+         }
+      }
+      {if {== {elem $entry 0} {basename drum_cymbal_color}}
+         {set $cym1_color
+            {elem {find $entry drum_cymbal_color} 1}
+         }
+         {set $cym2_color
+            {elem {find $entry drum_cymbal_color} 2}
+         }
+         {set $cym3_color
+            {elem {find $entry drum_cymbal_color} 3}
+         }
+         {set $cym4_color
+            {elem {find $entry drum_cymbal_color} 4}
+         }
+      }
+      {if {== {elem $entry 0} {basename kick_color}}
+         {set $kick_color
+            {elem {find $entry kick_color} 1}
+         }
+      }
+      {if {== {elem $entry 0} {basename main_menu_screen}}
+         {set $svnumber
+            {elem {find $entry main_menu_screen} 1}
+         }
+      }
+      {if {== {elem $entry 0} {basename emulate_fps}}
+         {set $emulatefps
+            {elem {find $entry emulate_fps} 1}
+         }
+      }
+      {if {== {elem $entry 0} {basename track_speed}}
+         {set $trackspeed
+            {elem {find $entry track_speed} 1}
+         }
+      }
+      {if {== {elem $entry 0} {basename song_speed}}
+         {set $speedmod
+            {elem {find $entry song_speed} 1}
+         }
+      }
+      {if {== {elem $entry 0} {basename animated_highway_texture}}
+         {set $animatedhighwayname
+            {elem {find $entry animated_highway_texture} 1}
+         }
+      }
+      {if {== {elem $entry 0} {basename animated_gem_texture}}
+         {set $animatedgemname
+            {elem {find $entry animated_gem_texture} 1}
+         }
+      }
+      {if {== {elem $entry 0} {basename animated_smasher_texture}}
+         {set $animatedsmashername
+            {elem {find $entry animated_smasher_texture} 1}
+         }
+      }
+      {if {== {elem $entry 0} {basename gem_texture}}
+         {set $gem
+            {elem {find $entry gem_texture} 1}
+         }
+      }
+      {if {== {elem $entry 0} {basename smasher_texture}}
+         {set $smasher
+            {elem {find $entry smasher_texture} 1}
+         }
+      }
+      {if {== {elem $entry 0} {basename keyboard_texture}}
+         {set $keyboard
+            {elem {find $entry keyboard_texture} 1}
+         }
+      }
+      {if {== {elem $entry 0} {basename emissive_texture}}
+         {set $emissive
+            {elem {find $entry emissive_texture} 1}
+         }
+      }
+      {if {== {elem $entry 0} {basename spotlight_texture}}
+         {set $spotlight
+            {elem {find $entry spotlight_texture} 1}
+         }
+      }
+      {if {== {elem $entry 0} {basename highway_texture}}
+         {set $highway
+            {elem {find $entry highway_texture} 1}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_auto_vocals}}
+         {if {== {elem {find $entry mod_auto_vocals} 1} 1}
+            {set $mod_auto_vocals TRUE}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_staticfills}}
+         {if {== {elem {find $entry mod_staticfills} 1} 1}
+            {set $mod_staticfills TRUE}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_chord_numbers}}
+         {if {== {elem {find $entry mod_chord_numbers} 1} 1}
+            {set $mod_chord_numbers TRUE}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_nohud}}
+         {if {== {elem {find $entry mod_nohud} 1} 1}
+            {set $mod_nohud TRUE}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_miss_sounds}}
+         {if {== {elem {find $entry mod_miss_sounds} 1} 1}
+            {set $mod_miss_sounds TRUE}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_songtitle}}
+         {if {== {elem {find $entry mod_songtitle} 1} 1}
+            {set $mod_songtitle TRUE}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_whammyfx}}
+         {if {== {elem {find $entry mod_whammyfx} 1} 1}
+            {set $mod_whammyfx TRUE}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_nocrowd}}
+         {if {== {elem {find $entry mod_nocrowd} 1} 1}
+            {set $mod_nocrowd TRUE}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_nosustain}}
+         {if {== {elem {find $entry mod_nosustain} 1} 1}
+            {set $mod_nosustain TRUE}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_rb2sustain}}
+         {if {== {elem {find $entry mod_rb2sustain} 1} 1}
+            {set $mod_rb2sustain TRUE}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_songselectnoise}}
+         {if {== {elem {find $entry mod_songselectnoise} 1} 1}
+            {set $mod_songselectnoise TRUE}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_nobre}}
+         {if {== {elem {find $entry mod_nobre} 1} 1}
+            {set $mod_nobre TRUE}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_practiceoverdrive}}
+         {if {== {elem {find $entry mod_practiceoverdrive} 1} 1}
+            {set $mod_practiceoverdrive TRUE}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_nolanes}}
+         {if {== {elem {find $entry mod_nolanes} 1} 1}
+            {set $mod_nolanes TRUE}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_rb4lanes}}
+         {if {== {elem {find $entry mod_rb4lanes} 1} 1}
+            {set $mod_rb4lanes TRUE}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_chmode}}
+         {if {== {elem {find $entry mod_chmode} 1} 1}
+            {set $mod_chmode TRUE}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_nomv}}
+         {if {== {elem {find $entry mod_nomv} 1} 1}
+            {set $mod_nomv TRUE}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_blackmenu}}
+         {if {== {elem {find $entry mod_blackmenu} 1} 1}
+            {set $mod_blackmenu TRUE}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_noflames}}
+         {if {== {elem {find $entry mod_noflames} 1} 1}
+            {set $mod_noflames TRUE}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_noflares}}
+         {if {== {elem {find $entry mod_noflares} 1} 1}
+            {set $mod_noflares TRUE}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_nopart}}
+         {if {== {elem {find $entry mod_nopart} 1} 1}
+            {set $mod_nopart TRUE}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_rb4trk}}
+         {if {== {elem {find $entry mod_rb4trk} 1} 1}
+            {set $mod_rb4trk TRUE}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_rb4os}}
+         {if {== {elem {find $entry mod_rb4os} 1} 1}
+            {set $mod_rb4os TRUE}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_rb2trk}}
+         {if {== {elem {find $entry mod_rb2trk} 1} 1}
+            {set $mod_rb2trk TRUE}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_xboxos}}
+         {if {== {elem {find $entry mod_xboxos} 1} 1}
+            {set $mod_xboxos TRUE}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_ps3os}}
+         {if {== {elem {find $entry mod_ps3os} 1} 1}
+            {set $mod_ps3os TRUE}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_wiios}}
+         {if {== {elem {find $entry mod_wiios} 1} 1}
+            {set $mod_wiios TRUE}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_rb4ui}}
+         {if {== {elem {find $entry mod_rb4ui} 1} 1}
+            {set $mod_rb4ui TRUE}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_auto_kick}}
+         {if {== {elem {find $entry mod_auto_kick} 1} 1}
+            {set $mod_auto_kick TRUE}
+         }
+      }
+      {if {== {elem $entry 0} {basename blackbg}}
+         {if {== {elem {find $entry blackbg} 1} 1}
+            {set $blackbg TRUE}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_songtitlestats}}
+         {if {== {elem {find $entry mod_songtitlestats} 1} 1}
+            {set $mod_songtitlestats TRUE}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_freestyledrums}}
+         {if {== {elem {find $entry mod_freestyledrums} 1} 1}
+            {set $mod_freestyledrums TRUE}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_mididrum}}
+         {if {== {elem {find $entry mod_mididrum} 1} 1}
+            {set $mod_mididrum TRUE}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_padguitar}}
+         {if {== {elem {find $entry mod_padguitar} 1} 1}
+            {set $mod_padguitar TRUE}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_paddrum}}
+         {if {== {elem {find $entry mod_paddrum} 1} 1}
+            {set $mod_paddrum TRUE}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_vocalgender}}
+         {if {== {elem {find $entry mod_vocalgender} 1} 1}
+            {set $mod_vocalgender TRUE}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_legacybass}}
+         {if {== {elem {find $entry mod_legacybass} 1} 1}
+            {set $mod_legacybass TRUE}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_rb3sustain}}
+         {if {== {elem {find $entry mod_rb3sustain} 1} 1}
+            {set $mod_rb3sustain TRUE}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_nomuting}}
+         {if {== {elem {find $entry mod_nomuting} 1} 1}
+            {set $mod_nomuting TRUE}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_flashbang}}
+         {if {== {elem {find $entry mod_flashbang} 1} 1}
+            {set $mod_flashbang TRUE}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_fakejuke}}
+         {if {== {elem {find $entry mod_fakejuke} 1} 1}
+            {set $mod_fakejuke TRUE}
+         }
+      }
+   }
+)
+;{unless {file_exists dx.dta} INIT_DTA_WRITER}
+{if {file_exists #ifdef HX_XBOX "GAME:/dx.dta" #endif #ifdef HX_PS3 "GD:/dev_hdd0/game/BLUS30463/USRDIR/dx.dta" #endif} INIT_DTA_READER}

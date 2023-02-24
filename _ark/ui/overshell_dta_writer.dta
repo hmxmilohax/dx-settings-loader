@@ -82,7 +82,7 @@
                (mod_miss_sounds {if_else $mod_miss_sounds TRUE FALSE})
             )
             (mod_songtitle
-               (mod_songtitle {if_else $songtitle TRUE FALSE})
+               (mod_songtitle {if_else $mod_songtitle TRUE FALSE})
             )
             (mod_whammyfx
                (mod_whammyfx {if_else $mod_whammyfx TRUE FALSE})
