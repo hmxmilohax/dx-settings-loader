@@ -57,6 +57,10 @@
          )
          (os_writefile
             INIT_DTA_WRITER
+            {if_else {file_exists "GAME:/dx.dta"}
+               {ui push_screen dxdta_success_screen}
+               {ui push_screen dxdta_warning_screen}
+            }
          )
       }
       {play_instr_sfx $user button_select}

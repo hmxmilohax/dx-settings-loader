@@ -125,3 +125,31 @@
             {ui pop_screen})
          (opt2.btn
             {ui pop_screen})})}
+{new
+   UIScreen
+   dxdta_success_screen
+   (panels dialog_panel)
+   (focus dialog_panel)
+   (enter
+      {dialog_panel set_custom os_dxdtawritten os_okay store_cache_button_cancel opt1.btn})
+   (SELECT_MSG
+      {switch
+         $component
+         (opt1.btn
+            {ui pop_screen})
+         (opt2.btn
+            {ui pop_screen})})}
+{new
+   UIScreen
+   dxdta_warning_screen
+   (panels dialog_panel)
+   (focus dialog_panel)
+   (enter
+      {dialog_panel set_custom os_dxdtaerror os_okay store_cache_button_cancel opt1.btn})
+   (SELECT_MSG
+      {switch
+         $component
+         (opt1.btn
+            {ui pop_screen})
+         (opt2.btn
+            {ui pop_screen})})}
