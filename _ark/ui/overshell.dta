@@ -29,7 +29,7 @@
             {if_else {|| {&& {file_exists "GAME:/gen/main_xbox.hdr"} {file_exists "GAME:/gen/main_xbox_0.ark"}}
                           {&& {file_exists "GAME:/gen/main.hdr"} {file_exists "GAME:/gen/main_0.ark"}}
                       }
-               {launch_demo ''}
+               {do INIT_DTA_WRITER {launch_demo ''}}
                {ui push_screen nogame_warning_screen}
             }
          )
