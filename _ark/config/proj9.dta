@@ -132,7 +132,7 @@
    (max_slip 500))
 (metamusic
    (proj9
-      (volume -12.0)
+      (volume -18.0)
       (fast_fade_time 0.5)
       (slow_fade_time 3.0)
       (play_from_memory FALSE)

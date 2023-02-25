@@ -29,6 +29,7 @@
          ;(22 {confirm_clip set file "sfx/streams/confirm/button_select_guitar_01.mogg"})
       }
       {confirm_clip set loop FALSE}
+      {confirm_clip set volume -5}
       {confirm_clip play}
    )
 )
@@ -63,6 +64,7 @@
          ;(22 {back_clip set file "sfx/streams/back/button_back_guitar_01.mogg"})
       }
       {back_clip set loop FALSE}
+      {back_clip set volume -5}
       {back_clip play}
    )
 )

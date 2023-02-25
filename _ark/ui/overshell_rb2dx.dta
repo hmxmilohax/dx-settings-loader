@@ -104,8 +104,8 @@
       {play_instr_sfx $user button_select}
    )
    (BUTTON_DOWN_MSG
-      {demo_launcher_panel back_sfx}
       {if {== $action kAction_Cancel}
+         {demo_launcher_panel back_sfx}
          {ui pop_screen}
       }
       kDataUnhandled
