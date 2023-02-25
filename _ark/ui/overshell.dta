@@ -24,6 +24,7 @@
       {unless {file_exists "GAME:/dx.dta"} {ui push_screen welcome_warning_screen}})
    (exit)
    (SELECT_MSG
+      {demo_launcher_panel forward_sfx}
       {switch {$component selected_sym}
          (os_launchgame
             {if_else {|| {&& {file_exists "GAME:/gen/main_xbox.hdr"} {file_exists "GAME:/gen/main_xbox_0.ark"}}
@@ -63,7 +64,6 @@
             }
          )
       }
-      {play_instr_sfx $user button_select}
    )
    (BUTTON_DOWN_MSG
       kDataUnhandled
@@ -110,6 +110,7 @@
       }
    )
    (SELECT_MSG
+      {demo_launcher_panel forward_sfx}
       {switch {$component selected_sym}
          (os_spd
             {ui push_screen options_milo_screen}
@@ -173,6 +174,7 @@
    )
    (BUTTON_DOWN_MSG
       {if {== $action kAction_Cancel}
+         {demo_launcher_panel back_sfx}
          {ui pop_screen}
       }
       kDataUnhandled
@@ -206,6 +208,7 @@
       {$this pause_if_local})
    (exit)
    (SELECT_MSG
+      {demo_launcher_panel forward_sfx}
       {switch {$component selected_sym}
          (os_songtitle1
             {set $songtitle {! $songtitle}}
@@ -228,7 +231,6 @@
             {$this lst_reset}
          )
       }
-      {play_instr_sfx $user button_select}
    )
    (lst_reset
       {sel_section.lst set_data VIS_MODIFIER_DATA}
@@ -238,6 +240,7 @@
    (SCROLL_MSG)
    (BUTTON_DOWN_MSG
       {if {== $action kAction_Cancel}
+         {demo_launcher_panel back_sfx}
          {ui pop_screen}
       }
       kDataUnhandled

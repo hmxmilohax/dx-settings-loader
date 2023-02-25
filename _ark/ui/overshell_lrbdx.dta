@@ -36,6 +36,7 @@
       }
    )
    (SELECT_MSG
+      {demo_launcher_panel forward_sfx}
       {switch {$component selected_sym}
          
          (mod_songtitlestats
@@ -104,6 +105,7 @@
    )
    (BUTTON_DOWN_MSG
       {if {== $action kAction_Cancel}
+         {demo_launcher_panel back_sfx}
          {ui pop_screen}
       }
       kDataUnhandled

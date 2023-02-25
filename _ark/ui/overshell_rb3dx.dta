@@ -49,6 +49,7 @@
       }
    )
    (SELECT_MSG
+      {demo_launcher_panel forward_sfx}
       {switch {$component selected_sym}
          
          (mod_auto_vocals
@@ -200,6 +201,7 @@
       {play_instr_sfx $user button_select}
    )
    (BUTTON_DOWN_MSG
+      {demo_launcher_panel back_sfx}
       {if {== $action kAction_Cancel}
          {ui pop_screen}
       }

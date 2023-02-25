@@ -91,6 +91,7 @@
    (enter
       {dialog_panel set_custom os_lostthegame os_okay store_cache_button_cancel opt1.btn})
    (SELECT_MSG
+      {demo_launcher_panel forward_sfx}
       {switch
          $component
          (opt1.btn
@@ -105,6 +106,7 @@
    (enter
       {dialog_panel set_custom os_lostthexex os_okay store_cache_button_cancel opt1.btn})
    (SELECT_MSG
+      {demo_launcher_panel forward_sfx}
       {switch
          $component
          (opt1.btn
@@ -119,6 +121,7 @@
    (enter
       {dialog_panel set_custom2 os_welcome store_cache_button_cancel os_okay opt2.btn})
    (SELECT_MSG
+      {demo_launcher_panel forward_sfx}
       {switch
          $component
          (opt1.btn
@@ -133,6 +136,7 @@
    (enter
       {dialog_panel set_custom os_dxdtawritten os_okay store_cache_button_cancel opt1.btn})
    (SELECT_MSG
+      {demo_launcher_panel forward_sfx}
       {switch
          $component
          (opt1.btn
@@ -147,6 +151,7 @@
    (enter
       {dialog_panel set_custom os_dxdtaerror os_okay store_cache_button_cancel opt1.btn})
    (SELECT_MSG
+      {demo_launcher_panel forward_sfx}
       {switch
          $component
          (opt1.btn

@@ -33,6 +33,7 @@
    (SCROLL_MSG
       {$this on_slider_change $component})
    (SELECT_MSG
+      {demo_launcher_panel forward_sfx}
       {switch
          $component
          (background_music.btn
@@ -46,6 +47,7 @@
             {$this set_focus sfx.sld})}
        {play_instr_sfx $user button_select})
    (BUTTON_DOWN_MSG
+      {demo_launcher_panel back_sfx}
       {switch
          {$this focus_name}
          (background.sld

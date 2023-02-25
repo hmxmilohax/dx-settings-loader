@@ -322,7 +322,7 @@
       {! $mute_shell_music}}
    {if_else
       $mute_shell_music
-      {meta music_start}
+      {meta music_stop}
       {meta music_start}}}
 {func
    toggle_forced_autocal

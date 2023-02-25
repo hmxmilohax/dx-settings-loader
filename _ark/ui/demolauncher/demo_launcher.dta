@@ -1,3 +1,71 @@
+#define FORWARD_SFX
+(
+   (forward_sfx
+      {unless {exists confirm_clip} {new MoggClip confirm_clip}}
+      {set $confirmclip {random_int 10 20}}
+      {switch $confirmclip
+         ;(0 {confirm_clip set file "sfx/streams/confirm/button_select_drum_01.mogg"})
+         ;(1 {confirm_clip set file "sfx/streams/confirm/button_select_drum_02.mogg"})
+         ;(2 {confirm_clip set file "sfx/streams/confirm/button_select_drum_10.mogg"})
+         ;(3 {confirm_clip set file "sfx/streams/confirm/button_select_drum_12.mogg"})
+         ;(4 {confirm_clip set file "sfx/streams/confirm/button_select_drum_13.mogg"})
+         ;(5 {confirm_clip set file "sfx/streams/confirm/button_select_drum_14.mogg"})
+         ;(6 {confirm_clip set file "sfx/streams/confirm/button_select_drum_15.mogg"})
+         ;(7 {confirm_clip set file "sfx/streams/confirm/button_select_drum_17.mogg"})
+         ;(8 {confirm_clip set file "sfx/streams/confirm/button_select_drum_20.mogg"})
+         ;(9 {confirm_clip set file "sfx/streams/confirm/button_select_drum_21.mogg"})
+         (10 {confirm_clip set file "sfx/streams/confirm/button_select_guitar_01.mogg"})
+         (11 {confirm_clip set file "sfx/streams/confirm/button_select_guitar_02.mogg"})
+         (12 {confirm_clip set file "sfx/streams/confirm/button_select_guitar_03.mogg"})
+         (13 {confirm_clip set file "sfx/streams/confirm/button_select_guitar_04.mogg"})
+         (14 {confirm_clip set file "sfx/streams/confirm/button_select_guitar_05.mogg"})
+         (15 {confirm_clip set file "sfx/streams/confirm/button_select_guitar_06.mogg"})
+         (16 {confirm_clip set file "sfx/streams/confirm/button_select_guitar_07.mogg"})
+         (17 {confirm_clip set file "sfx/streams/confirm/button_select_guitar_08.mogg"})
+         (18 {confirm_clip set file "sfx/streams/confirm/button_select_guitar_09.mogg"})
+         (19 {confirm_clip set file "sfx/streams/confirm/button_select_guitar_10.mogg"})
+         (20 {confirm_clip set file "sfx/streams/confirm/button_select_guitar_01.mogg"})
+         ;(21 {confirm_clip set file "sfx/streams/confirm/button_select_vocals_02.mogg"})
+         ;(22 {confirm_clip set file "sfx/streams/confirm/button_select_guitar_01.mogg"})
+      }
+      {confirm_clip set loop FALSE}
+      {confirm_clip play}
+   )
+)
+#define BACK_SFX
+(
+   (back_sfx
+      {unless {exists back_clip} {new MoggClip back_clip}}
+      {set $backclip $confirmclip}
+      {switch $backclip
+         ;(0 {back_clip set file "sfx/streams/back/button_back_drum_01.mogg"})
+         ;(1 {back_clip set file "sfx/streams/back/button_back_drum_03.mogg"})
+         ;(2 {back_clip set file "sfx/streams/back/button_back_drum_07.mogg"})
+         ;(3 {back_clip set file "sfx/streams/back/button_back_drum_08.mogg"})
+         ;(4 {back_clip set file "sfx/streams/back/button_back_drum_09.mogg"})
+         ;(5 {back_clip set file "sfx/streams/back/button_back_drum_10.mogg"})
+         ;(6 {back_clip set file "sfx/streams/back/button_back_drum_11.mogg"})
+         ;(7 {back_clip set file "sfx/streams/back/button_back_drum_12.mogg"})
+         ;(8 {back_clip set file "sfx/streams/back/button_back_drum_13.mogg"})
+         ;(9 {back_clip set file "sfx/streams/back/button_back_guitar_01.mogg"})
+         (10 {back_clip set file "sfx/streams/back/button_back_guitar_01.mogg"})
+         (11 {back_clip set file "sfx/streams/back/button_back_guitar_02.mogg"})
+         (12 {back_clip set file "sfx/streams/back/button_back_guitar_03.mogg"})
+         (13 {back_clip set file "sfx/streams/back/button_back_guitar_04.mogg"})
+         (14 {back_clip set file "sfx/streams/back/button_back_guitar_05.mogg"})
+         (15 {back_clip set file "sfx/streams/back/button_back_guitar_06.mogg"})
+         (16 {back_clip set file "sfx/streams/back/button_back_guitar_07.mogg"})
+         (17 {back_clip set file "sfx/streams/back/button_back_guitar_08.mogg"})
+         (18 {back_clip set file "sfx/streams/back/button_back_guitar_09.mogg"})
+         (19 {back_clip set file "sfx/streams/back/button_back_guitar_10.mogg"})
+         (20 {back_clip set file "sfx/streams/back/button_back_guitar_01.mogg"})
+         ;(21 {back_clip set file "sfx/streams/back/button_back_vocals_02.mogg"})
+         ;(22 {back_clip set file "sfx/streams/back/button_back_guitar_01.mogg"})
+      }
+      {back_clip set loop FALSE}
+      {back_clip play}
+   )
+)
 #define WORLD_COLOR
 (
    {$this iterate Mat $m {$m set use_environ TRUE}} ;allow the materials to be affected by the environment color
@@ -12,6 +80,8 @@
    (file
       "demo_launcher_splash.milo")
    (focus proj9)
+   FORWARD_SFX
+   BACK_SFX
    (enter
       WORLD_COLOR
       {logo_RockBand2.mesh set_showing FALSE}
@@ -24,7 +94,7 @@
          {rb2_beatles_fade.anim set_frame {/ {- $end $start}2.0}}
       }
       {meta set_group proj9}
-      {meta music_start}
+      ;{meta music_start}
    )
 }
 {new
