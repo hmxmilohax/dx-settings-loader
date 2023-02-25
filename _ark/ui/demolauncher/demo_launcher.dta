@@ -94,7 +94,7 @@
          {rb2_beatles_fade.anim set_frame {/ {- $end $start}2.0}}
       }
       {meta set_group proj9}
-      ;{meta music_start}
+      {meta music_start}
    )
 }
 {new
