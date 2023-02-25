@@ -69,7 +69,7 @@
 (os_lostthegame "It appears you have not installed the base game files. In order to launch the game, you must find your own copy of the base game, and extract the \qgen\q folder into your current game folder. The game cannot run without the base game files.")
 (os_welcome "Welcome to DX Settings Loader. Here you can create a \qdx.dta\q file for use in Rock Band Deluxe projects. Simply navigate through the menus and choose your desired default settings, and choose \qWrite DX.dta\q from the main menu. If everything is installed properly, you can even boot directly into Deluxe. Consult the readme for each game on GitHub for more information.")
 (os_dxdtawritten "Successfully written DX.dta. you can find it in the game folder, or will be loaded when \qPlay Game\q is selected from the main menu.")
-(os_dxdtaerror "An error occurred writing DX.dta. If on Xenia, make sure to check the xenia config toml in notepad and ensure \qallow_game_relative_writes\q is set to true.")
+(os_dxdtaerror "An error has occurred writing DX.dta. If on Xenia, make sure to check the xenia config toml in notepad and ensure \qallow_game_relative_writes\q is set to true.")
 (os_okay "okay")
 (mod_staticfills
    "Drum Auto Deploy : ON")
