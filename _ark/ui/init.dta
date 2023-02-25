@@ -496,6 +496,11 @@
             {set $mod_fakejuke TRUE}
          }
       }
+      {if {== {elem $entry 0} {basename mod_doublespeed}}
+         {if {== {elem {find $entry mod_doublespeed} 1} 1}
+            {set $mod_doublespeed TRUE}
+         }
+      }
    }
 )
 ;{unless {file_exists dx.dta} INIT_DTA_WRITER}

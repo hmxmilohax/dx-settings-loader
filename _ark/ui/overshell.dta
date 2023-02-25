@@ -83,6 +83,7 @@
       os_micvols
       os_gems
       {if_else $mod_songtitle os_songtitle1 os_songtitle0}
+      {if_else $mod_doublespeed mod_doublespeed mod_doublespeed_off}
       {if_else $blackbg mod_black_bg mod_black_bg_off}
       {if_else $mod_whammyfx mod_whammyfx mod_whammyfx_off}
       {if_else $mod_staticfills mod_staticfills mod_staticfills_off}
@@ -124,6 +125,12 @@
          )
          (os_songtitle0
             {set $mod_songtitle {! $mod_songtitle}}
+         )
+         (mod_doublespeed
+            {set $mod_doublespeed {! $mod_doublespeed}}
+         )
+         (mod_doublespeed_off
+            {set $mod_doublespeed {! $mod_doublespeed}}
          )
          (mod_black_bg
             {set $blackbg {! $blackbg}}

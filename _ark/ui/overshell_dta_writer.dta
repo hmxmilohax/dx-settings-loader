@@ -36,6 +36,9 @@
             (track_speed
                (track_speed $trackspeed)
             )
+            (mod_doublespeed
+               (mod_doublespeed $mod_doublespeed)
+            )
             (song_speed
                (song_speed $speedmod)
             )
