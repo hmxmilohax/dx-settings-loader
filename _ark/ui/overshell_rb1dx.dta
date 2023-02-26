@@ -25,7 +25,16 @@
 #define LRBDX_DATA
 (
    (
-      os_nothing
+      {if_else $mod_fakejuke mod_fakejuke mod_fakejuke_off}
+      {if_else $mod_flashbang mod_flashbang mod_flashbang_off}
+      {if_else $mod_rb3sustain mod_rb3sustain mod_rb3sustain_off}
+      {if_else $mod_legacybass mod_legacybass mod_legacybass_off}
+      {if_else $mod_vocalgender mod_vocalgender mod_vocalgender_off}
+      {if_else $mod_paddrum mod_paddrum mod_paddrum_off}
+      {if_else $mod_padguitar mod_padguitar mod_padguitar_off}
+      {if_else $mod_mididrum mod_mididrum mod_mididrum_off}
+      {if_else $mod_freestyledrums mod_freestyledrums mod_freestyledrums_off}
+      {if_else $mod_songtitlestats mod_songtitlestats mod_songtitlestats_off}
    )
 )
 ;sets the current position and refreshes the list to show the change
