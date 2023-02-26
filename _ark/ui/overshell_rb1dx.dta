@@ -1,0 +1,61 @@
+#define RB1DX_LIST_HANDLER
+(
+   {set $rb1dxmodifierpos {sel_section.lst selected_sym}}
+   {$this lst_reset}
+)
+#define RB1DX_DATA
+(
+   (
+      os_nothing
+   )
+)
+{new
+   UIPanel
+   overshell_rb1dx_panel
+   (file "practice/rb1_sel_section.milo")
+   (focus sel_section.lst)
+   (enter
+      {$this iterate UILabel $i {$i set_type 'farnhamdisplay-bold(63)'}}
+      {full_selection.mesh set_showing FALSE}
+      {demo_launcher_panel toggle_focus}
+      {overshell_main_panel set_showing FALSE}
+      {$this iterate Mat $m {$m set prelit FALSE}}
+      {$this iterate Mat $m {$m set use_environ FALSE}}
+      {sel_section.lst set_local_pos_index 0 20}
+      {sel_section.lst set_local_pos_index 2 60}
+      ;WORLD_COLOR
+      {$this lst_reset}
+      {title.lbl set text_token {localize os_rb1dx}}
+      {$this pause_if_local}
+   )
+   (lst_reset
+      {sel_section.lst set_data RB1DX_DATA}
+      {if $rb1dxmodifierpos
+         {sel_section.lst set_selected $rb1dxmodifierpos}
+      }
+   )
+   (SELECT_MSG
+      {demo_launcher_panel forward_sfx}
+      RB1DX_LIST_HANDLER
+      {play_instr_sfx $user button_select}
+   )
+   (SCROLL_MSG
+      {demo_launcher_panel scroll_sfx}
+   )
+   (BUTTON_DOWN_MSG
+      {if {== $action kAction_Cancel}
+         {demo_launcher_panel back_sfx}
+         {demo_launcher_panel toggle_focus}
+         {set $simpledx 0}
+         {ui pop_screen}
+         {overshell_main_panel set_showing TRUE}
+      }
+      kDataUnhandled
+   )
+}
+{new
+   UIScreen
+   overshell_rb1dx_screen
+   (panels overshell_rb1dx_panel practice_lower3rd_panel)
+   (focus overshell_rb1dx_panel)
+}

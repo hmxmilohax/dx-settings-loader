@@ -194,6 +194,7 @@
 (gemcolor_2 "yellow")
 (gemcolor_3 "blue")
 (gemcolor_4 "orange")
+(os_nothing "Check Back Later")
 
 (colrsliderlbl "Gem Colors")
 (os_gems "Gem Colors")

@@ -49,6 +49,7 @@
    (file "practice/rb2_sel_section.milo")
    (focus sel_section.lst)
    (enter
+      {$this iterate UILabel $i {$i set_type 'farnhamdisplay-bold(63)'}}
       {full_selection.mesh set_showing FALSE}
       {demo_launcher_panel toggle_focus}
       {overshell_main_panel set_showing FALSE}

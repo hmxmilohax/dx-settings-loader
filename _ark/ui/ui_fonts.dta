@@ -79,6 +79,12 @@
 ('BureauGrot-Medium(65)'
    (resource_file
       "resource/bureaugrot-medium(65).milo"))
+('BureauGrot-Medium(65)'
+   (resource_file
+      "resource/bureaugrot-medium(65).milo"))
+('farnhamdisplay-bold(63)'
+   (resource_file
+      "resource/farnhamdisplay-bold(63).milo"))
 ('BureauGrotWide-Medium(58)_highlight'
    (resource_file
       "resource/bureaugrotwide-medium(58)_highlight.milo"))

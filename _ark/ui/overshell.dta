@@ -1,5 +1,6 @@
 #include overshell_rb3dx.dta
 #include overshell_rb2dx.dta
+#include overshell_rb1dx.dta
 #include overshell_lrbdx.dta
 #include overshell_slider.dta
 #include overshell_mic_vols.dta
@@ -46,6 +47,10 @@
          (os_rb2dx
             {set $simpledx 2}
             {ui push_screen overshell_rb2dx_screen}
+         )
+         (os_rb1dx
+            {set $simpledx 1}
+            {ui push_screen overshell_rb1dx_screen}
          )
          (os_lrbdx
             kDataUnhandled
