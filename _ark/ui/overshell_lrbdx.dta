@@ -15,6 +15,10 @@
    (file "practice/rb2_sel_section.milo")
    (focus sel_section.lst)
    (enter
+      {anchor_corner01.tex set_bitmap "ui/image/trim_corner_07.png"}
+      {anchor_corner02.tex set_bitmap "ui/image/trim_corner_07.png"}
+      {ribcage_wallpaper.tex set_bitmap "ui/image/wallpaper_07.png"}
+      {rock_corner_trim0011.tex set_bitmap "ui/image/legotrim_01.png"}
       {$this iterate UILabel $i {$i set_type 'farnhamdisplay-bold(63)'}}
       {full_selection.mesh set_showing FALSE}
       {demo_launcher_panel toggle_focus}

@@ -5,11 +5,24 @@
       {switch $simpledx
          (1 "practice/rb1_lower3rd.milo")
          (2 "practice/rb2_lower3rd.milo")
-         (lrb "practice/lrb_lower3rd.milo")
+         (lrb "practice/rb2_lower3rd.milo")
          kDataunhandled
       }
    )
    (enter
+      {if {== $simpledx lrb}
+         {practice_bigcorner.tex set_bitmap "ui/image/calibrate_corner.png"}
+         {practice_cloud2.tex set_bitmap "ui/image/clouds_01.png"}
+         {practice_cloud3.tex set_bitmap "ui/image/clouds_02.png"}
+         {practice_ornate_spit.tex set_bitmap "ui/image/hub_edgegraphic.png"}
+         {practice_ornate_sunrise.tex set_bitmap "ui/image/ornate_sunrise.png"}
+         {practice_rose1.tex set_bitmap "ui/image/legoflower_rock.png"}
+         {practice_ornate_tentacles.tex set_bitmap "ui/image/ornate_tentacles.png"}
+         {practice_ornate_thorns.tex set_bitmap "ui/image/thorns.png"}
+         {practice_wallpaper_stretch02.tex set_bitmap "ui/image/wallpaper_02.png"}
+         {practice_bigcorner.mesh set_local_scale 1.2 1.2 1.2}
+         {practice_bigcorner.mesh set_local_pos_index 2 215}
+      }
       {switch $simpledx
          (1 {do
                 {bigcorner.mat set use_environ FALSE}
@@ -80,7 +93,7 @@
             {ui push_screen overshell_rb1dx_screen}
          )
          (os_lrbdx
-            {set $simpledx 2}
+            {set $simpledx lrb}
             {ui push_screen overshell_lrbdx_screen} ;dx needs modifiers first
          )
          (os_spd
