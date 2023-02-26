@@ -132,19 +132,19 @@
    (max_slip 500))
 (metamusic
    (proj9
-      (volume -18.0)
+      (volume -10.0)
       (fast_fade_time 0.5)
-      (slow_fade_time 3.0)
+      (slow_fade_time 0.5)
       (play_from_memory FALSE)
       (start_time_range 0.0 0.0)
-      (music dontletmedown))
+      (music shellmusic_variation1))
    (band2
-      (volume -8.0)
+      (volume -10.0)
       (fast_fade_time 0.5)
-      (slow_fade_time 3.0)
+      (slow_fade_time 0.5)
       (start_time_range 5.0 50.0)
       (play_from_memory FALSE)
-      (music dreamgenie)))
+      (music aceofspades)))
 (fx
    (chain FALSE)
    (core_0

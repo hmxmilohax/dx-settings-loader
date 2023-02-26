@@ -44,6 +44,7 @@
             {ui push_screen overshell_rb3dx_screen}
          )
          (os_rb2dx
+            {set $simpledx 2}
             {ui push_screen overshell_rb2dx_screen}
          )
          (os_lrbdx
