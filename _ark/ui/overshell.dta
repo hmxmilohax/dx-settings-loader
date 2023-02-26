@@ -1,3 +1,30 @@
+{new
+   UIPanel
+   practice_lower3rd_panel
+   (file
+      {switch $simpledx
+         (1 "practice/rb1_lower3rd.milo")
+         (2 "practice/rb2_lower3rd.milo")
+         (lrb "practice/lrb_lower3rd.milo")
+         kDataunhandled
+      }
+   )
+   (enter
+      {switch $simpledx
+         (1 {do
+                {bigcorner.mat set use_environ FALSE}
+                {bigcorner.mat set color {pack_color .6 .3 .3}}
+                {bar_05.mesh set_showing FALSE}
+                {bar_06.mesh set_showing FALSE}
+                {bar_07.mesh set_showing FALSE}
+             }
+          )
+         (2 {practice_bigcorner.mat set use_environ FALSE})
+         (lrb {practice_bigcorner.mat set use_environ FALSE})
+         kDataunhandled
+      }
+   )
+}
 #include overshell_rb3dx.dta
 #include overshell_rb2dx.dta
 #include overshell_rb1dx.dta
@@ -53,8 +80,8 @@
             {ui push_screen overshell_rb1dx_screen}
          )
          (os_lrbdx
-            kDataUnhandled
-            ;{ui push_screen overshell_lrbdx_screen} ;dx needs modifiers first
+            {set $simpledx 2}
+            {ui push_screen overshell_lrbdx_screen} ;dx needs modifiers first
          )
          (os_spd
             {ui push_screen options_milo_screen}

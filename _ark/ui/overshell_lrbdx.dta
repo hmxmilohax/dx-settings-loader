@@ -6,25 +6,24 @@
 #define LRBDX_DATA
 (
    (
-      {if_else $mod_fakejuke mod_fakejuke mod_fakejuke_off}
-      {if_else $mod_flashbang mod_flashbang mod_flashbang_off}
-      {if_else $mod_rb3sustain mod_rb3sustain mod_rb3sustain_off}
-      {if_else $mod_legacybass mod_legacybass mod_legacybass_off}
-      {if_else $mod_vocalgender mod_vocalgender mod_vocalgender_off}
-      {if_else $mod_paddrum mod_paddrum mod_paddrum_off}
-      {if_else $mod_padguitar mod_padguitar mod_padguitar_off}
-      {if_else $mod_mididrum mod_mididrum mod_mididrum_off}
-      {if_else $mod_freestyledrums mod_freestyledrums mod_freestyledrums_off}
-      {if_else $mod_songtitlestats mod_songtitlestats mod_songtitlestats_off}
+      os_nothing
    )
 )
 {new
    UIPanel
    overshell_lrbdx_panel
-   (file options/practice_sel_section.milo)
+   (file "practice/rb2_sel_section.milo")
    (focus sel_section.lst)
    (enter
-      WORLD_COLOR
+      {$this iterate UILabel $i {$i set_type 'farnhamdisplay-bold(63)'}}
+      {full_selection.mesh set_showing FALSE}
+      {demo_launcher_panel toggle_focus}
+      {overshell_main_panel set_showing FALSE}
+      {$this iterate Mat $m {$m set prelit FALSE}}
+      {$this iterate Mat $m {$m set use_environ FALSE}}
+      {sel_section.lst set_local_pos_index 0 20}
+      {sel_section.lst set_local_pos_index 2 60}
+      ;WORLD_COLOR
       {$this lst_reset}
       {title.lbl set text_token {localize os_lrbdx}}
       {$this pause_if_local}
@@ -37,69 +36,6 @@
    )
    (SELECT_MSG
       {demo_launcher_panel forward_sfx}
-      {switch {$component selected_sym}
-         
-         (mod_songtitlestats
-            {set $mod_songtitlestats {! $mod_songtitlestats}}
-         )
-         (mod_songtitlestats_off
-            {set $mod_songtitlestats {! $mod_songtitlestats}}
-         )
-         (mod_freestyledrums
-            {set $mod_freestyledrums {! $mod_freestyledrums}}
-         )
-         (mod_freestyledrums_off
-            {set $mod_freestyledrums {! $mod_freestyledrums}}
-         )
-         (mod_mididrum
-            {set $mod_mididrum {! $mod_mididrum}}
-         )
-         (mod_mididrum_off
-            {set $mod_mididrum {! $mod_mididrum}}
-         )
-         (mod_padguitar
-            {set $mod_padguitar {! $mod_padguitar}}
-         )
-         (mod_padguitar_off
-            {set $mod_padguitar {! $mod_padguitar}}
-         )
-         (mod_paddrum
-            {set $mod_paddrum {! $mod_paddrum}}
-         )
-         (mod_paddrum_off
-            {set $mod_paddrum {! $mod_paddrum}}
-         )
-         (mod_vocalgender
-            {set $mod_vocalgender {! $mod_vocalgender}}
-         )
-         (mod_vocalgender_off
-            {set $mod_vocalgender {! $mod_vocalgender}}
-         )
-         (mod_legacybass
-            {set $mod_legacybass {! $mod_legacybass}}
-         )
-         (mod_legacybass_off
-            {set $mod_legacybass {! $mod_legacybass}}
-         )
-         (mod_rb3sustain
-            {set $mod_rb3sustain {! $mod_rb3sustain}}
-         )
-         (mod_rb3sustain_off
-            {set $mod_rb3sustain {! $mod_rb3sustain}}
-         )
-         (mod_flashbang
-            {set $mod_flashbang {! $mod_flashbang}}
-         )
-         (mod_flashbang_off
-            {set $mod_flashbang {! $mod_flashbang}}
-         )
-         (mod_fakejuke
-            {set $mod_fakejuke {! $mod_fakejuke}}
-         )
-         (mod_fakejuke_off
-            {set $mod_fakejuke {! $mod_fakejuke}}
-         )
-      }
       LRBDX_LIST_HANDLER
       {play_instr_sfx $user button_select}
    )
@@ -109,7 +45,10 @@
    (BUTTON_DOWN_MSG
       {if {== $action kAction_Cancel}
          {demo_launcher_panel back_sfx}
+         {demo_launcher_panel toggle_focus}
+         {set $simpledx 0}
          {ui pop_screen}
+         {overshell_main_panel set_showing TRUE}
       }
       kDataUnhandled
    )
@@ -117,6 +56,6 @@
 {new
    UIScreen
    overshell_lrbdx_screen
-   (panels overshell_lrbdx_panel)
+   (panels overshell_lrbdx_panel practice_lower3rd_panel)
    (focus overshell_lrbdx_panel)
 }

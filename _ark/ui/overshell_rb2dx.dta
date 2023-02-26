@@ -20,31 +20,6 @@
 )
 {new
    UIPanel
-   practice_lower3rd_panel
-   (file
-      {switch $simpledx
-         (1 "practice/rb1_lower3rd.milo")
-         (2 "practice/rb2_lower3rd.milo")
-         kDataunhandled
-      }
-   )
-   (enter
-      {switch $simpledx
-         (1 {do
-                {bigcorner.mat set use_environ FALSE}
-                {bigcorner.mat set color {pack_color .6 .3 .3}}
-                {bar_05.mesh set_showing FALSE}
-                {bar_06.mesh set_showing FALSE}
-                {bar_07.mesh set_showing FALSE}
-             }
-          )
-         (2 {practice_bigcorner.mat set use_environ FALSE})
-         kDataunhandled
-      }
-   )
-}
-{new
-   UIPanel
    overshell_rb2dx_panel
    (file "practice/rb2_sel_section.milo")
    (focus sel_section.lst)
