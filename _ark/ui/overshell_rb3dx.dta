@@ -37,7 +37,6 @@
    (file options/practice_sel_section.milo)
    (focus sel_section.lst)
    (enter
-      WORLD_COLOR
       {$this lst_reset}
       {title.lbl set text_token {localize os_rb3dx}}
       {$this pause_if_local}

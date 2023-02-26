@@ -152,7 +152,6 @@
          {taskmgr ui_seconds}}
       {meta music_start})
    (enter
-      ;WORLD_COLOR
       {logo_RockBand2.mesh set_showing FALSE}
       {logo_beatles.mesh set_showing FALSE}
       {$this iterate ParticleSys $l {$l set max_parts 10000}}
