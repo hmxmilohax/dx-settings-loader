@@ -14,10 +14,10 @@ jobs:
           chmod +x dependencies/linux/arkhelper
           chmod +x dependencies/linux/dtab
           chmod +x dependencies/linux/superfreq
-          dependencies/linux/arkhelper dir2ark ./_ark ./_build/xbox/gen -n "dxsl_xbox" -e -v 5 -s
+          dependencies/linux/arkhelper dir2ark ./_ark ./_build/xbox/gen -n "dxsl_xbox" -e -v 5 -s 4073741823
       
       - name: Upload result
         uses: actions/upload-artifact@v2
         with:
           name: DXSettings-Xbox
-          path: _build
+          path: _build/xbox
