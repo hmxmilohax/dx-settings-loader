@@ -39,9 +39,9 @@
    )
 }
 #include overshell_rb3dx.dta
-#include overshell_rb2dx.dta
+;#include overshell_rb2dx.dta
 #include overshell_rb1dx.dta
-#include overshell_lrbdx.dta
+;#include overshell_lrbdx.dta
 #include overshell_slider.dta
 #include overshell_mic_vols.dta
 #include overshell_dta_writer.dta
@@ -59,6 +59,7 @@
    (focus sel_section.lst)
    (enter
       WORLD_COLOR
+      {set $simpledx 0}
       {sel_section.lst set_data ({if_else {file_exists "GAME:/default.xex"} "os_launchgame" "os_nogame"} os_writefile os_universal os_rb1dx os_rb2dx os_rb3dx os_lrbdx os_tbrbdx os_gdrbdx)}
       {title.lbl set text_token os_dxsettings}
       {$this pause_if_local}
@@ -86,7 +87,7 @@
          )
          (os_rb2dx
             {set $simpledx 2}
-            {ui push_screen overshell_rb2dx_screen}
+            {ui push_screen overshell_rb1dx_screen}
          )
          (os_rb1dx
             {set $simpledx 1}
@@ -94,7 +95,7 @@
          )
          (os_lrbdx
             {set $simpledx lrb}
-            {ui push_screen overshell_lrbdx_screen} ;dx needs modifiers first
+            {ui push_screen overshell_rb1dx_screen} ;dx needs modifiers first
          )
          (os_spd
             {ui push_screen options_milo_screen}
@@ -115,6 +116,7 @@
       kDataUnhandled
    )
    (SCROLL_MSG
+      {set $simpledx 0}
       {demo_launcher_panel scroll_sfx}
    )
 }

@@ -1,54 +1,180 @@
-#define RB1DX_LIST_HANDLER
-(
-   {set $rb1dxmodifierpos {sel_section.lst selected_sym}}
-   {$this lst_reset}
-)
+;rock band 1 specific modifiers
 #define RB1DX_DATA
 (
    (
       os_nothing
    )
 )
-{new
-   UIPanel
-   overshell_rb1dx_panel
-   (file "practice/rb1_sel_section.milo")
-   (focus sel_section.lst)
-   (enter
-      {$this iterate UILabel $i {$i set_type 'farnhamdisplay-bold(63)'}}
-      {full_selection.mesh set_showing FALSE}
-      {demo_launcher_panel toggle_focus}
-      {overshell_main_panel set_showing FALSE}
-      {$this iterate Mat $m {$m set prelit FALSE}}
-      {$this iterate Mat $m {$m set use_environ FALSE}}
-      {sel_section.lst set_local_pos_index 0 20}
-      {sel_section.lst set_local_pos_index 2 60}
-      ;WORLD_COLOR
-      {$this lst_reset}
-      {title.lbl set text_token {localize os_rb1dx}}
-      {$this pause_if_local}
+;rock band 2 specific modifiers
+#define RB2DX_DATA
+(
+   (
+      {if_else $mod_fakejuke mod_fakejuke mod_fakejuke_off}
+      {if_else $mod_flashbang mod_flashbang mod_flashbang_off}
+      {if_else $mod_rb3sustain mod_rb3sustain mod_rb3sustain_off}
+      {if_else $mod_legacybass mod_legacybass mod_legacybass_off}
+      {if_else $mod_vocalgender mod_vocalgender mod_vocalgender_off}
+      {if_else $mod_paddrum mod_paddrum mod_paddrum_off}
+      {if_else $mod_padguitar mod_padguitar mod_padguitar_off}
+      {if_else $mod_mididrum mod_mididrum mod_mididrum_off}
+      {if_else $mod_freestyledrums mod_freestyledrums mod_freestyledrums_off}
+      {if_else $mod_songtitlestats mod_songtitlestats mod_songtitlestats_off}
    )
+)
+;LEGO rock band specific modifiers
+#define LRBDX_DATA
+(
+   (
+      os_nothing
+   )
+)
+;sets the current position and refreshes the list to show the change
+#define LIST_HANDLER
+(
+   {switch $simpledx ;simpledx is set via SELECT_MSG in demo_launcher.dta
+      (1 {set $rb1dxmodifierpos {sel_section.lst selected_sym}})
+      (2 {set $rb2dxmodifierpos {sel_section.lst selected_sym}})
+      (lrb {set $lrbdxmodifierpos {sel_section.lst selected_sym}})
+      kDataUnhandled
+   }
+   {$this lst_reset}
+)
+;screen definition of the list reset handle
+#define LIST_RESET_HANDLER
+(
    (lst_reset
-      {sel_section.lst set_data RB1DX_DATA}
-      {if $rb1dxmodifierpos
-         {sel_section.lst set_selected $rb1dxmodifierpos}
+      ;sets up the data for the list, in this instance since rb1, rb2, and lrb screens are basiaclly the same,
+      ;we handle all three cases in the same panel definition
+      {sel_section.lst set_data
+         {switch $simpledx ;simpledx is set via SELECT_MSG in demo_launcher.dta
+            (1 RB1DX_DATA)
+            (2 RB2DX_DATA)
+            (lrb LRBDX_DATA)
+         kDataUnhandled
+         }
+      }
+      ;after populating the list again, force set the position of the list back to the selected modifier
+      {switch $simpledx ;simpledx is set via SELECT_MSG in demo_launcher.dta
+         (1 {if $rb1dxmodifierpos {sel_section.lst set_selected $rb1dxmodifierpos}})
+         (2 {if $rb2dxmodifierpos {sel_section.lst set_selected $rb2dxmodifierpos}})
+         (lrb {if $lrbdxmodifierpos {sel_section.lst set_selected $lrbdxmodifierpos}})
+         kDataUnhandled
       }
    )
-   (SELECT_MSG
-      {demo_launcher_panel forward_sfx}
-      RB1DX_LIST_HANDLER
-      {play_instr_sfx $user button_select}
+)
+{new
+   UIPanel
+   overshell_rb1dx_panel ;it says rb1dx but really its rb1, rb2, and lrb currently
+   (file
+      {switch $simpledx ;simpledx is set via SELECT_MSG in demo_launcher.dta
+         (1 "practice/rb1_sel_section.milo")
+         (2 "practice/rb2_sel_section.milo")
+         (lrb "practice/rb2_sel_section.milo")
+         kDataUnhandled
+      }
+   )
+   (focus sel_section.lst)
+   (enter
+      {if {== $simpledx lrb} ;simpledx is set via SELECT_MSG in demo_launcher.dta
+         {anchor_corner01.tex set_bitmap "ui/image/trim_corner_07.png"} ;apply lego rock band textures in case we are on the lrb screen
+         {anchor_corner02.tex set_bitmap "ui/image/trim_corner_07.png"}
+         {ribcage_wallpaper.tex set_bitmap "ui/image/wallpaper_07.png"}
+         {rock_corner_trim0011.tex set_bitmap "ui/image/legotrim_01.png"}
+      }
+      {$this iterate UILabel $i {$i set_type 'farnhamdisplay-bold(63)'}} ;force the font for the header of these screens
+      {full_selection.mesh set_showing FALSE} ;hide the practice selection bar
+      {demo_launcher_panel toggle_focus} ;switch the demo loader background from tbrb to rb2 for theming. we run this again on exit
+      {overshell_main_panel set_showing FALSE} ;hide the original overshell panel because it's stinky tbrb themed
+      {$this iterate Mat $m {$m set prelit FALSE}} ;fix some texture issues on the imported milo
+      {$this iterate Mat $m {$m set use_environ FALSE}} ;fix some texture issues on the imported milo
+      {sel_section.lst set_local_pos_index 0 20} ;move the list around to fit the imported milo
+      {sel_section.lst set_local_pos_index 2 60} ;move the list around to fit the imported milo
+      {$this lst_reset} ;run the reset list call on panel enter
+      {title.lbl set text_token ;set the title of the current screen based on result
+         {switch $simpledx ;simpledx is set via SELECT_MSG in demo_launcher.dta
+            (1 {localize os_rb1dx})
+            (2 {localize os_rb2dx})
+            (lrb {localize os_lrbdx})
+            kDataUnhandled
+         }
+      }
+   )
+   LIST_RESET_HANDLER ;apply the list reset definition to this panel
+   (SELECT_MSG ;when something is selected. add in all rb1, rb2, and lrb results here
+      {demo_launcher_panel forward_sfx} ;play confirmation tone
+      {switch {$component selected_sym}
+         (mod_songtitlestats
+            {set $mod_songtitlestats {! $mod_songtitlestats}}
+         )
+         (mod_songtitlestats_off
+            {set $mod_songtitlestats {! $mod_songtitlestats}}
+         )
+         (mod_freestyledrums
+            {set $mod_freestyledrums {! $mod_freestyledrums}}
+         )
+         (mod_freestyledrums_off
+            {set $mod_freestyledrums {! $mod_freestyledrums}}
+         )
+         (mod_mididrum
+            {set $mod_mididrum {! $mod_mididrum}}
+         )
+         (mod_mididrum_off
+            {set $mod_mididrum {! $mod_mididrum}}
+         )
+         (mod_padguitar
+            {set $mod_padguitar {! $mod_padguitar}}
+         )
+         (mod_padguitar_off
+            {set $mod_padguitar {! $mod_padguitar}}
+         )
+         (mod_paddrum
+            {set $mod_paddrum {! $mod_paddrum}}
+         )
+         (mod_paddrum_off
+            {set $mod_paddrum {! $mod_paddrum}}
+         )
+         (mod_vocalgender
+            {set $mod_vocalgender {! $mod_vocalgender}}
+         )
+         (mod_vocalgender_off
+            {set $mod_vocalgender {! $mod_vocalgender}}
+         )
+         (mod_legacybass
+            {set $mod_legacybass {! $mod_legacybass}}
+         )
+         (mod_legacybass_off
+            {set $mod_legacybass {! $mod_legacybass}}
+         )
+         (mod_rb3sustain
+            {set $mod_rb3sustain {! $mod_rb3sustain}}
+         )
+         (mod_rb3sustain_off
+            {set $mod_rb3sustain {! $mod_rb3sustain}}
+         )
+         (mod_flashbang
+            {set $mod_flashbang {! $mod_flashbang}}
+         )
+         (mod_flashbang_off
+            {set $mod_flashbang {! $mod_flashbang}}
+         )
+         (mod_fakejuke
+            {set $mod_fakejuke {! $mod_fakejuke}}
+         )
+         (mod_fakejuke_off
+            {set $mod_fakejuke {! $mod_fakejuke}}
+         )
+      }
+      LIST_HANDLER ;run our list reset routine after any result is selected
    )
    (SCROLL_MSG
-      {demo_launcher_panel scroll_sfx}
+      {demo_launcher_panel scroll_sfx} ;play scroll tone
    )
    (BUTTON_DOWN_MSG
       {if {== $action kAction_Cancel}
-         {demo_launcher_panel back_sfx}
-         {demo_launcher_panel toggle_focus}
-         {set $simpledx 0}
-         {ui pop_screen}
-         {overshell_main_panel set_showing TRUE}
+         {demo_launcher_panel back_sfx} ;play back tone
+         {demo_launcher_panel toggle_focus} ;flip the bottom background panel back to tbrb since we switched to rb2 on enter
+         {ui pop_screen} ;leave the current screen
+         {overshell_main_panel set_showing TRUE} ;show the main overshell panel again because we hid it on panel enter
       }
       kDataUnhandled
    )
