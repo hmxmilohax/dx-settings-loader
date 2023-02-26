@@ -68,6 +68,34 @@
       {back_clip play}
    )
 )
+#define SCROLL_SFX
+(
+   (scroll_sfx
+      {if_else {exists scroll_clip1}
+         {do
+            {if {exists scroll_clip2} {delete scroll_clip2}}
+            {new MoggClip scroll_clip1}
+            {set $picked_number 1}
+         }
+         {do
+            {if {exists scroll_clip1} {delete scroll_clip1}}
+            {new MoggClip scroll_clip2}
+            {set $picked_number 2}
+         }
+      }
+      {{sprint "scroll_clip" $picked_number} set file "sfx/streams/scroll/button_toggle_guitar_01.mogg"}
+      {if {exists scroll_clip1}
+         {scroll_clip1 set loop FALSE}
+         {scroll_clip1 set volume -5}
+         {scroll_clip1 play}
+      }
+      {if {exists scroll_clip2}
+         {scroll_clip2 set loop FALSE}
+         {scroll_clip2 set volume -5}
+         {scroll_clip2 play}
+      }
+   )
+)
 #define WORLD_COLOR
 (
    {$this iterate Mat $m {$m set use_environ TRUE}} ;allow the materials to be affected by the environment color
@@ -84,6 +112,7 @@
    (focus proj9)
    FORWARD_SFX
    BACK_SFX
+   SCROLL_SFX
    (enter
       WORLD_COLOR
       {logo_RockBand2.mesh set_showing FALSE}

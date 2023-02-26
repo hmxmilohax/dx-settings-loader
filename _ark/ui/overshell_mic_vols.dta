@@ -46,6 +46,9 @@
             {sfx.sld store}
             {$this set_focus sfx.sld})}
        {play_instr_sfx $user button_select})
+   (SCROLL_MSG
+      {demo_launcher_panel scroll_sfx}
+   )
    (BUTTON_DOWN_MSG
       {demo_launcher_panel back_sfx}
       {switch

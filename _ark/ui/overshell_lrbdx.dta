@@ -103,6 +103,9 @@
       LRBDX_LIST_HANDLER
       {play_instr_sfx $user button_select}
    )
+   (SCROLL_MSG
+      {demo_launcher_panel scroll_sfx}
+   )
    (BUTTON_DOWN_MSG
       {if {== $action kAction_Cancel}
          {demo_launcher_panel back_sfx}

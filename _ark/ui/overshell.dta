@@ -68,6 +68,9 @@
    (BUTTON_DOWN_MSG
       kDataUnhandled
    )
+   (SCROLL_MSG
+      {demo_launcher_panel scroll_sfx}
+   )
 }
 {new
    UIScreen
@@ -172,6 +175,9 @@
       }
       UNIVERSAL_LIST_HANDLER
    )
+   (SCROLL_MSG
+      {demo_launcher_panel scroll_sfx}
+   )
    (BUTTON_DOWN_MSG
       {if {== $action kAction_Cancel}
          {demo_launcher_panel back_sfx}
@@ -237,7 +243,9 @@
    {if $vismodifierpos
       {sel_section.lst set_selected $vismodifierpos}
    })
-   (SCROLL_MSG)
+   (SCROLL_MSG
+      {demo_launcher_panel scroll_sfx}
+   )
    (BUTTON_DOWN_MSG
       {if {== $action kAction_Cancel}
          {demo_launcher_panel back_sfx}
