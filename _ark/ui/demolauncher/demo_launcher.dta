@@ -140,12 +140,12 @@
          (proj9
             {rb2_launcher.trg basic_cleanup}
             {p9_launcher.trg trigger}
-            {meta set_group proj9}
+            ;{meta set_group proj9}
             )
          (band2
             {p9_launcher.trg basic_cleanup}
             {rb2_launcher.trg trigger}
-            {meta set_group band2}
+            ;{meta set_group band2}
             )}
       {set
          [focus_time]
@@ -163,7 +163,7 @@
          {rb2_beatles_fade.anim set_frame {/ {- $end $start}2.0}}
       }
       {meta set_group proj9}
-      {meta music_start}
+      ;{meta music_start}
    )
 }
 {new
