@@ -110,11 +110,48 @@
    (file
       "demo_launcher_splash.milo")
    (focus proj9)
+   (focus_time 0)
+   (enter_time 0.0)
+   (attract_timeout_done FALSE)
+   (focus_debounce 0.1)
+   (attract_mode_timeout 60.0)
+   (launch_focus
+      {launch_demo
+         [focus]})
    FORWARD_SFX
    BACK_SFX
    SCROLL_SFX
+   (toggle_focus
+         {switch
+            [focus]
+            (proj9
+               {set
+                  [focus]
+                  band2})
+            (band2
+               {set
+                  [focus]
+                  proj9})}
+            {$this update_focus})
+   (update_focus
+      {switch
+         [focus]
+         (proj9
+            {rb2_launcher.trg basic_cleanup}
+            {p9_launcher.trg trigger}
+            ;{meta set_group proj9}
+            )
+         (band2
+            {p9_launcher.trg basic_cleanup}
+            {rb2_launcher.trg trigger}
+            ;{meta set_group band2}
+            )}
+      {set
+         [focus_time]
+         {taskmgr ui_seconds}}
+      {meta music_start})
    (enter
-      WORLD_COLOR
+      ;WORLD_COLOR
       {logo_RockBand2.mesh set_showing FALSE}
       {logo_beatles.mesh set_showing FALSE}
       {$this iterate ParticleSys $l {$l set max_parts 10000}}

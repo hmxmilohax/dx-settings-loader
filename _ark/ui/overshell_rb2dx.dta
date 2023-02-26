@@ -20,11 +20,28 @@
 )
 {new
    UIPanel
+   practice_lower3rd_panel
+   (file
+      "practice/rb2_lower3rd.milo")
+   (enter
+      {$this iterate Mat $m {$m set prelit FALSE}}
+      {$this iterate Mat $m {$m set use_environ FALSE}}
+   )
+}
+{new
+   UIPanel
    overshell_rb2dx_panel
-   (file options/practice_sel_section.milo)
+   (file "practice/rb2_sel_section.milo")
    (focus sel_section.lst)
    (enter
-      WORLD_COLOR
+      {full_selection.mesh set_showing FALSE}
+      {demo_launcher_panel toggle_focus}
+      {overshell_main_panel set_showing FALSE}
+      {$this iterate Mat $m {$m set prelit FALSE}}
+      {$this iterate Mat $m {$m set use_environ FALSE}}
+      {sel_section.lst set_local_pos_index 0 20}
+      {sel_section.lst set_local_pos_index 2 60}
+      ;WORLD_COLOR
       {$this lst_reset}
       {title.lbl set text_token {localize os_rb2dx}}
       {$this pause_if_local}
@@ -109,7 +126,9 @@
    (BUTTON_DOWN_MSG
       {if {== $action kAction_Cancel}
          {demo_launcher_panel back_sfx}
+         {demo_launcher_panel toggle_focus}
          {ui pop_screen}
+         {overshell_main_panel set_showing TRUE}
       }
       kDataUnhandled
    )
@@ -117,6 +136,6 @@
 {new
    UIScreen
    overshell_rb2dx_screen
-   (panels overshell_rb2dx_panel)
+   (panels overshell_rb2dx_panel practice_lower3rd_panel)
    (focus overshell_rb2dx_panel)
 }
