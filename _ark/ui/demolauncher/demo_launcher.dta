@@ -14,7 +14,7 @@
          }
       }
       {{sprint "confirm_clip" $picked_number} set file
-         {if_else {|| {== $simpledx 1} {== $simpledx 2}}
+         {if_else {|| {== $simpledx 1} {== $simpledx 2} {== $simpledx lrb}}
             "sfx/streams/rb2_shell/button_select.mogg"
             "sfx/streams/proj9_shell/button_select_guitar_01.mogg"
          }
@@ -47,7 +47,7 @@
          }
       }
       {{sprint "back_clip" $picked_number} set file
-         {if_else {|| {== $simpledx 1} {== $simpledx 2}}
+         {if_else {|| {== $simpledx 1} {== $simpledx 2} {== $simpledx lrb}}
             "sfx/streams/rb2_shell/button_back.mogg"
             "sfx/streams/proj9_shell/button_back_guitar_01.mogg"
          }
@@ -80,7 +80,7 @@
          }
       }
       {{sprint "scroll_clip" $picked_number} set file
-         {if_else {|| {== $simpledx 1} {== $simpledx 2}}
+         {if_else {|| {== $simpledx 1} {== $simpledx 2} {== $simpledx lrb}}
             "sfx/streams/rb2_shell/button_toggle.mogg"
             "sfx/streams/proj9_shell/button_toggle_guitar_01.mogg"
          }

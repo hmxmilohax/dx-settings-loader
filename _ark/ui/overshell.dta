@@ -53,7 +53,7 @@
          )
          (os_lrbdx
             {set $simpledx lrb}
-            {ui push_screen overshell_rb2dx_screen} ;dx needs modifiers first
+            {ui push_screen overshell_lrbdx_screen} ;dx needs modifiers first
          )
          (os_tbrbdx
             {ui push_screen overshell_tbrb_screen} ;dx needs modifiers first
