@@ -5,7 +5,7 @@
       {switch $simpledx
          (1 "practice/rb1_lower3rd.milo")
          (2 "practice/rb2_lower3rd.milo")
-         (lrb "practice/rb2_lower3rd.milo")
+         (lrb "practice/lrb_lower3rd.milo")
          kDataunhandled
       }
    )
@@ -36,6 +36,27 @@
          (lrb {practice_bigcorner.mat set use_environ FALSE})
          kDataunhandled
       }
+   )
+}
+{new
+   UIPanel
+   rb1_main_lower3rd_panel
+   (file "practice/rb1_lower3rd.milo")
+   ;good ones - tour_worldmap_lower3rd
+   (enter
+      {flower_center.mat set use_environ FALSE}
+      {petal_1.mat set use_environ FALSE}
+      {petal_02.mat set use_environ FALSE}
+      {petal_03.mat set use_environ FALSE}
+      {petal_4.mat set use_environ FALSE}
+      {bullseye_tree.mat set use_environ FALSE}
+      {chains.mat set use_environ FALSE}
+      {scale_tree.mat set use_environ FALSE}
+      {big_tattoo.mat set use_environ FALSE}
+      {end_tree.mat set use_environ FALSE}
+      {banner_01.mat set use_environ FALSE}
+      {banner_test.mat set use_environ FALSE}
+      ;{$this iterate Mat $m {$m set use_environ FALSE}}
    )
 }
 #include overshell_rb3dx.dta
@@ -79,7 +100,7 @@
          )
          (os_rb2dx
             {set $simpledx 2}
-            {ui push_screen overshell_rb1dx_screen}
+            {ui push_screen overshell_rb2dx_screen}
          )
          (os_rb1dx
             {set $simpledx 1}
@@ -87,7 +108,7 @@
          )
          (os_lrbdx
             {set $simpledx lrb}
-            {ui push_screen overshell_rb1dx_screen} ;dx needs modifiers first
+            {ui push_screen overshell_rb2dx_screen} ;dx needs modifiers first
          )
          (os_spd
             {ui push_screen options_milo_screen}

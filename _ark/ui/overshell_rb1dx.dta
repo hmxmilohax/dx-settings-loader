@@ -191,6 +191,12 @@
 {new
    UIScreen
    overshell_rb1dx_screen
+   (panels overshell_rb1dx_panel rb1_main_lower3rd_panel)
+   (focus overshell_rb1dx_panel)
+}
+{new
+   UIScreen
+   overshell_rb2dx_screen
    (panels overshell_rb1dx_panel practice_lower3rd_panel)
    (focus overshell_rb1dx_panel)
 }
