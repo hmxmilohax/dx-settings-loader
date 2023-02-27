@@ -149,7 +149,13 @@
    (panels dialog_panel)
    (focus dialog_panel)
    (enter
-      {dialog_panel set_custom os_dxdtaerror os_okay store_cache_button_cancel opt1.btn})
+      {dialog_panel set_custom os_dxdtaerror os_okay store_cache_button_cancel opt1.btn}
+      {new MoggClip error_clip}
+      {error_clip set file "sfx/streams/lrb_shell/button_error.mogg"}
+      {error_clip set loop FALSE}
+      {error_clip set volume 0}
+      {error_clip play}
+   )
    (SELECT_MSG
       {demo_launcher_panel forward_sfx}
       {switch
