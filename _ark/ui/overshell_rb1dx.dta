@@ -73,6 +73,67 @@
 )
 {new
    UIPanel
+   practice_lower3rd_panel
+   (file
+      {switch $simpledx
+         (1 "practice/rb1_lower3rd.milo")
+         (2 "practice/rb2_lower3rd.milo")
+         (lrb "practice/lrb_lower3rd.milo")
+         kDataunhandled
+      }
+   )
+   (enter
+      {if {== $simpledx lrb}
+         {practice_bigcorner.tex set_bitmap "ui/image/calibrate_corner.png"}
+         {practice_cloud2.tex set_bitmap "ui/image/clouds_01.png"}
+         {practice_cloud3.tex set_bitmap "ui/image/clouds_02.png"}
+         {practice_ornate_spit.tex set_bitmap "ui/image/hub_edgegraphic.png"}
+         {practice_ornate_sunrise.tex set_bitmap "ui/image/ornate_sunrise.png"}
+         {practice_rose1.tex set_bitmap "ui/image/legoflower_rock.png"}
+         {practice_ornate_tentacles.tex set_bitmap "ui/image/ornate_tentacles.png"}
+         {practice_ornate_thorns.tex set_bitmap "ui/image/thorns.png"}
+         {practice_wallpaper_stretch02.tex set_bitmap "ui/image/wallpaper_02.png"}
+         {practice_bigcorner.mesh set_local_scale 1.2 1.2 1.2}
+         {practice_bigcorner.mesh set_local_pos_index 2 215}
+      }
+      {switch $simpledx
+         (1 {do
+                {bigcorner.mat set use_environ FALSE}
+                {bigcorner.mat set color {pack_color .6 .3 .3}}
+                {bar_05.mesh set_showing FALSE}
+                {bar_06.mesh set_showing FALSE}
+                {bar_07.mesh set_showing FALSE}
+             }
+          )
+         (2 {practice_bigcorner.mat set use_environ FALSE})
+         (lrb {practice_bigcorner.mat set use_environ FALSE})
+         kDataunhandled
+      }
+   )
+}
+{new
+   UIPanel
+   rb1_main_lower3rd_panel
+   (file "practice/rb1_lower3rd.milo")
+   ;good ones - tour_worldmap_lower3rd
+   (enter
+      {flower_center.mat set use_environ FALSE}
+      {petal_1.mat set use_environ FALSE}
+      {petal_02.mat set use_environ FALSE}
+      {petal_03.mat set use_environ FALSE}
+      {petal_4.mat set use_environ FALSE}
+      {bullseye_tree.mat set use_environ FALSE}
+      {chains.mat set use_environ FALSE}
+      {scale_tree.mat set use_environ FALSE}
+      {big_tattoo.mat set use_environ FALSE}
+      {end_tree.mat set use_environ FALSE}
+      {banner_01.mat set use_environ FALSE}
+      {banner_test.mat set use_environ FALSE}
+      ;{$this iterate Mat $m {$m set use_environ FALSE}}
+   )
+}
+{new
+   UIPanel
    overshell_rb1dx_panel ;it says rb1dx but really its rb1, rb2, and lrb currently
    (file
       {switch $simpledx ;simpledx is set via SELECT_MSG in demo_launcher.dta
