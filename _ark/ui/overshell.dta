@@ -59,6 +59,11 @@
       ;{$this iterate Mat $m {$m set use_environ FALSE}}
    )
 }
+{new
+   UIPanel
+   vinette_panel
+   (file "practice/vinette.milo")
+}
 #include overshell_rb3dx.dta
 #include overshell_rb1dx.dta
 #include overshell_slider.dta
