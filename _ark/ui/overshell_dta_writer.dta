@@ -192,6 +192,9 @@
             (mod_nofail
                (mod_nofail {if_else $mod_nofail TRUE FALSE})
             )
+            (mod_fcclip
+               (mod_fcclip {if_else $mod_fcclip TRUE FALSE})
+            )
          )
       }
    }

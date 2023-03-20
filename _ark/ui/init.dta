@@ -501,6 +501,11 @@
             {set $mod_doublespeed TRUE}
          }
       }
+      {if {== {elem $entry 0} {basename mod_fcclip}}
+         {if {== {elem {find $entry mod_fcclip} 1} 1}
+            {set $mod_fcclip TRUE}
+         }
+      }
    }
 )
 ;{unless {file_exists dx.dta} INIT_DTA_WRITER}

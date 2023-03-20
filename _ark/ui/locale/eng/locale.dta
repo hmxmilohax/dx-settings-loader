@@ -236,3 +236,7 @@
    "Breakneck Speed : ON")
 (mod_doublespeed_off
    "Breakneck Speed : OFF")
+(mod_fcclip
+   "Disable FC Sound : ON")
+(mod_fcclip_off
+   "Disable FC Sound : OFF")

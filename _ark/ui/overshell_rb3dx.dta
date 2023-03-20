@@ -12,6 +12,7 @@
       {if_else $mod_miss_sounds mod_miss_sounds mod_miss_sounds_off}
       {if_else $mod_rb2sustain mod_rb2sustain mod_rb2sustain_off}
       {if_else $mod_songselectnoise mod_songselectnoise mod_songselectnoise_off}
+      {if_else $mod_fcclip mod_fcclip mod_fcclip_off}
       {if_else $mod_nobre mod_nobre mod_nobre_off}
       {if_else $mod_practiceoverdrive mod_practiceoverdrive mod_practiceoverdrive_off}
       {if_else $mod_nolanes mod_nolanes mod_nolanes_off}
@@ -86,6 +87,12 @@
          )
          (mod_songselectnoise_off
             {set $mod_songselectnoise {! $mod_songselectnoise}}
+         )
+         (mod_fcclip
+            {set $mod_fcclip {! $mod_fcclip}}
+         )
+         (mod_fcclip_off
+            {set $mod_fcclip {! $mod_fcclip}}
          )
          (mod_nobre
             {set $mod_nobre {! $mod_nobre}}
