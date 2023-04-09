@@ -14,6 +14,12 @@ _xenia/content/45410829/00000002/*
 _xenia/content/45410829/00000001/*
 _xenia/content/45410869
 _xenia/content/45410829
+_xenia/x360ce.ini
+_xenia/xinput1_1.dll
+_xenia/xinput1_2.dll
+_xenia/xinput1_3.dll
+_xenia/xinput1_4.dll
+_xenia/xinput9_1_0.dll
 _build_xbox - Copy.bat
 _run_xenia - Copy.bat
 _xenia/recent.toml
