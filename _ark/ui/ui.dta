@@ -95,6 +95,11 @@
          {$user is_local}}
       {play_instr_sfx $user button_back}}
    0)
+#ifdef HX_PS3
+(BUTTON_DOWN_MSG
+   {handle_ret
+      (profile_mgr button_down $user $raw_button $action $pad_num)})
+#else
 (BUTTON_DOWN_MSG
    {handle_ret
       ({ui current_screen}
@@ -103,3 +108,4 @@
          $raw_button
          $action
          $pad_num)})
+#endif
