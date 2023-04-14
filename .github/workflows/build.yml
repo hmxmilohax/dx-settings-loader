@@ -46,5 +46,5 @@ jobs:
       - name: Upload result
         uses: actions/upload-artifact@v3
         with:
-          name: RB2DX-PS3
+          name: DXSL-PS3
           path: '*.pkg'
