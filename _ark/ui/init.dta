@@ -1,17 +1,12 @@
 #include global.dta
 #include cheats_funcs.dta
 #include meta.dta
-#ifdef HX_PS3
-#include meta_loading.dta
-#include splash/splash.dta
-#include background/background.dta
-#include main/main.dta
-#include main/main_dialogs.dta
-#include saveload.dta
-#include game.dta
-#else
 #include demolauncher/demo_launcher.dta
 #include overshell.dta
+#ifdef HX_PS3
+#include meta_loading.dta
+#include saveload.dta
+#include game.dta
 #endif
 {platform_mgr set_notify_ui_location kOSNotifyBottomCenter}
 {set $saveload_skip_upload FALSE}

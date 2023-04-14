@@ -15,12 +15,10 @@
    {content_loading_panel load TRUE}
    {saveload_dialog_panel load TRUE}
    {background_panel load TRUE}
-   {set $first_screen intro_movie_screen}
-#else
+#endif
    {attract_overlay_panel load TRUE}
    {demo_launcher_panel load TRUE}
    {set $first_screen demo_launcher_screen}
-#endif
    {ui my_init}
    {ui goto_screen $first_screen})
 #include band_ui.dta

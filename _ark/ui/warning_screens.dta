@@ -91,7 +91,7 @@
    (enter
       {dialog_panel set_custom os_lostthegame os_okay store_cache_button_cancel opt1.btn})
    (SELECT_MSG
-      {demo_launcher_panel forward_sfx}
+      #ifdef HX_XBOX {demo_launcher_panel forward_sfx} #endif
       {switch
          $component
          (opt1.btn
@@ -106,7 +106,7 @@
    (enter
       {dialog_panel set_custom os_lostthexex os_okay store_cache_button_cancel opt1.btn})
    (SELECT_MSG
-      {demo_launcher_panel forward_sfx}
+      #ifdef HX_XBOX {demo_launcher_panel forward_sfx} #endif
       {switch
          $component
          (opt1.btn
@@ -119,9 +119,10 @@
    (panels dialog_panel)
    (focus dialog_panel)
    (enter
+      INIT_DTA_WRITER
       {dialog_panel set_custom2 os_welcome store_cache_button_cancel os_okay opt2.btn})
    (SELECT_MSG
-      {demo_launcher_panel forward_sfx}
+      #ifdef HX_XBOX {demo_launcher_panel forward_sfx} #endif
       {switch
          $component
          (opt1.btn
@@ -136,7 +137,7 @@
    (enter
       {dialog_panel set_custom os_dxdtawritten os_okay store_cache_button_cancel opt1.btn})
    (SELECT_MSG
-      {demo_launcher_panel forward_sfx}
+      #ifdef HX_XBOX {demo_launcher_panel forward_sfx} #endif
       {switch
          $component
          (opt1.btn
@@ -157,7 +158,7 @@
       {error_clip play}
    )
    (SELECT_MSG
-      {demo_launcher_panel forward_sfx}
+      #ifdef HX_XBOX {demo_launcher_panel forward_sfx} #endif
       {switch
          $component
          (opt1.btn
