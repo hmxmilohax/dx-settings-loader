@@ -1,11 +1,26 @@
 (cancel_transition_notify TRUE)
 (default_allow_edit_text FALSE)
 (verbose_locale_notifies TRUE)
+(frontload_subdirs
+   "ui/meta_panel.milo")
 (init
    #include init.dta
+#ifdef HX_PS3
+   {mixer_panel load TRUE}
+   {meta_loading load TRUE}
+   {helpbar load TRUE}
+   {passive_messages_panel load TRUE}
+   {dialog_panel load TRUE}
+   {event_dialog_panel load TRUE}
+   {content_loading_panel load TRUE}
+   {saveload_dialog_panel load TRUE}
+   {background_panel load TRUE}
+   {set $first_screen intro_movie_screen}
+#else
    {attract_overlay_panel load TRUE}
    {demo_launcher_panel load TRUE}
    {set $first_screen demo_launcher_screen}
+#endif
    {ui my_init}
    {ui goto_screen $first_screen})
 #include band_ui.dta
