@@ -33,3 +33,5 @@ _build/ps3/gen/main_ps3.hdr
 _build/ps3/gen/main_ps3_0.ark
 _build/ps3/gen/main_ps3_1.ark
 .DS_Store
+_build/ps3/USRDIR/gen/main_ps3.hdr
+_build/ps3/USRDIR/gen/main_ps3_0.ark
