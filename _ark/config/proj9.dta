@@ -3,6 +3,7 @@
    #include proj9_version.dta)
 (mem
    #include mem.dta)
+#ifdef HX_PS3
 (content_mgr
    (roots
       ".")
@@ -30,6 +31,7 @@
       "songs_download"))
 (profile_mgr
    (max_bands 24))
+#endif
 (platform_mgr
    (ps3_game_data_icon
       "mc/gamedata/icon0.png")
@@ -47,17 +49,22 @@
    #include timer.dta)
 (rnd
    #include rnd.dta)
+#ifdef HX_PS3
 (store
    #include store.dta)
+#endif
 (ui
    #include ../ui/ui.dta)
+#ifdef HX_PS3
 (attract
    #include attract.dta)
 (net
    #include net.dta)
+#endif
 (objects
    #include objects.dta)
 (locale ../ui/locale/eng/locale.dta)
+#ifdef HX_PS3
 (venues VENUES)
 (song_select
    (alpha_shortcuts 123 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z))
@@ -98,10 +105,12 @@
          (bass generic_tier9)
          (vocals generic_tier9)
          (band generic_tier9))))
+#endif
 (quick_cheats
    #include cheats.dta)
 (long_cheats
    #include long_cheats.dta)
+#ifdef HX_PS3
 (beatmatcher
    #include beatmatcher.dta)
 (game
@@ -193,6 +202,12 @@
       "5"
       "#"
       "%"))
+#else
+(sound
+   #include sound.dta)
+(videos
+   #include videos.dta)
+#endif
 (generate_wavdata FALSE)
 (vocal_score_song FALSE)
 #merge ../../../system/run/config/default.dta
