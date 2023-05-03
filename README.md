@@ -24,7 +24,7 @@ In the future, DXSL will be able to generate dx.dta files for [The Beatles Rock 
 
 # What You'll Need
 
-###DXSL requires one of the following:
+### DXSL requires one of the following:
 
 * For console: a **modded/hacked Xbox 360 or PS3** and a way to transfer files to it; we reccomend using FTP
 * For emulator: a **mid-to-high-end PC** capable of running Xenia or RPCS3
