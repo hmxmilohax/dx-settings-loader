@@ -68,6 +68,7 @@
 (os_lostthexex "It appears DX Settings Loader cannot detect another game to load. In order to boot into another game, you must place dx-settings-loader.xex and its gen folder next to the xex you want to launch.")
 (os_lostthegame "It appears you have not installed the base game files. In order to launch the game, you must find your own copy of the base game, and extract the \qgen\q folder into your current game folder. The game cannot run without the base game files.")
 (os_welcome "Welcome to DX Settings Loader. Here you can create a \qdx.dta\q file for use in Rock Band Deluxe projects. Simply navigate through the menus and choose your desired default settings, and choose \q[SAVE SETTINGS]\q from the main menu. If everything is installed properly, you can even boot directly into Deluxe. Consult the readme for each game on GitHub for more information.")
+(os_welcomeps3 "NOTE: The PS3 build of DX Settings Loader is not currently stable. You will not be able to save changed settings. See the Github's README for more information.")
 (os_dxdtawritten "Successfully saved Deluxe Settings to DX.dta. You can find it in the game folder, or will be loaded when \q[LAUNCH GAME]\q is selected from the main menu.")
 (os_dxdtaerror "An error occurred while saving Deluxe Settings. If you're on Xenia, check xenia-canary.config.toml and ensure \qallow_game_relative_writes\q is set to \qtrue\q.")
 (os_okay "okay")
