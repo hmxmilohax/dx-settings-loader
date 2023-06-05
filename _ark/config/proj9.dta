@@ -1,652 +1,213 @@
 #include macros.dta
 (version
-   "Build: 090714_A")
+   #include proj9_version.dta)
 (mem
-   (heaps
-   #ifdef HX_EE
-   (main
-      (size 20300000))
-   (rnd
-      (size 5500000)
-      (handle TRUE))
-   #else
-   #ifdef HX_PS3
-   (main
-      (size 170000000))
-   (local
-      (size 0)
-      (debug 0))
-   (server_login
-      (size 200000))
-   #else
-   #ifdef HX_PC
-   (main
-      (size 390900000))
-   (server_login
-      (size 200000))
-   #else
-   (main
-      (size 140000000))
-   (server_login
-      (size 200000))
-   #endif
-   #endif
-   #endif)
-(pool
-   (big_hunk 10000000)
-   (small_hunk 50000))
-(enable_tracking FALSE)
-(track_stl FALSE))
+   #include mem.dta)
+#ifdef HX_PS3
+(content_mgr
+   (roots
+      ".")
+   (file_read_failed
+      ($content_name $corrupt)
+      {do
+         ($trans_screen
+            {ui transition_screen})
+         {if_else
+            {'||'
+               {== $trans_screen practice_preloading_screen}
+               {== $trans_screen preloading_screen}}
+            {do
+               {{$trans_screen focus_panel}
+                  set
+                  content_name
+                  $content_name}
+               {{$trans_screen focus_panel}
+                  set
+                  corrupt
+                  $corrupt}}
+            {ui content_file_read_failed $content_name $corrupt}}}))
+(song_mgr
+   (alt_dir
+      "songs_download"))
+(profile_mgr
+   (max_bands 24))
+#endif
 (platform_mgr
    (ps3_game_data_icon
       "mc/gamedata/icon0.png")
    (ps3_game_data_version
       "01.00"))
 (system
-   (language
-   (default eng)
-   (supported
-      (eng))
-   #ifndef _SHIP
-   (cheat_supported
-      (eng fre ita deu esl jpn pse))
-   #endif)
-(ng TRUE)
-(xbox_map_file
-   "%s/proj9_%s.map")
-#ifdef HX_PS3
-(commerce_container TRUE)
-(init_https TRUE)
-(trophies TRUE)
-(np_communication_id
-   "NPWR00654_00")
-(titles
-   #ifdef REGION_NA
-   (proj9
-      (title_id
-         (live
-            "BLUS30282")
-         #ifndef _SHIP
-         (test
-            "NPXX00511")
-         #endif)
-      (service_id
-         (live
-            "UP0006-BLUS30282_00")
-         #ifndef _SHIP
-         (test
-            "UP8802-NPXX00511_00")
-         #endif))
-   #else
-   #ifdef REGION_EUROPE
-   (proj9
-      (title_id
-         (live
-            "BLES00532")
-         #ifndef _SHIP
-         (test
-            "NPXX00583")
-         #endif)
-      (service_id
-         (live
-            "EP0006-BLES00532_00")
-         #ifndef _SHIP
-         (test
-            "UD2464-NPXX00583_00")
-         #endif))
-   #else
-   (proj9
-      (title_id
-         (live
-            "BLJS12345")
-         #ifndef _SHIP
-         (test
-            "NPXX12345")
-         #endif)
-      (service_id
-         (live
-            "JP0006-BLJS12345_00")
-         #ifndef _SHIP
-         (test
-            "UP0006-NPXX00511_00")
-         #endif))
-   #endif
-   #endif)
-#endif)
+   #include system.dta)
 (synth
-   (use_xma FALSE)
-(oggvorbis
-   (keyindex 0)
-   #ifdef HX_XBOX
-   #ifdef _DEBUG
-   (throttle 0.5)
-   #else
-   (throttle 0.2)
-   #endif
-   #else
-   (throttle 0.2)
-   #endif)
-(iop
-   (max_streams 15)
-   (spu_buffers 60)
-   (max_slip 500))
-(metamusic
-   (proj9
-      (volume -10.0)
-      (fast_fade_time 0.5)
-      (slow_fade_time 0.5)
-      (play_from_memory FALSE)
-      (start_time_range 0.0 0.0)
-      (music shellmusic_variation1))
-   (band2
-      (volume -10.0)
-      (fast_fade_time 0.5)
-      (slow_fade_time 0.5)
-      (start_time_range 5.0 50.0)
-      (play_from_memory FALSE)
-      (music aceofspades)))
-(fx
-   (chain FALSE)
-   (core_0
-      (mode kFXModeEcho)
-      (volume -10)
-      (delay 0.5)
-      (feedback -10))
-   (core_1
-      (mode kFXModeLargeStudio)
-      (volume -8)
-      (delay 0.0)
-      (feedback -96)))
-(mics
-   #ifdef HX_PS3
-   8
-   #else
-   4
-   #endif)
-(mic
-   (volume 0)))
+   #include synth.dta)
 (joypad
-   (ignore)
-(hold_ms 1000)
-(repeat_ms 80)
-(midi_joypad
-   (disable FALSE))
-(controller_mapping
-   (ro_guitar guitar)
-   (ro_guitar_xbox ro_guitar_xbox)
-   (strat_xbox ro_guitar_xbox)
-   (strat_xbox_rb2 ro_guitar_xbox)
-   (hx_guitar_ps3 hx_guitar_ps3)
-   (ps3_rb2_guitar hx_guitar_ps3)
-   (ro_guitar_ps3 ro_guitar_ps3)
-   (midi midi_drums)
-   (hx_drums_xbox hx_drums_xbox)
-   (hx_drums_xbox_rb2 hx_drums_xbox_rb2)
-   (hx_drums_ps3 hx_drums_ps3)
-   (hx_drums_ps3_rb2 hx_drums_ps3)
-   (ro_drums_ps3_ghwt hx_drums_ps3)
-   (konami_drums_ps3_rr hx_drums_ps3)
-   (hx_xbox joypad_guitar_xbox)
-   (digital joypad)
-   (analog joypad)
-   (dualshock joypad)
-   (stagekit_xbox joypad)
-   (none joypad))
-(instrument_mapping
-   (ro_guitar kControllerGuitar)
-   (ro_guitar_xbox kControllerGuitar)
-   (strat_xbox kControllerGuitar)
-   (strat_xbox_rb2 kControllerGuitar)
-   (hx_guitar_ps3 kControllerGuitar)
-   (ps3_rb2_guitar kControllerGuitar)
-   (ro_guitar_ps3 kControllerGuitar)
-   (midi kControllerDrum)
-   (hx_drums_xbox kControllerDrum)
-   (hx_drums_xbox_rb2 kControllerDrum)
-   (hx_drums_xbox_ghwt kControllerDrum)
-   (ps3_rb2_drums kControllerDrum)
-   (hx_drums_ps3 kControllerDrum)
-   (hx_drums_ps3_rb2 kControllerDrum)
-   (ro_drums_ps3_ghwt kControllerDrum)
-   (konami_drums_ps3_rr kControllerDrum)
-   (hx_xbox kControllerVocals)
-   (digital kControllerVocals)
-   (analog kControllerVocals)
-   (dualshock kControllerVocals)
-   (stagekit_xbox kControllerVocals)
-   (none kControllerNone)))
-(spew)
+   #include joypad.dta)
+(spew
+   #include spew.dta)
 (timer
-   (world
-   (enable TRUE)
-   (draw FALSE))
-(world_regular
-   (enable TRUE)
-   (budget 9))
-(world_postproc
-   (enable TRUE)
-   (budget 9))
-(hud_track
-   (enable TRUE)
-   (budget 6))
-(game_etc
-   (enable TRUE)
-   (budget 1))
-(cpu
-   (draw FALSE))
-(cpu_regular
-   (enable TRUE)
-   (budget 16.7))
-(cpu_postproc
-   (enable TRUE)
-   (budget 16.7))
-(gs
-   (draw FALSE))
-(gs_regular
-   (enable TRUE)
-   (budget 16.7))
-(gs_postproc
-   (enable TRUE)
-   (budget 16.7))
-(game_poll
-   (enable TRUE))
-(synth_poll
-   (enable TRUE))
-(net_poll
-   (enable TRUE))
-(system_poll
-   (enable TRUE))
-(debug
-   (enable TRUE))
-(everything_else_cpu
-   (enable TRUE)))
+   #include timer.dta)
 (rnd
-   (title
-   "Project 9")
-(overlays
-   (time
-      (lines 1)
-      (showing FALSE)
-      (color 0 0 0 0.7))
-   (cheats
-      (lines 1)
-      (showing FALSE)
-      (color 0 0 0 0.7))
-   (light_preset
-      (lines 4)
-      (showing FALSE)
-      (color 0 0 0 0.5))
-   (camera
-      (lines 5)
-      (showing FALSE)
-      (color 0 0 0 0.5))
-   (char_status
-      (lines 4)
-      (showing FALSE))
-   (eye_status
-      (lines 4)
-      (showing FALSE))
-   (score
-      (lines 15)
-      (showing FALSE))
-   (score_debug
-      (lines 1)
-      (showing FALSE))
-   (lights
-      (lines 1)
-      (showing FALSE))
-   (camtest
-      (lines 1)
-      (showing FALSE))
-   (latency
-      (lines 2)
-      (showing FALSE))
-   (network
-      (lines 10)
-      (showing FALSE)))
-(timer_script
-   {set_timer_ms
-      everything_else_cpu
-      {-
-         {-
-            {-
-               {-
-                  {-
-                     {-
-                        {-
-                           {timer_ms cpu}
-                           {timer_ms world}}
-                        {timer_ms hud_track}}
-                     {timer_ms debug}}
-                  {timer_ms synth_poll}}
-               {timer_ms net_poll}}
-            {timer_ms game_poll}}
-         {timer_ms system_poll}}}
-   {set_timer_ms
-      game_etc
-      {-
-         {-
-            {-
-               {timer_ms cpu}
-               {timer_ms world}}
-            {timer_ms hud_track}}
-         {timer_ms debug}}}
-   {switch
-      {rnd last_proc_cmds}
-      (kProcessPost
-         {set
-            $world_postproc
-            {timer_ms world}}
-         {set
-            $cpu_postproc
-            {timer_ms cpu}}
-         {set
-            $gs_postproc
-            {timer_ms gs}})
-      (kProcessWorld
-         {set
-            $world_regular
-            {timer_ms world}}
-         {set
-            $cpu_regular
-            {timer_ms cpu}}
-         {set
-            $gs_regular
-            {timer_ms gs}})
-      (kProcessAll
-         {set $world_postproc 0}
-         {set $cpu_postproc 0}
-         {set $gs_postproc 0}
-         {set
-            $world_regular
-            {timer_ms world}}
-         {set
-            $cpu_regular
-            {timer_ms cpu}}
-         {set
-            $gs_regular
-            {timer_ms gs}})}
-   {set_timer_ms world_postproc $world_postproc}
-   {set_timer_ms cpu_postproc $cpu_postproc}
-   {set_timer_ms gs_postproc $gs_postproc}
-   {set_timer_ms world_regular $world_regular}
-   {set_timer_ms cpu_regular $cpu_regular}
-   {set_timer_ms gs_regular $gs_regular})
-(text_superscript_scale 0.42))
+   #include rnd.dta)
+#ifdef HX_PS3
+(store
+   #include store.dta)
+#endif
 (ui
    #include ../ui/ui.dta)
+#ifdef HX_PS3
+(attract
+   #include attract.dta)
+(net
+   #include net.dta)
+#endif
 (objects
-   #merge ../ui/ui_objects.dta
-   #include ..\config\macros.dta
-(PostProc
-   (editor
-      (emulate_fps
-         float
-         (range 0.0 30.0)))
-   (types
-      (band
-         (editor
-            (shows
-               (array
-                  object
-                  (class Draw))
-               (help
-                  "objects to show"))
-            (hides
-               (array
-                  object
-                  (class Draw))
-               (help
-                  "objects to hide"))
-            (anims
-               (array
-                  object
-                  (class Anim))
-               (help
-                  "animations to fire")))
-         (shows
-            ())
-         (hides
-            ())
-         (anims
-            ())
-         (selected
-            {foreach
-               $o
-               [shows]
-               {if
-                  {exists $o}
-                  {$o set_showing TRUE}}}
-            {foreach
-               $o
-               [hides]
-               {if
-                  {exists $o}
-                  {$o set_showing FALSE}}}
-            {foreach
-               $o
-               [anims]
-               {if
-                  {exists $o}
-                  {$o animate}}})
-         (unselected
-            {foreach
-               $o
-               [shows]
-               {if
-                  {exists $o}
-                  {$o set_showing FALSE}}}
-            {foreach
-               $o
-               [hides]
-               {if
-                  {exists $o}
-                  {$o set_showing TRUE}}}
-            {foreach
-               $o
-               [anims]
-               {if
-                  {exists $o}
-                  {$o stop_animation}}}))))
-(Mat
-   (types
-      (dreamscape_switch
-         (dreamscape_diffuse '')
-         (dreamscape_norm '')
-         (dreamscape_specular '')
-         (saved_diffuse '')
-         (saved_norm '')
-         (saved_specular '')
-         (in_dreamscape FALSE)
-         (editor
-            (dreamscape_diffuse
-               object
-               (class Tex)
-               (help
-                  "Switch to this diffuse texture on entering dreamscape"))
-            (dreamscape_norm
-               object
-               (class Tex)
-               (help
-                  "Switch to this normal map on entering dreamscape"))
-            (dreamscape_specular
-               object
-               (class Tex)
-               (help
-                  "Switch to this specular texture on entering dreamscape")))))))
+   #include objects.dta)
 (locale ../ui/locale/eng/locale.dta)
-(quick_cheats)
-(long_cheats)
-(sound
-   (banks
-   (common sfx/common_bank.milo)
-   (meta sfx/metagame_bank.milo)
-   (story sfx/story_bank.milo)
-   (shell sfx/shell_transition_bank.milo))
-(instruments
-   (chamberlin midiinstruments/chamberlin.milo))
-(crowd_reactions TRUE)
-(karaoke_db_offset -6)
-(realistic_mode_venues shea sullivan)
-(realistic_mode_db_offset -5)
-(slider -5.5 -5 -4.5 -4 -3.5 -3 -2.5 -2 -1.5 -1 -0.5 0)
-(slider_smallrange -5.5 -5 -4.5 -4 -3.5 -3 -2.5 -2 -1.5 -1 -0.5 0)
-(slider_voicechat -96 -14 -12 -10 -8 -6 -4 -2 0 2 4 6)
-(ratio_sliders
-   #ifdef HX_XBOX
-   (generic_usb
-      (1.0e-4 0.0)
-      (1.0e-3 0.0)
-      (1.0e-2 0.0)
-      (0.1 0.0)
-      (0.225 0.0)
-      (0.25 0.0)
-      (0.275 0.0)
-      (0.3 0.0)
-      (0.4 0.0)
-      (0.5 0.0)
-      (0.7 0.0)
-      (1.0 0.0))
-   (rb1_logitech_usb
-      (1.0e-4 0.0)
-      (1.0e-3 0.0)
-      (1.0e-2 0.0)
-      (0.1 0.0)
-      (0.225 0.0)
-      (0.25 0.0)
-      (0.275 0.0)
-      (0.3 0.0)
-      (0.4 0.0)
-      (0.5 0.0)
-      (0.7 0.0)
-      (1.0 0.0))
-   (rb2_logitech_usb
-      (1.0e-4 0.0)
-      (1.0e-3 0.0)
-      (1.0e-2 0.0)
-      (0.1 0.0)
-      (0.225 0.0)
-      (0.25 0.0)
-      (0.275 0.0)
-      (0.3 0.0)
-      (0.4 0.0)
-      (0.5 0.0)
-      (0.7 0.0)
-      (1.0 0.0))
-   (lips_wireless
-      (1.0e-2 0.0)
-      (2.0e-2 0.0)
-      (2.2e-2 0.0)
-      (3.0e-2 0.0)
-      (8.0e-2 0.0)
-      (8.5e-2 0.0)
-      (8.7e-2 0.0)
-      (0.12 0.0)
-      (0.16 0.0)
-      (0.2 0.0)
-      (0.4 0.0)
-      (0.6 0.0))
-   #endif
-   #ifdef HX_PS3
-   (generic_usb
-      (0.0 0.0)
-      (0.0 0.0)
-      (1.0 0.0)
-      (1.0 0.0)
-      (2.0 0.0)
-      (2.0 0.0)
-      (3.0 0.0)
-      (3.0 0.0)
-      (4.0 0.0)
-      (4.0 0.0)
-      (5.0 0.0)
-      (5.0 0.0))
-   (generic_bluetooth
-      (0.0 0.0)
-      (0.0 0.0)
-      (1.0 0.0)
-      (1.0 0.0)
-      (2.0 0.0)
-      (2.0 0.0)
-      (3.0 0.0)
-      (3.0 0.0)
-      (4.0 0.0)
-      (4.0 0.0)
-      (5.0 0.0)
-      (5.0 0.0))
-   (rb1_logitech_usb
-      (0.0 0.0)
-      (0.0 0.6)
-      (0.0 1.2)
-      (0.0 1.8)
-      (1.0 0.0)
-      (1.0 1.2)
-      (2.0 0.0)
-      (2.0 1.0)
-      (2.0 2.0)
-      (3.0 -2.0)
-      (3.0 0.0)
-      (4.0 0.0))
-   (pdp_usb
-      (0.0 4.0)
-      (0.0 5.0)
-      (1.0 2.5)
-      (1.0 5.0)
-      (2.0 0.0)
-      (2.0 1.5)
-      (3.0 0.0)
-      (3.0 1.0)
-      (3.0 4.0)
-      (4.0 0.0)
-      (4.0 2.0)
-      (4.0 2.0))
-   (singstar_usb
-      (3.0 0.0)
-      (3.0 1.0)
-      (3.0 2.0)
-      (3.0 3.0)
-      (3.0 4.0)
-      (3.0 5.0)
-      (3.0 6.0)
-      (4.0 0.0)
-      (4.0 2.0)
-      (4.0 4.0)
-      (4.0 6.0)
-      (5.0 0.0))
-   (singstar_wireless
-      (3.0 0.0)
-      (3.0 2.0)
-      (3.0 3.0)
-      (3.0 3.5)
-      (3.0 4.0)
-      (3.0 5.0)
-      (3.0 8.0)
-      (4.0 1.0)
-      (4.0 2.0)
-      (4.0 2.5)
-      (4.0 3.0)
-      (5.0 0.0))
-   #endif)
-(tutorial
-   (streaming_vo
-      (volume -3.0)
-      (dir ui/tutorial/streams)
-      (events)))
-(drum_trainer
-   (streaming_vo
-      (volume -3.0)
-      (dir ui/drum_trainer/streams)
-      (events)))
+#ifdef HX_PS3
+(venues VENUES)
 (song_select
-   (loop_forever TRUE)
-   (fade_time 0.5)
-   (attenuation 15))
-(am_radio
-   (high_frequency 6000.0)
-   (high_gain -10.0)
-   (low_frequency 400.0)
-   (low_gain -10.0)))
-(videos)
+   (alpha_shortcuts 123 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z))
+(song_groupings
+   (rank
+      ((drum generic_tier1)
+         (guitar generic_tier1)
+         (bass generic_tier1)
+         (vocals generic_tier1)
+         (band generic_tier1))
+      ((drum generic_tier2)
+         (guitar generic_tier2)
+         (bass generic_tier2)
+         (vocals generic_tier2)
+         (band generic_tier2))
+      ((drum generic_tier3)
+         (guitar generic_tier3)
+         (bass generic_tier3)
+         (vocals generic_tier3)
+         (band generic_tier3))
+      ((drum generic_tier4)
+         (guitar generic_tier4)
+         (bass generic_tier4)
+         (vocals generic_tier4)
+         (band generic_tier4))
+      ((drum generic_tier6)
+         (guitar generic_tier6)
+         (bass generic_tier6)
+         (vocals generic_tier6)
+         (band generic_tier6))
+      ((drum generic_tier8)
+         (guitar generic_tier8)
+         (bass generic_tier8)
+         (vocals generic_tier8)
+         (band generic_tier8))
+      ((drum generic_tier9)
+         (guitar generic_tier9)
+         (bass generic_tier9)
+         (vocals generic_tier9)
+         (band generic_tier9))))
+#endif
+(quick_cheats
+   #include cheats.dta)
+(long_cheats
+   #include long_cheats.dta)
+#ifdef HX_PS3
+(beatmatcher
+   #include beatmatcher.dta)
+(game
+   #include game.dta)
+(modes
+   #include modes.dta)
+(player
+   #include player.dta)
+(scoring
+   #include scoring.dta)
+(achievements
+   #include achievements.dta)
+(track_graphics
+   #include track_graphics.dta)
+(sound
+   #include sound.dta)
+(story
+   #include story.dta)
+(main_menu
+   #include main_menu.dta)
+(accomplishments
+   #include accomplishments.dta)
+(accomplishment_rewards
+   #include accomplishment_rewards.dta)
+(hud
+   (crowd_meter
+      (speed 0.9))
+   (star_meter
+      (speed 0.9))
+   (lead_meter
+      (max_lead 10000))
+   (message_show_time 2.5)
+   (sp_deploy_msg_delay 1.5)
+   (sp_deploy_repeat_delay 7))
+(tips
+   #include tips.dta)
+(videos
+   #include videos.dta)
+#include voiceovers.dta
+#include loading_screens.dta
+(helpbar
+   (widgets
+      ((confirm 2 FALSE)
+         (cancel 0 FALSE)
+         (state_confirm 1 TRUE)
+         (option 2 FALSE)
+         (option1 2 FALSE)
+         (option2 0 FALSE)
+         (view_modify 1 TRUE)
+         (waiting 3 TRUE)))
+   (height_grp
+      "height.grp")
+   (bar_fade_grp
+      "bar_fade.grp")
+   (drum_icon_width 18)
+   (vocal_icon_width 18)
+   (guitar_icon_width 20)
+   (label_space 0)
+   (anim_speed 5)
+   (switch_frames 50))
+(instrument_icons
+   (guitar
+      "G"
+      "g"
+      "U"
+      "u")
+   (bass
+      "B"
+      "b"
+      "A"
+      "a")
+   (drum
+      "D"
+      "d"
+      "R"
+      "r")
+   (vocals
+      "V"
+      "v"
+      "O"
+      "o")
+   (harmony_2
+      "2"
+      "4"
+      "@"
+      "$")
+   (harmony_3
+      "3"
+      "5"
+      "#"
+      "%"))
+#else
+(sound
+   #include sound.dta)
+(videos
+   #include videos.dta)
+#endif
 (generate_wavdata FALSE)
 (vocal_score_song FALSE)
 #merge ../../../system/run/config/default.dta

@@ -231,7 +231,7 @@
    )
    LIST_RESET_HANDLER ;apply the list reset definition to this panel
    (SELECT_MSG ;when something is selected. add in all rb1, rb2, and lrb results here
-      {demo_launcher_panel forward_sfx} ;play confirmation tone
+      #ifdef HX_XBOX {demo_launcher_panel forward_sfx} #endif ;play confirmation tone
       {switch {$component selected_sym}
          (mod_songtitlestats
             {set $mod_songtitlestats {! $mod_songtitlestats}}
@@ -297,11 +297,11 @@
       LIST_HANDLER ;run our list reset routine after any result is selected
    )
    (SCROLL_MSG
-      {demo_launcher_panel scroll_sfx} ;play scroll tone
+      #ifdef HX_XBOX {demo_launcher_panel scroll_sfx} #endif ;play scroll tone
    )
    (BUTTON_DOWN_MSG
       {if {== $action kAction_Cancel}
-         {demo_launcher_panel back_sfx} ;play back tone
+         #ifdef HX_XBOX {demo_launcher_panel back_sfx} #endif ;play back tone
          {demo_launcher_panel toggle_focus} ;flip the bottom background panel back to tbrb since we switched to rb2 on enter
          {ui pop_screen} ;leave the current screen
          {overshell_main_panel set_showing TRUE} ;show the main overshell panel again because we hid it on panel enter

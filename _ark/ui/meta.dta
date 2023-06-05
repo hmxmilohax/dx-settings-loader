@@ -50,3 +50,107 @@
       {set
          [playing_post_set]
          $play})}
+#define COMMON_DIALOG_PANEL_HANDLERS
+((set_custom
+      ($msg $opt1 $opt2 $focus)
+      {dialog_title.lbl set_showing FALSE}
+      {msg.lbl set_token_fmt $msg}
+      {opt1.btn set_token_fmt $opt1}
+      {opt2.btn set_token_fmt $opt2}
+      {opt1.btn set_showing TRUE}
+      {opt2.btn set_showing TRUE}
+      {yes.btn set_showing FALSE}
+      {no.btn set_showing FALSE}
+      {ok.btn set_showing FALSE}
+      {helpbar
+         set_config
+         ((confirm helpbar_select))
+         FALSE}
+      {$this set_focus $focus})
+   (set_yesno
+      ($msg $focus)
+      {dialog_title.lbl set_showing FALSE}
+      {msg.lbl set_token_fmt $msg}
+      {opt1.btn set_showing FALSE}
+      {opt2.btn set_showing FALSE}
+      {yes.btn set_showing TRUE}
+      {no.btn set_showing TRUE}
+      {ok.btn set_showing FALSE}
+      {helpbar
+         set_config
+         ((confirm helpbar_select))
+         FALSE}
+      {$this set_focus $focus})
+   (set_ok
+      ($msg)
+      {dialog_title.lbl set_showing FALSE}
+      {msg.lbl set_token_fmt $msg}
+      {opt1.btn set_showing FALSE}
+      {opt2.btn set_showing FALSE}
+      {yes.btn set_showing FALSE}
+      {no.btn set_showing FALSE}
+      {ok.btn set_showing TRUE}
+      {helpbar
+         set_config
+         ((confirm helpbar_confirm))
+         FALSE}
+      {$this set_focus ok.btn})
+   (set_msg
+      ($msg)
+      {dialog_title.lbl set_showing FALSE}
+      {msg.lbl set_token_fmt $msg}
+      {msg.lbl set_showing TRUE}
+      {opt1.btn set_showing FALSE}
+      {opt2.btn set_showing FALSE}
+      {yes.btn set_showing FALSE}
+      {no.btn set_showing FALSE}
+      {ok.btn set_showing FALSE}
+      {helpbar
+         set_config
+         ()}
+      {$this set_focus msg.lbl})
+   (set_title
+      ($msg)
+      {dialog_title.lbl set_showing TRUE}
+      {dialog_title.lbl set_token_fmt $msg}))
+#ifdef HX_PS3
+{new
+   UIPanel
+   dialog_panel
+   COMMON_DIALOG_PANEL_HANDLERS
+   (file
+      "dialog.milo")}
+{new
+   EventDialogPanel
+   event_dialog_panel
+   (file
+      "event_dialog.milo")}
+{new
+   NetworkBusyPanel
+   network_busy_panel
+   (file
+      "network_busy.milo")
+   (min_duration 1000)}
+{new
+   ContentLoadingPanel
+   content_loading_panel
+   (file content_loading.milo)}
+{new
+   PassiveMessagesPanel
+   passive_messages_panel
+   (file
+      "passive_messages.milo")
+   (msg_duration 6000)}
+{new
+   HelpBarPanel
+   helpbar
+   (switch_frames 240)
+   (fade_anim_speed 5)
+   (file
+      "helpbar.milo")
+   (TRANSITION_COMPLETE_MSG
+      {if
+         {!
+            {position.anim is_animating}}
+         {start_light.trg trigger}})}
+#endif

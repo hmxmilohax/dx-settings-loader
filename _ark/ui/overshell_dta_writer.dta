@@ -1,6 +1,6 @@
 #define INIT_DTA_WRITER
 (
-   {write_file #ifdef HX_XBOX "GAME:/dx.dta" #endif #ifdef HX_PS3 "GD:/dev_hdd0/game/BLUS30050/USRDIR/dx.dta" #endif
+   {write_file #ifdef HX_XBOX "GAME:/dx.dta" #endif #ifdef HX_PS3 "GD:/dev_hdd0/game/BLUS30463/USRDIR/dx.dta" #endif
       {array
         (
             (mic_vols

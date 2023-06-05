@@ -18,13 +18,13 @@
    (focus sel_section.lst)
    (enter
       {set $simpledx 0}
-      {sel_section.lst set_data ({if_else {file_exists "GAME:/default.xex"} "os_launchgame" "os_nogame"} os_writefile os_universal os_rb1dx os_rb2dx os_rb3dx os_lrbdx os_tbrbdx os_gdrbdx)}
+      {sel_section.lst set_data (#ifdef HX_XBOX {if_else {file_exists "GAME:/default.xex"} "os_launchgame" "os_nogame"} #endif os_writefile os_universal os_rb1dx os_rb2dx os_rb3dx os_lrbdx os_tbrbdx os_gdrbdx)}
       {title.lbl set text_token os_dxsettings}
       {$this pause_if_local}
-      {unless {file_exists "GAME:/dx.dta"} {ui push_screen welcome_warning_screen}})
+      {unless {file_exists #ifdef HX_XBOX "GAME:/dx.dta" #endif #ifdef HX_PS3 "GD:/dev_hdd0/game/BLUS30463/USRDIR/dx.dta" #endif} {ui push_screen welcome_warning_screen}})
    (exit)
    (SELECT_MSG
-      {demo_launcher_panel forward_sfx}
+      #ifdef HX_XBOX {demo_launcher_panel forward_sfx} #endif
       {switch {$component selected_sym}
          (os_launchgame
             {if_else {|| {&& {file_exists "GAME:/gen/main_xbox.hdr"} {file_exists "GAME:/gen/main_xbox_0.ark"}}
@@ -66,7 +66,7 @@
          )
          (os_writefile
             INIT_DTA_WRITER
-            {if_else {file_exists "GAME:/dx.dta"}
+            {if_else {file_exists #ifdef HX_XBOX "GAME:/dx.dta" #endif #ifdef HX_PS3 "GD:/dev_hdd0/game/BLUS30463/USRDIR/dx.dta" #endif}
                {ui push_screen dxdta_success_screen}
                {ui push_screen dxdta_warning_screen}
             }
@@ -78,7 +78,7 @@
    )
    (SCROLL_MSG
       {set $simpledx 0}
-      {demo_launcher_panel scroll_sfx}
+      #ifdef HX_XBOX {demo_launcher_panel scroll_sfx} #endif
    )
 }
 {new
@@ -126,7 +126,7 @@
       }
    )
    (SELECT_MSG
-      {demo_launcher_panel forward_sfx}
+      #ifdef HX_XBOX {demo_launcher_panel forward_sfx} #endif
       {switch {$component selected_sym}
          (os_spd
             {ui push_screen options_milo_screen}
@@ -189,11 +189,11 @@
       UNIVERSAL_LIST_HANDLER
    )
    (SCROLL_MSG
-      {demo_launcher_panel scroll_sfx}
+      #ifdef HX_XBOX {demo_launcher_panel scroll_sfx} #endif
    )
    (BUTTON_DOWN_MSG
       {if {== $action kAction_Cancel}
-         {demo_launcher_panel back_sfx}
+         #ifdef HX_XBOX {demo_launcher_panel back_sfx} #endif
          {ui pop_screen}
       }
       kDataUnhandled
