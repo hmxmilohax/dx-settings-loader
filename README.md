@@ -6,8 +6,6 @@
 
 ### DXSL is an on-console application for generating dx.dta files for [MiloHax](https://github.com/hmxmilohax)'s Rock Band Deluxe modifications
 
-*NOTE: while there is a [PS3 version](https://github.com/hmxmilohax/dx-settings-loader/tree/ps3_merge), backing from a submenu currently causes a crash, and as such, using it is not currently recommended.*
-
 # Table of Contents
 - [Features](#features)
 - [What You'll Need](#what-youll-need)
@@ -17,12 +15,9 @@
 
 In it's current state, DXSL can generate dx.dta files for the following games:
 * [Rock Band 2 DX](https://github.com/hmxmilohax/rock-band-2-deluxe)
-* [Rock Band 3 DX](https://github.com/hmxmilohax/rock-band-3-deluxe)
 * and [LEGO Rock Band DX](https://github.com/hmxmilohax/lego-rock-band-deluxe)
 
 Additionally, DXSL can save universal settings that are shared between each game.
-
-In the future, DXSL will be able to generate dx.dta files for [The Beatles Rock Band DX](https://github.com/hmxmilohax/beatles-rock-band-deluxe) and [Green Day Rock Band DX](https://github.com/hmxmilohax/greenday-rock-band-deluxe).
 
 # What You'll Need
 
