@@ -47,25 +47,6 @@
 (os_tbrbdx "The Beatles Rock Band DX")
 (os_gdrbdx "Green Day Rock Band DX")
 (os_universal "Universal Settings")
-(mod_videobg "Video Backgrounds : ON")
-(mod_xboxos "Xbox Overshell Color : ON")
-(mod_rb2ui "Rock Band 2 UI : ON")
-(mod_rb2trk "Rock Band 2 Track : ON")
-(mod_rb4ui "Rock Band 4 UI : ON")
-(mod_rb4trk "Rock Band 4 Track : ON")
-(mod_fakebrutal "Brutal Mode : ON")
-(mod_nobre "Disable BRE's : ON")
-(mod_practiceoverdrive "OD in Practice : ON")
-(mod_nolanes "No Lanes : ON")
-(mod_rb4lanes "RB4 Lanes : ON")
-(mod_nomv "No Music Videos : ON")
-(mod_blackmenu "No Menu Backgrounds : ON")
-(mod_starlightsmashers "Galaxy Frets : ON")
-(mod_shinysmashers "Shiny Frets : ON")
-(mod_animatedgems "Animated Gems : ON")
-(mod_animatedhighway "Animated Highway : ON")
-(mod_ps3os "PS3 Overshell Color : ON")
-(mod_wiios "Wii Overshell Color : ON")
 (os_lostthexex "It appears DX Settings Loader cannot detect another game to load. In order to boot into another game, you must place dx-settings-loader.xex and its gen folder next to the xex you want to launch.")
 (os_lostthegame "It appears you have not installed the base game files. In order to launch the game, you must find your own copy of the base game, and extract the \qgen\q folder into your current game folder. The game cannot run without the base game files.")
 (os_welcome "Welcome to DX Settings Loader. Here you can create a \qdx.dta\q file for use in Rock Band Deluxe projects. Simply navigate through the menus and choose your desired default settings, and choose \q[SAVE SETTINGS]\q from the main menu. If everything is installed properly, you can even boot directly into Deluxe. Consult the readme for each game on GitHub for more information.")
@@ -88,8 +69,8 @@
 (mod_blackvenue_off "Black Background: OFF")
 (mod_songtitle "Song Title Always: ON")
 (mod_songtitle_off "Song Title Always: OFF")
-(mod_songtitlestats "Detailed Song Title: ON")
-(mod_songtitlestats_off "Detailed Song Title: OFF")
+(mod_songtitlestats "Detailed Song Info: ON")
+(mod_songtitlestats_off "Detailed Song Info: OFF")
 (mod_staticfills "Legacy Drum Fills: ON")
 (mod_staticfills_off "Legacy Drum Fills: OFF")
 (mod_mididrum "Midi Drum Bass Kick Fix: ON")
@@ -140,45 +121,3 @@
 
 (colrsliderlbl "Note Colors")
 (os_gems "Note Colors")
-
-(mod_fakejuke 
-   "Jukebox Mode : ON")
-(mod_flashbang 
-   "Firework Gems : ON")
-(mod_rb3sustain "RB3 Sustain Tails : ON")
-(mod_legacybass
-   "Legacy Bass Streak : ON")
-(mod_vocalgender
-   "Don't Force Vocal Gender : ON")
-(mod_paddrum "Pad is Drum : ON") ;paddrum shit
-(mod_mididrum
-   "Midi Drum Bass Kick Fix : ON")
-(mod_freestyledrums
-   "Freestyle Drums : ON")
-(mod_songtitlestats
-   "Detailed Song Title : ON")
-
-(mod_fakejuke_off
-   "Jukebox Mode : OFF")
-(mod_flashbang_off
-   "Firework Gems : OFF")
-(mod_rb3sustain_off "RB3 Sustain Tails : OFF")
-(mod_legacybass_off
-   "Legacy Bass Streak : OFF")
-(mod_vocalgender_off
-   "Don't Force Vocal Gender : OFF")
-(mod_paddrum_off "Pad is Drum : OFF") ;paddrum shit
-(mod_mididrum_off
-   "Midi Drum Bass Kick Fix : OFF")
-(mod_freestyledrums_off
-   "Freestyle Drums : OFF")
-(mod_songtitlestats_off
-   "Detailed Song Title : OFF")
-(mod_doublespeed
-   "Breakneck Speed : ON")
-(mod_doublespeed_off
-   "Breakneck Speed : OFF")
-(mod_fcclip
-   "Disable FC Sound : ON")
-(mod_fcclip_off
-   "Disable FC Sound : OFF")
