@@ -18,6 +18,9 @@
             (gem_texture
                (gem_texture $gem)
             )
+            (smasher_texture
+               (smasher_texture $smasher)
+            )
             (streak_texture
                (streak_texture $streak)
             )
@@ -32,6 +35,9 @@
             )
             (rails_texture
                (rails_texture $rails)
+            )
+            (flames_texture
+               (flames_texture $flames)
             )
             (score_texture
                (score_texture $scoretex)

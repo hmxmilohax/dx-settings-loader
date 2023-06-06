@@ -47,6 +47,9 @@
 ;rails texture
 {set $rails "none"}
 
+;flames texture
+{set $flames "none"}
+
 ;score texture
 {set $scoretex "rb4"}
 
@@ -134,6 +137,11 @@
       {if {== {elem $entry 0} {basename rails_texture}}
          {set $rails
             {elem {find $entry rails_texture} 1}
+         }
+      }
+      {if {== {elem $entry 0} {basename flames_texture}}
+         {set $flames
+            {elem {find $entry flames_texture} 1}
          }
       }
       {if {== {elem $entry 0} {basename score_texture}}
