@@ -42,11 +42,11 @@
 (
    (
    ;   os_lrbang
-      {if_else $mod_nofail mod_nofail mod_nofail_off}
-      {if_else $mod_doublespeed mod_doublespeed mod_doublespeed_off}
+   ;   {if_else $mod_nofail mod_nofail mod_nofail_off}
+   ;   {if_else $mod_doublespeed mod_doublespeed mod_doublespeed_off}
       {if_else $mod_nohud mod_nohud mod_nohud_off}
-      {if_else $mod_newvenuesonly mod_newvenuesonly mod_newvenuesonly_off}
-      {if_else $mod_awesome mod_awesome mod_awesome_off}
+   ;   {if_else $mod_newvenuesonly mod_newvenuesonly mod_newvenuesonly_off}
+   ;   {if_else $mod_awesome mod_awesome mod_awesome_off}
       {if_else $mod_blackvenue mod_blackvenue mod_blackvenue_off}
       {if_else $mod_songtitle mod_songtitle mod_songtitle_off}
       {if_else $mod_songtitlestats mod_songtitlestats mod_songtitlestats_off}
@@ -54,14 +54,14 @@
       {if_else $mod_mididrum mod_mididrum mod_mididrum_off}
       {if_else $mod_padguitar mod_padguitar mod_padguitar_off}
       {if_else $mod_paddrum mod_paddrum mod_paddrum_off}
-      {if_else $mod_selectdeploy mod_selectdeploy mod_selectdeploy_off}
+   ;   {if_else $mod_selectdeploy mod_selectdeploy mod_selectdeploy_off}
       {if_else $mod_noquickrestart mod_noquickrestart mod_noquickrestart_off}
       {if_else $mod_vocalgender mod_vocalgender mod_vocalgender_off}
       {if_else $mod_legacybass mod_legacybass mod_legacybass_off}
       {if_else $mod_nosustain mod_nosustain mod_nosustain_off}
       {if_else $mod_rb3sustain mod_rb3sustain mod_rb3sustain_off}
       {if_else $mod_nowhammyfx mod_nowhammyfx mod_nowhammyfx_off}
-      {if_else $mod_gemdivider mod_gemdivider mod_gemdivider_off}
+   ;   {if_else $mod_gemdivider mod_gemdivider mod_gemdivider_off}
       {if_else $mod_nocrowd mod_nocrowd mod_nocrowd_off}
       {if_else $mod_nomuting mod_nomuting mod_nomuting_off}
       {if_else $mod_noflames mod_noflames mod_noflames_off}
