@@ -28,10 +28,11 @@
    "MIC 2: ")
 (mic_vol_3_msg
    "MIC 3: ")
+(os_blnk " ")
 (os_dxsettings "DELUXE SETTINGS")
 (os_launchgame "[Launch Game]")
 (os_nogame "x - [No Game Detected]")
-(os_spd "Speed Modifiers")
+(os_spd "Set Speeds")
 (os_micvols "Microphone Volumes")
 (os_vis "Visual Modifiers")
 (os_blackbg1 "Disable Venues: ON")
@@ -72,124 +73,61 @@
 (os_dxdtawritten "Successfully saved Deluxe Settings to DX.dta. You can find it in the game folder, or will be loaded when \q[LAUNCH GAME]\q is selected from the main menu.")
 (os_dxdtaerror "An error occurred while saving Deluxe Settings. If you're on Xenia, check xenia-canary.config.toml and ensure \qallow_game_relative_writes\q is set to \qtrue\q.")
 (os_okay "okay")
-(mod_staticfills
-   "Drum Auto Deploy : ON")
-(mod_songselectnoise
-   "Song Select Ambience : ON")
-(mod_nocrowd
-   "No Crowd : ON")
-(mod_whammyfx "No Whammy FX : ON")
-(mod_nosustain "No Sustain Tails : ON")
-(mod_rb2sustain "RB2 Sustain Tails : ON")
-(mod_ghdrums
-   "GH Drums are Protar : ON")
-(mod_video
-   "Video Backgrounds : ON")
-(mod_rrdrums
-   "RR Drums are Keys : ON")
-(mod_padguitar
-   "Pad is Guitar : ON")
-(mod_auto_play
-   "Autoplay : ON")
-(mod_chmode_short "CH Mode : ON")
-(mod_auto_kick
-   "Auto Kick : ON")
-(mod_black_bg
-   "Black Background : ON")
-(mod_auto_vocals
-   "All Instruments Mode : ON")
-(mod_auto_vocals_off
-   "All Instruments Mode : OFF")
-(mod_noflames
-   "No Flames : ON")
-(mod_songtitle
-   "Song Title Always : ON")
-(mod_doublespeed_1.25x
-   "breakneck speed 1.25x : ON")
-(mod_doublespeed "breakneck speed : ON")
-(mod_stopcrashing "Disable Custom Textures : ON")
-(mod_rb4os "Rock Band 4 Overshell : ON")
-(mod_chmode "Clone Hero Mode : ON")
-(mod_nopart "No Particle Effects : ON")
-(mod_noflares "No Flares : ON")
-(mod_flames "Smoke is Flames : ON")
-(mod_black_background "Black Background : ON")
-(mod_force_hopos "Force HOPOs : ON")
-(mod_mirror_mode "Mirror Mode (Guitar Only) : ON")
-(mod_color_shuffle "Gem Color Shuffle : ON")
-(mod_chord_numbers
-   "Chord Numbering : ON")
-(mod_nohud
-   "Performance Mode : ON")
-(mod_miss_sounds
-   "Miss Sounds : ON")
 
-(mod_videobg_off "Video Backgrounds : OFF")
-(mod_xboxos_off "Xbox Overshell Color : OFF")
-(mod_rb2ui_off "Rock Band 2 UI : OFF")
-(mod_rb2trk_off "Rock Band 2 Track : OFF")
-(mod_rb4ui_off "Rock Band 4 UI : OFF")
-(mod_rb4trk_off "Rock Band 4 Track : OFF")
-(mod_fakebrutal_off "Brutal Mode : OFF")
-(mod_nobre_off "Disable BRE's : OFF")
-(mod_practiceoverdrive_off "OD in Practice : OFF")
-(mod_nolanes_off "No Lanes : OFF")
-(mod_rb4lanes_off "RB4 Lanes : OFF")
-(mod_nomv_off "No Music Videos : OFF")
-(mod_blackmenu_off "No Menu Backgrounds : OFF")
-(mod_starlightsmashers_off "Galaxy Frets : OFF")
-(mod_shinysmashers_off "Shiny Frets : OFF")
-(mod_animatedgems_off "Animated Gems : OFF")
-(mod_animatedhighway_off "Animated Highway : OFF")
-(mod_ps3os_off "PS3 Overshell Color : OFF")
-(mod_wiios_off "Wii Overshell Color : OFF")
-(mod_staticfills_off
-   "Drum Auto Deploy : OFF")
-(mod_songselectnoise_off
-   "Song Select Ambience : OFF")
-(mod_nocrowd_off
-   "No Crowd : OFF")
-(mod_whammyfx_off "No Whammy FX : OFF")
-(mod_nosustain_off "No Sustain Tails : OFF")
-(mod_rb2sustain_off "RB2 Sustain Tails : OFF")
-(mod_ghdrums_off
-   "GH Drums are Protar : OFF")
-(mod_video_off
-   "Video Backgrounds : OFF")
-(mod_rrdrums_off
-   "RR Drums are Keys : OFF")
-(mod_padguitar_off
-   "Pad is Guitar : OFF")
-(mod_auto_play_off
-   "Autoplay : OFF")
-(mod_chmode_short_off "CH Mode : OFF")
-(mod_auto_kick_off
-   "Auto Kick : OFF")
-(mod_black_bg_off
-   "Black Background : OFF")
-(mod_noflames_off
-   "No Flames : OFF")
-(mod_songtitle_off
-   "Song Title Always : OFF")
-(mod_doublespeed_1.25x_off
-   "breakneck speed 1.25x : OFF")
-(mod_doublespeed_off "breakneck speed : OFF")
-(mod_stopcrashing_off "Disable Custom Textures : OFF")
-(mod_rb4os_off "Rock Band 4 Overshell : OFF")
-(mod_chmode_off "Clone Hero Mode : OFF")
-(mod_nopart_off "No Particle Effects : OFF")
-(mod_noflares_off "No Flares : OFF")
-(mod_flames_off "Smoke is Flames : OFF")
-(mod_black_background_off "Black Background : OFF")
-(mod_force_hopos_off "Force HOPOs : OFF")
-(mod_mirror_mode_off "Mirror Mode (Guitar Only) : OFF")
-(mod_color_shuffle_off "Gem Color Shuffle : OFF")
-(mod_chord_numbers_off
-   "Chord Numbering : OFF")
-(mod_nohud_off
-   "Performance Mode : OFF")
-(mod_miss_sounds_off
-   "Miss Sounds : OFF")
+(mod_nofail "No Fail Mode: ON")
+(mod_nofail_off "No Fail Mode: OFF")
+(mod_doublespeed "Breakneck Speed: ON")
+(mod_doublespeed_off "Breakneck Speed: OFF")
+(mod_nohud "Performance Mode: ON")
+(mod_nohud_off "Performance Mode: OFF")
+(mod_newvenuesonly "New Venues Only: ON")
+(mod_newvenuesonly_off "New Venues Only: OFF")
+(mod_awesome "Awesomeness Detection: ON")
+(mod_awesome_off "Awesomeness Detection: OFF")
+(mod_blackvenue "Black Background: ON")
+(mod_blackvenue_off "Black Background: OFF")
+(mod_songtitle "Song Title Always: ON")
+(mod_songtitle_off "Song Title Always: OFF")
+(mod_songtitlestats "Detailed Song Title: ON")
+(mod_songtitlestats_off "Detailed Song Title: OFF")
+(mod_staticfills "Legacy Drum Fills: ON")
+(mod_staticfills_off "Legacy Drum Fills: OFF")
+(mod_mididrum "Midi Drum Bass Kick Fix: ON")
+(mod_mididrum_off "Midi Drum Bass Kick Fix: Off")
+(mod_padguitar "Pad is Guitar: ON")
+(mod_padguitar_off "Pad is Guitar: OFF")
+(mod_paddrum "Pad is Drum: ON")
+(mod_paddrum_off "Pad is Drum: OFF")
+#ifdef HX_PS3
+(mod_selectdeploy "SELECT Button to Deploy: ON")
+(mod_selectdeploy_off "SELECT Button to Deploy: OFF")
+#else
+(mod_selectdeploy "BACK Button to Deploy: ON")
+(mod_selectdeploy_off "BACK Button to Deploy: OFF")
+#endif
+(mod_noquickrestart "No SELECT in Practice: ON")
+(mod_noquickrestart_off "No SELECT in Practice: OFF")
+(mod_vocalgender "Don't Force Vocal Gender: ON")
+(mod_vocalgender_off "Don't Force Vocal Gender: OFF")
+(mod_legacybass "Legacy Streak Behavior: ON")
+(mod_legacybass_off "Legacy Streak Behavior: OFF")
+(mod_nosustain "No Sustain Tails: ON")
+(mod_nosustain_off "No Sustain Tails: OFF")
+(mod_rb3sustain "RB3 Sustain Tails: ON")
+(mod_rb3sustain_off "RB3 Sustain Tails: OFF")
+(mod_nowhammyfx "No Whammy FX: ON")
+(mod_nowhammyfx_off "No Whammy FX: OFF")
+(mod_gemdivider "No Gem Dividers: ON")
+(mod_gemdivider_off "No Gem Dividers: OFF")
+(mod_nocrowd "No Crowd Audio: ON")
+(mod_nocrowd_off "No Crowd Audio: OFF")
+(mod_nomuting "No Track Muting: ON")
+(mod_nomuting_off "No Track Muting: OFF")
+(mod_noflames "No Flames: ON")
+(mod_noflames_off "No Flames: OFF")
+(mod_flashbang "Firework Gems: ON")
+(mod_flashbang_off "Firework Gems: OFF")
+
 (gemcolor_0 "green") ;strings for gem colors and related shit
 (gemcolor_1 "red")
 (gemcolor_2 "yellow")
@@ -197,8 +135,11 @@
 (gemcolor_4 "orange")
 (os_nothing "Check Back Later")
 
-(colrsliderlbl "Gem Colors")
-(os_gems "Gem Colors")
+(os_2dxtrk "Appearance...")
+(os_lrbang "Track Angle")
+
+(colrsliderlbl "Note Colors")
+(os_gems "Note Colors")
 
 (mod_fakejuke 
    "Jukebox Mode : ON")

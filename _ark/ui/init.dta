@@ -10,29 +10,6 @@
 #endif
 {platform_mgr set_notify_ui_location kOSNotifyBottomCenter}
 {set $saveload_skip_upload FALSE}
-;sets default highway. must set variable to TRUE, name your selected texture
-;list can be found in _ark\ui\track\highways\highways.dta
-{set $highway none}
-
-;sets default spotlight (any instrument max multiplier).
-;list can be found in _ark\ui\track\spotlights\spotlights.dta
-{set $spotlight none}
-
-;sets default emissive (in overdrive texture).
-;list can be found in _ark\ui\track\emissives\emissives.dta
-{set $emissive none}
-
-;sets default keyboard track colors.
-;list can be found in _ark\ui\track\keyboards\keyboards.dta
-{set $keyboard none}
-
-;sets default smasher track textures.
-;list can be found in _ark\ui\track\smashers\smashers.dta
-{set $smasher none}
-
-;sets default gem track textures.
-;list can be found in _ark\ui\track\gems\gems.dta
-{set $gem none}
 
 ;sets default track speed. 1.15 is 115%, 1.30 is 130% and so on.
 {set $trackspeed 1.0}
@@ -41,103 +18,57 @@
 {set $speedmod 1.0}
 
 ;set default venue fps.
-{set $emulatefps 30}
+{set $emulatefps 24}
 
-;animated texture name. must have ran "enable_animation.bat" first. current animated highways are
-;rb4_new rb4effect5_color4 rb4effect6_color7 rb4effect4_color1 rb4effect9_color1
-{set $animatedhighwayname none}
+{set $slot1_color 0} ;0 = green, preset colors to GRYBO
+{set $slot2_color 1} ;1 = red
+{set $slot3_color 2} ;2 = yellow
+{set $slot4_color 3} ;3 = blue
+{set $slot5_color 4} ;4 = orange
 
-;animated texture name. must have ran "enable_animation.bat" first. current animated gems are
-;rb4
-{set $animatedgemname none}
+;gem texture
+{set $gem "rb2dx"}
 
-;controls animated texture toggles. must have ran "enable_animation.bat" first. current animated smashers are
-;shiny starlight
-{set $animatedsmashername none}
+;smasher texture
+{set $smasher "rb2dx"}
 
-;chooses which main menu to load, if you dont like the new one, vanilla is "3"
-;valid sv values are 2, 3, 4, 5, 7, 8
-{set $svnumber 8}
+;streak texture
+{set $streak "rb4"}
 
-;set default volumes for mics
-;0-11, default is "8"
-{set $mic_vol_1 8}
-{set $mic_vol_2 8}
-{set $mic_vol_3 8}
+;overdrive texture
+{set $spotlight "rb4"}
 
+;multiplier ring texture
+{set $multiring "rb2dx"}
 
-;set default colors for notes
-;5 is overdrive (white)
-{set $slot1_color 0} ;green
-{set $slot2_color 1} ;red
-{set $slot3_color 2} ;yellow
-{set $slot4_color 3} ;blue
-{set $slot5_color 4} ;orange
+;overdrive bar texture
+{set $odbar "rb2dx"}
 
-;set default colors for frets
-{set $fret1_color 0} ;green
-{set $fret2_color 1} ;red
-{set $fret3_color 2} ;yellow
-{set $fret4_color 3} ;blue
-{set $fret5_color 4} ;orange
+;rails texture
+{set $rails "none"}
 
-;set default colors for sustains
-;5 is overdrive (white)
-{set $sus1_color 0} ;green
-{set $sus2_color 1} ;red
-{set $sus3_color 2} ;yellow
-{set $sus4_color 3} ;blue
-{set $sus5_color 4} ;orange
+;score texture
+{set $scoretex "rb4"}
 
-;set default colors for tom notes
-;4 is overdrive (white)
-{set $drum1_color 0} ;red
-{set $drum2_color 1} ;yellow
-{set $drum3_color 2} ;blue
-{set $drum4_color 3} ;green
+;vocal arrow texture
+{set $voxarrow "rb2dx"}
 
-;set default colors for kick note
-;1 is overdrive (white)
-{set $kick_color 0} ;orange
+;vocal notes texture
+{set $voxnotes "rb2dx"}
 
-;set default colors for cymbal notes
-;4 is overdrive (white)
-{set $cym1_color 0} ;red
-{set $cym2_color 1} ;yellow
-{set $cym3_color 2} ;blue
-{set $cym4_color 3} ;green
+;vocal overdrive texture
+{set $voxod "none"}
 
-;set default colors for drum smashers (frets)
-{set $smasher1_color 0} ;red
-{set $smasher2_color 1} ;yellow
-{set $smasher3_color 2} ;blue
-{set $smasher4_color 3} ;green
+;vocal highway texture
+{set $voxhw "none"}
+
+;track angle presets that closely match the source games
+;available options: "rb2", "rb3", "rb4", "rr" "none"
+{set $anglepreset "rb2"}
 
 #define INIT_DTA_READER
 (
-   {foreach $entry {read_file #ifdef HX_XBOX "GAME:/dx.dta" #endif #ifdef HX_PS3 "GD:/dev_hdd0/game/BLUS30463/USRDIR/dx.dta" #endif}
-      {if {== {elem $entry 0} {basename mic_vols}}
-         {set $mic_vol_1
-            {elem {find $entry mic_vols} 1}
-         }
-         {set $mic_vol_2
-            {elem {find $entry mic_vols} 2}
-         }
-         {set $mic_vol_3
-            {elem {find $entry mic_vols} 3}
-         }
-      }
-      {if {== {elem $entry 0} {basename mtv_position}}
-         {set $mtvpos_0
-            {elem {find $entry mtv_position} 1}
-         }
-         {set $mtvpos_1
-            {elem {find $entry mtv_position} 2}
-         }
-         {set $mtvpos_2
-            {elem {find $entry mtv_position} 3}
-         }
-      }
+   {foreach $entry {read_file #ifdef HX_XBOX "GAME:/dx.dta" #endif #ifdef HX_PS3 "GD:/dev_hdd0/game/BLUS30147/USRDIR/dx.dta" #endif}
       {if {== {elem $entry 0} {basename gem_colors}}
          {set $slot1_color
             {elem {find $entry gem_colors} 1}
@@ -155,97 +86,6 @@
             {elem {find $entry gem_colors} 5}
          }
       }
-      {if {== {elem $entry 0} {basename sustain_colors}}
-         {set $sus1_color
-            {elem {find $entry sustain_colors} 1}
-         }
-         {set $sus2_color
-            {elem {find $entry sustain_colors} 2}
-         }
-         {set $sus3_color
-            {elem {find $entry sustain_colors} 3}
-         }
-         {set $sus4_color
-            {elem {find $entry sustain_colors} 4}
-         }
-         {set $sus5_color
-            {elem {find $entry sustain_colors} 5}
-         }
-      }
-      {if {== {elem $entry 0} {basename smasher_colors}}
-         {set $fret1_color
-            {elem {find $entry smasher_colors} 1}
-         }
-         {set $fret2_color
-            {elem {find $entry smasher_colors} 2}
-         }
-         {set $fret3_color
-            {elem {find $entry smasher_colors} 3}
-         }
-         {set $fret4_color
-            {elem {find $entry smasher_colors} 4}
-         }
-         {set $fret5_color
-            {elem {find $entry smasher_colors} 5}
-         }
-      }
-      {if {== {elem $entry 0} {basename drum_smasher_colors}}
-         {set $smasher1_color
-            {elem {find $entry drum_smasher_colors} 1}
-         }
-         {set $smasher2_color
-            {elem {find $entry drum_smasher_colors} 2}
-         }
-         {set $smasher3_color
-            {elem {find $entry drum_smasher_colors} 3}
-         }
-         {set $smasher4_color
-            {elem {find $entry drum_smasher_colors} 4}
-         }
-      }
-      {if {== {elem $entry 0} {basename drum_tom_colors}}
-         {set $drum1_color
-            {elem {find $entry drum_tom_colors} 1}
-         }
-         {set $drum2_color
-            {elem {find $entry drum_tom_colors} 2}
-         }
-         {set $drum3_color
-            {elem {find $entry drum_tom_colors} 3}
-         }
-         {set $drum4_color
-            {elem {find $entry drum_tom_colors} 4}
-         }
-      }
-      {if {== {elem $entry 0} {basename drum_cymbal_color}}
-         {set $cym1_color
-            {elem {find $entry drum_cymbal_color} 1}
-         }
-         {set $cym2_color
-            {elem {find $entry drum_cymbal_color} 2}
-         }
-         {set $cym3_color
-            {elem {find $entry drum_cymbal_color} 3}
-         }
-         {set $cym4_color
-            {elem {find $entry drum_cymbal_color} 4}
-         }
-      }
-      {if {== {elem $entry 0} {basename kick_color}}
-         {set $kick_color
-            {elem {find $entry kick_color} 1}
-         }
-      }
-      {if {== {elem $entry 0} {basename main_menu_screen}}
-         {set $svnumber
-            {elem {find $entry main_menu_screen} 1}
-         }
-      }
-      {if {== {elem $entry 0} {basename emulate_fps}}
-         {set $emulatefps
-            {elem {find $entry emulate_fps} 1}
-         }
-      }
       {if {== {elem $entry 0} {basename track_speed}}
          {set $trackspeed
             {elem {find $entry track_speed} 1}
@@ -256,19 +96,9 @@
             {elem {find $entry song_speed} 1}
          }
       }
-      {if {== {elem $entry 0} {basename animated_highway_texture}}
-         {set $animatedhighwayname
-            {elem {find $entry animated_highway_texture} 1}
-         }
-      }
-      {if {== {elem $entry 0} {basename animated_gem_texture}}
-         {set $animatedgemname
-            {elem {find $entry animated_gem_texture} 1}
-         }
-      }
-      {if {== {elem $entry 0} {basename animated_smasher_texture}}
-         {set $animatedsmashername
-            {elem {find $entry animated_smasher_texture} 1}
+      {if {== {elem $entry 0} {basename emulate_fps}}
+         {set $emulatefps
+            {elem {find $entry emulate_fps} 1}
          }
       }
       {if {== {elem $entry 0} {basename gem_texture}}
@@ -281,14 +111,9 @@
             {elem {find $entry smasher_texture} 1}
          }
       }
-      {if {== {elem $entry 0} {basename keyboard_texture}}
-         {set $keyboard
-            {elem {find $entry keyboard_texture} 1}
-         }
-      }
-      {if {== {elem $entry 0} {basename emissive_texture}}
-         {set $emissive
-            {elem {find $entry emissive_texture} 1}
+      {if {== {elem $entry 0} {basename streak_texture}}
+         {set $streak
+            {elem {find $entry streak_texture} 1}
          }
       }
       {if {== {elem $entry 0} {basename spotlight_texture}}
@@ -296,227 +121,172 @@
             {elem {find $entry spotlight_texture} 1}
          }
       }
-      {if {== {elem $entry 0} {basename highway_texture}}
-         {set $highway
-            {elem {find $entry highway_texture} 1}
+      {if {== {elem $entry 0} {basename multiring_texture}}
+         {set $multiring
+            {elem {find $entry multiring_texture} 1}
          }
       }
-      {if {== {elem $entry 0} {basename mod_auto_vocals}}
-         {if {== {elem {find $entry mod_auto_vocals} 1} 1}
-            {set $mod_auto_vocals TRUE}
+      {if {== {elem $entry 0} {basename odbar_texture}}
+         {set $odbar
+            {elem {find $entry odbar_texture} 1}
          }
       }
-      {if {== {elem $entry 0} {basename mod_staticfills}}
-         {if {== {elem {find $entry mod_staticfills} 1} 1}
-            {set $mod_staticfills TRUE}
+      {if {== {elem $entry 0} {basename rails_texture}}
+         {set $rails
+            {elem {find $entry rails_texture} 1}
          }
       }
-      {if {== {elem $entry 0} {basename mod_chord_numbers}}
-         {if {== {elem {find $entry mod_chord_numbers} 1} 1}
-            {set $mod_chord_numbers TRUE}
+      {if {== {elem $entry 0} {basename score_texture}}
+         {set $scoretex
+            {elem {find $entry score_texture} 1}
          }
       }
-      {if {== {elem $entry 0} {basename mod_nohud}}
-         {if {== {elem {find $entry mod_nohud} 1} 1}
-            {set $mod_nohud TRUE}
+      {if {== {elem $entry 0} {basename voxarrow_texture}}
+         {set $voxarrow
+            {elem {find $entry voxarrow_texture} 1}
          }
       }
-      {if {== {elem $entry 0} {basename mod_miss_sounds}}
-         {if {== {elem {find $entry mod_miss_sounds} 1} 1}
-            {set $mod_miss_sounds TRUE}
+      {if {== {elem $entry 0} {basename voxnotes_texture}}
+         {set $voxnotes
+            {elem {find $entry voxnotes_texture} 1}
          }
       }
-      {if {== {elem $entry 0} {basename mod_songtitle}}
-         {if {== {elem {find $entry mod_songtitle} 1} 1}
-            {set $mod_songtitle TRUE}
+      {if {== {elem $entry 0} {basename voxod_texture}}
+         {set $voxod
+            {elem {find $entry voxod_texture} 1}
          }
       }
-      {if {== {elem $entry 0} {basename mod_whammyfx}}
-         {if {== {elem {find $entry mod_whammyfx} 1} 1}
-            {set $mod_whammyfx TRUE}
+      {if {== {elem $entry 0} {basename voxhw_texture}}
+         {set $voxhw
+            {elem {find $entry voxhw_texture} 1}
          }
       }
-      {if {== {elem $entry 0} {basename mod_nocrowd}}
-         {if {== {elem {find $entry mod_nocrowd} 1} 1}
-            {set $mod_nocrowd TRUE}
+      {if {== {elem $entry 0} {basename angle_preset}}
+         {set $anglepreset
+            {elem {find $entry angle_preset} 1}
          }
       }
-      {if {== {elem $entry 0} {basename mod_nosustain}}
-         {if {== {elem {find $entry mod_nosustain} 1} 1}
-            {set $mod_nosustain TRUE}
-         }
-      }
-      {if {== {elem $entry 0} {basename mod_rb2sustain}}
-         {if {== {elem {find $entry mod_rb2sustain} 1} 1}
-            {set $mod_rb2sustain TRUE}
-         }
-      }
-      {if {== {elem $entry 0} {basename mod_songselectnoise}}
-         {if {== {elem {find $entry mod_songselectnoise} 1} 1}
-            {set $mod_songselectnoise TRUE}
-         }
-      }
-      {if {== {elem $entry 0} {basename mod_nobre}}
-         {if {== {elem {find $entry mod_nobre} 1} 1}
-            {set $mod_nobre TRUE}
-         }
-      }
-      {if {== {elem $entry 0} {basename mod_practiceoverdrive}}
-         {if {== {elem {find $entry mod_practiceoverdrive} 1} 1}
-            {set $mod_practiceoverdrive TRUE}
-         }
-      }
-      {if {== {elem $entry 0} {basename mod_nolanes}}
-         {if {== {elem {find $entry mod_nolanes} 1} 1}
-            {set $mod_nolanes TRUE}
-         }
-      }
-      {if {== {elem $entry 0} {basename mod_rb4lanes}}
-         {if {== {elem {find $entry mod_rb4lanes} 1} 1}
-            {set $mod_rb4lanes TRUE}
-         }
-      }
-      {if {== {elem $entry 0} {basename mod_chmode}}
-         {if {== {elem {find $entry mod_chmode} 1} 1}
-            {set $mod_chmode TRUE}
-         }
-      }
-      {if {== {elem $entry 0} {basename mod_nomv}}
-         {if {== {elem {find $entry mod_nomv} 1} 1}
-            {set $mod_nomv TRUE}
-         }
-      }
-      {if {== {elem $entry 0} {basename mod_blackmenu}}
-         {if {== {elem {find $entry mod_blackmenu} 1} 1}
-            {set $mod_blackmenu TRUE}
-         }
-      }
-      {if {== {elem $entry 0} {basename mod_noflames}}
-         {if {== {elem {find $entry mod_noflames} 1} 1}
-            {set $mod_noflames TRUE}
-         }
-      }
-      {if {== {elem $entry 0} {basename mod_noflares}}
-         {if {== {elem {find $entry mod_noflares} 1} 1}
-            {set $mod_noflares TRUE}
-         }
-      }
-      {if {== {elem $entry 0} {basename mod_nopart}}
-         {if {== {elem {find $entry mod_nopart} 1} 1}
-            {set $mod_nopart TRUE}
-         }
-      }
-      {if {== {elem $entry 0} {basename mod_rb4trk}}
-         {if {== {elem {find $entry mod_rb4trk} 1} 1}
-            {set $mod_rb4trk TRUE}
-         }
-      }
-      {if {== {elem $entry 0} {basename mod_rb4os}}
-         {if {== {elem {find $entry mod_rb4os} 1} 1}
-            {set $mod_rb4os TRUE}
-         }
-      }
-      {if {== {elem $entry 0} {basename mod_rb2trk}}
-         {if {== {elem {find $entry mod_rb2trk} 1} 1}
-            {set $mod_rb2trk TRUE}
-         }
-      }
-      {if {== {elem $entry 0} {basename mod_xboxos}}
-         {if {== {elem {find $entry mod_xboxos} 1} 1}
-            {set $mod_xboxos TRUE}
-         }
-      }
-      {if {== {elem $entry 0} {basename mod_ps3os}}
-         {if {== {elem {find $entry mod_ps3os} 1} 1}
-            {set $mod_ps3os TRUE}
-         }
-      }
-      {if {== {elem $entry 0} {basename mod_wiios}}
-         {if {== {elem {find $entry mod_wiios} 1} 1}
-            {set $mod_wiios TRUE}
-         }
-      }
-      {if {== {elem $entry 0} {basename mod_rb4ui}}
-         {if {== {elem {find $entry mod_rb4ui} 1} 1}
-            {set $mod_rb4ui TRUE}
-         }
-      }
-      {if {== {elem $entry 0} {basename mod_auto_kick}}
-         {if {== {elem {find $entry mod_auto_kick} 1} 1}
-            {set $mod_auto_kick TRUE}
-         }
-      }
-      {if {== {elem $entry 0} {basename blackbg}}
-         {if {== {elem {find $entry blackbg} 1} 1}
-            {set $blackbg TRUE}
-         }
-      }
-      {if {== {elem $entry 0} {basename mod_songtitlestats}}
-         {if {== {elem {find $entry mod_songtitlestats} 1} 1}
-            {set $mod_songtitlestats TRUE}
-         }
-      }
-      {if {== {elem $entry 0} {basename mod_freestyledrums}}
-         {if {== {elem {find $entry mod_freestyledrums} 1} 1}
-            {set $mod_freestyledrums TRUE}
-         }
-      }
-      {if {== {elem $entry 0} {basename mod_mididrum}}
-         {if {== {elem {find $entry mod_mididrum} 1} 1}
-            {set $mod_mididrum TRUE}
-         }
-      }
-      {if {== {elem $entry 0} {basename mod_padguitar}}
-         {if {== {elem {find $entry mod_padguitar} 1} 1}
-            {set $mod_padguitar TRUE}
-         }
-      }
-      {if {== {elem $entry 0} {basename mod_paddrum}}
-         {if {== {elem {find $entry mod_paddrum} 1} 1}
-            {set $mod_paddrum TRUE}
-         }
-      }
-      {if {== {elem $entry 0} {basename mod_vocalgender}}
-         {if {== {elem {find $entry mod_vocalgender} 1} 1}
-            {set $mod_vocalgender TRUE}
-         }
-      }
-      {if {== {elem $entry 0} {basename mod_legacybass}}
-         {if {== {elem {find $entry mod_legacybass} 1} 1}
-            {set $mod_legacybass TRUE}
-         }
-      }
-      {if {== {elem $entry 0} {basename mod_rb3sustain}}
-         {if {== {elem {find $entry mod_rb3sustain} 1} 1}
-            {set $mod_rb3sustain TRUE}
-         }
-      }
-      {if {== {elem $entry 0} {basename mod_nomuting}}
-         {if {== {elem {find $entry mod_nomuting} 1} 1}
-            {set $mod_nomuting TRUE}
-         }
-      }
-      {if {== {elem $entry 0} {basename mod_flashbang}}
-         {if {== {elem {find $entry mod_flashbang} 1} 1}
-            {set $mod_flashbang TRUE}
-         }
-      }
-      {if {== {elem $entry 0} {basename mod_fakejuke}}
-         {if {== {elem {find $entry mod_fakejuke} 1} 1}
-            {set $mod_fakejuke TRUE}
+      {if {== {elem $entry 0} {basename mod_nofail}}
+         {set $mod_nofail
+            {elem {find $entry mod_nofail} 1}
          }
       }
       {if {== {elem $entry 0} {basename mod_doublespeed}}
-         {if {== {elem {find $entry mod_doublespeed} 1} 1}
-            {set $mod_doublespeed TRUE}
+         {set $mod_doublespeed
+            {elem {find $entry mod_doublespeed} 1}
          }
       }
-      {if {== {elem $entry 0} {basename mod_fcclip}}
-         {if {== {elem {find $entry mod_fcclip} 1} 1}
-            {set $mod_fcclip TRUE}
+      {if {== {elem $entry 0} {basename mod_nohud}}
+         {set $mod_nohud
+            {elem {find $entry mod_nohud} 1}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_newvenuesonly}}
+         {set $mod_newvenuesonly
+            {elem {find $entry mod_newvenuesonly} 1}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_awesome}}
+         {set $mod_awesome
+            {elem {find $entry mod_awesome} 1}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_blackvenue}}
+         {set $mod_blackvenue
+            {elem {find $entry mod_blackvenue} 1}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_songtitle}}
+         {set $mod_songtitle
+            {elem {find $entry mod_songtitle} 1}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_songtitlestats}}
+         {set $mod_songtitlestats
+            {elem {find $entry mod_songtitlestats} 1}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_staticfills}}
+         {set $mod_staticfills
+            {elem {find $entry mod_staticfills} 1}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_mididrum}}
+         {set $mod_mididrum
+            {elem {find $entry mod_mididrum} 1}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_padguitar}}
+         {set $mod_padguitar
+            {elem {find $entry mod_padguitar} 1}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_paddrum}}
+         {set $mod_paddrum
+            {elem {find $entry mod_paddrum} 1}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_selectdeploy}}
+         {set $mod_selectdeploy
+            {elem {find $entry mod_selectdeploy} 1}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_noquickrestart}}
+         {set $mod_noquickrestart
+            {elem {find $entry mod_noquickrestart} 1}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_vocalgender}}
+         {set $mod_vocalgender
+            {elem {find $entry mod_vocalgender} 1}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_legacybass}}
+         {set $mod_legacybass
+            {elem {find $entry mod_legacybass} 1}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_nosustain}}
+         {set $mod_nosustain
+            {elem {find $entry mod_nosustain} 1}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_rb3sustain}}
+         {set $mod_rb3sustain
+            {elem {find $entry mod_rb3sustain} 1}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_nowhammyfx}}
+         {set $mod_nowhammyfx
+            {elem {find $entry mod_nowhammyfx} 1}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_gemdivider}}
+         {set $mod_gemdivider
+            {elem {find $entry mod_gemdivider} 1}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_nocrowd}}
+         {set $mod_nocrowd
+            {elem {find $entry mod_nocrowd} 1}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_nomuting}}
+         {set $mod_nomuting
+            {elem {find $entry mod_nomuting} 1}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_noflames}}
+         {set $mod_noflames
+            {elem {find $entry mod_noflames} 1}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_flashbang}}
+         {set $mod_flashbang
+            {elem {find $entry mod_flashbang} 1}
          }
       }
    }
 )
 ;{unless {file_exists dx.dta} INIT_DTA_WRITER}
-{if {file_exists #ifdef HX_XBOX "GAME:/dx.dta" #endif #ifdef HX_PS3 "GD:/dev_hdd0/game/BLUS30463/USRDIR/dx.dta" #endif} INIT_DTA_READER}
+{if {file_exists #ifdef HX_XBOX "GAME:/dx.dta" #endif #ifdef HX_PS3 "GD:/dev_hdd0/game/BLUS30147/USRDIR/dx.dta" #endif} INIT_DTA_READER}

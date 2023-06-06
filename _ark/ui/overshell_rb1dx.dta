@@ -9,32 +9,64 @@
 #define RB2DX_DATA
 (
    (
-      {if_else $mod_fakejuke mod_fakejuke mod_fakejuke_off}
-      {if_else $mod_flashbang mod_flashbang mod_flashbang_off}
-      {if_else $mod_rb3sustain mod_rb3sustain mod_rb3sustain_off}
-      {if_else $mod_legacybass mod_legacybass mod_legacybass_off}
-      {if_else $mod_vocalgender mod_vocalgender mod_vocalgender_off}
-      {if_else $mod_paddrum mod_paddrum mod_paddrum_off}
-      {if_else $mod_padguitar mod_padguitar mod_padguitar_off}
-      {if_else $mod_mididrum mod_mididrum mod_mididrum_off}
-      {if_else $mod_freestyledrums mod_freestyledrums mod_freestyledrums_off}
+   ;   os_2dxtrk
+      {if_else $mod_nofail mod_nofail mod_nofail_off}
+      {if_else $mod_doublespeed mod_doublespeed mod_doublespeed_off}
+      {if_else $mod_nohud mod_nohud mod_nohud_off}
+      {if_else $mod_newvenuesonly mod_newvenuesonly mod_newvenuesonly_off}
+      {if_else $mod_awesome mod_awesome mod_awesome_off}
+      {if_else $mod_blackvenue mod_blackvenue mod_blackvenue_off}
+      {if_else $mod_songtitle mod_songtitle mod_songtitle_off}
       {if_else $mod_songtitlestats mod_songtitlestats mod_songtitlestats_off}
+      {if_else $mod_staticfills mod_staticfills mod_staticfills_off}
+      {if_else $mod_mididrum mod_mididrum mod_mididrum_off}
+      {if_else $mod_padguitar mod_padguitar mod_padguitar_off}
+      {if_else $mod_paddrum mod_paddrum mod_paddrum_off}
+      {if_else $mod_selectdeploy mod_selectdeploy mod_selectdeploy_off}
+      {if_else $mod_noquickrestart mod_noquickrestart mod_noquickrestart_off}
+      {if_else $mod_vocalgender mod_vocalgender mod_vocalgender_off}
+      {if_else $mod_legacybass mod_legacybass mod_legacybass_off}
+      {if_else $mod_nosustain mod_nosustain mod_nosustain_off}
+      {if_else $mod_rb3sustain mod_rb3sustain mod_rb3sustain_off}
+      {if_else $mod_nowhammyfx mod_nowhammyfx mod_nowhammyfx_off}
+      {if_else $mod_gemdivider mod_gemdivider mod_gemdivider_off}
+      {if_else $mod_nocrowd mod_nocrowd mod_nocrowd_off}
+      {if_else $mod_nomuting mod_nomuting mod_nomuting_off}
+      {if_else $mod_noflames mod_noflames mod_noflames_off}
+      {if_else $mod_flashbang mod_flashbang mod_flashbang_off}
+      os_blnk
    )
 )
 ;LEGO rock band specific modifiers
 #define LRBDX_DATA
 (
    (
-      {if_else $mod_fakejuke mod_fakejuke mod_fakejuke_off}
-      {if_else $mod_flashbang mod_flashbang mod_flashbang_off}
-      {if_else $mod_rb3sustain mod_rb3sustain mod_rb3sustain_off}
-      {if_else $mod_legacybass mod_legacybass mod_legacybass_off}
-      {if_else $mod_vocalgender mod_vocalgender mod_vocalgender_off}
-      {if_else $mod_paddrum mod_paddrum mod_paddrum_off}
-      {if_else $mod_padguitar mod_padguitar mod_padguitar_off}
-      {if_else $mod_mididrum mod_mididrum mod_mididrum_off}
-      {if_else $mod_freestyledrums mod_freestyledrums mod_freestyledrums_off}
+   ;   os_lrbang
+      {if_else $mod_nofail mod_nofail mod_nofail_off}
+      {if_else $mod_doublespeed mod_doublespeed mod_doublespeed_off}
+      {if_else $mod_nohud mod_nohud mod_nohud_off}
+      {if_else $mod_newvenuesonly mod_newvenuesonly mod_newvenuesonly_off}
+      {if_else $mod_awesome mod_awesome mod_awesome_off}
+      {if_else $mod_blackvenue mod_blackvenue mod_blackvenue_off}
+      {if_else $mod_songtitle mod_songtitle mod_songtitle_off}
       {if_else $mod_songtitlestats mod_songtitlestats mod_songtitlestats_off}
+      {if_else $mod_staticfills mod_staticfills mod_staticfills_off}
+      {if_else $mod_mididrum mod_mididrum mod_mididrum_off}
+      {if_else $mod_padguitar mod_padguitar mod_padguitar_off}
+      {if_else $mod_paddrum mod_paddrum mod_paddrum_off}
+      {if_else $mod_selectdeploy mod_selectdeploy mod_selectdeploy_off}
+      {if_else $mod_noquickrestart mod_noquickrestart mod_noquickrestart_off}
+      {if_else $mod_vocalgender mod_vocalgender mod_vocalgender_off}
+      {if_else $mod_legacybass mod_legacybass mod_legacybass_off}
+      {if_else $mod_nosustain mod_nosustain mod_nosustain_off}
+      {if_else $mod_rb3sustain mod_rb3sustain mod_rb3sustain_off}
+      {if_else $mod_nowhammyfx mod_nowhammyfx mod_nowhammyfx_off}
+      {if_else $mod_gemdivider mod_gemdivider mod_gemdivider_off}
+      {if_else $mod_nocrowd mod_nocrowd mod_nocrowd_off}
+      {if_else $mod_nomuting mod_nomuting mod_nomuting_off}
+      {if_else $mod_noflames mod_noflames mod_noflames_off}
+      {if_else $mod_flashbang mod_flashbang mod_flashbang_off}
+      os_blnk
    )
 )
 ;sets the current position and refreshes the list to show the change
@@ -205,6 +237,7 @@
    )
    (focus sel_section.lst)
    (enter
+      {sel_section.lst set circular 1}
       {if {== $simpledx lrb} ;simpledx is set via SELECT_MSG in demo_launcher.dta
          {anchor_corner01.tex set_bitmap "ui/image/trim_corner_07.png"} ;apply lego rock band textures in case we are on the lrb screen
          {anchor_corner02.tex set_bitmap "ui/image/trim_corner_07.png"}
@@ -229,21 +262,65 @@
          }
       }
    )
+   (exit
+      {sel_section.lst set circular 0})
    LIST_RESET_HANDLER ;apply the list reset definition to this panel
    (SELECT_MSG ;when something is selected. add in all rb1, rb2, and lrb results here
       #ifdef HX_XBOX {demo_launcher_panel forward_sfx} #endif ;play confirmation tone
       {switch {$component selected_sym}
+         (mod_nofail
+            {set $mod_nofail {! $mod_nofail}}
+         )
+         (mod_nofail_off
+            {set $mod_nofail {! $mod_nofail}}
+         )
+         (mod_doublespeed
+            {set $mod_doublespeed {! $mod_doublespeed}}
+         )
+         (mod_doublespeed_off
+            {set $mod_doublespeed {! $mod_doublespeed}}
+         )
+         (mod_nohud
+            {set $mod_nohud {! $mod_nohud}}
+         )
+         (mod_nohud_off
+            {set $mod_nohud {! $mod_nohud}}
+         )
+         (mod_newvenuesonly
+            {set $mod_newvenuesonly {! $mod_newvenuesonly}}
+         )
+         (mod_newvenuesonly_off
+            {set $mod_newvenuesonly {! $mod_newvenuesonly}}
+         )
+         (mod_awesome
+            {set $mod_awesome {! $mod_awesome}}
+         )
+         (mod_awesome_off
+            {set $mod_awesome {! $mod_awesome}}
+         )
+         (mod_blackvenue
+            {set $mod_blackvenue {! $mod_blackvenue}}
+         )
+         (mod_blackvenue_off
+            {set $mod_blackvenue {! $mod_blackvenue}}
+         )
+         (mod_songtitle
+            {set $mod_songtitle {! $mod_songtitle}}
+         )
+         (mod_songtitle_off
+            {set $mod_songtitle {! $mod_songtitle}}
+         )
          (mod_songtitlestats
             {set $mod_songtitlestats {! $mod_songtitlestats}}
          )
          (mod_songtitlestats_off
             {set $mod_songtitlestats {! $mod_songtitlestats}}
          )
-         (mod_freestyledrums
-            {set $mod_freestyledrums {! $mod_freestyledrums}}
+         (mod_staticfills
+            {set $mod_staticfills {! $mod_staticfills}}
          )
-         (mod_freestyledrums_off
-            {set $mod_freestyledrums {! $mod_freestyledrums}}
+         (mod_staticfills_off
+            {set $mod_staticfills {! $mod_staticfills}}
          )
          (mod_mididrum
             {set $mod_mididrum {! $mod_mididrum}}
@@ -263,6 +340,18 @@
          (mod_paddrum_off
             {set $mod_paddrum {! $mod_paddrum}}
          )
+         (mod_selectdeploy
+            {set $mod_selectdeploy {! $mod_selectdeploy}}
+         )
+         (mod_selectdeploy_off
+            {set $mod_selectdeploy {! $mod_selectdeploy}}
+         )
+         (mod_noquickrestart
+            {set $mod_noquickrestart {! $mod_noquickrestart}}
+         )
+         (mod_noquickrestart_off
+            {set $mod_noquickrestart {! $mod_noquickrestart}}
+         )
          (mod_vocalgender
             {set $mod_vocalgender {! $mod_vocalgender}}
          )
@@ -275,23 +364,53 @@
          (mod_legacybass_off
             {set $mod_legacybass {! $mod_legacybass}}
          )
+         (mod_nosustain
+            {set $mod_nosustain {! $mod_nosustain}}
+         )
+         (mod_nosustain_off
+            {set $mod_nosustain {! $mod_nosustain}}
+         )
          (mod_rb3sustain
             {set $mod_rb3sustain {! $mod_rb3sustain}}
          )
          (mod_rb3sustain_off
             {set $mod_rb3sustain {! $mod_rb3sustain}}
          )
+         (mod_nowhammyfx
+            {set $mod_nowhammyfx {! $mod_nowhammyfx}}
+         )
+         (mod_nowhammyfx_off
+            {set $mod_nowhammyfx {! $mod_nowhammyfx}}
+         )
+         (mod_gemdivider
+            {set $mod_gemdivider {! $mod_gemdivider}}
+         )
+         (mod_gemdivider_off
+            {set $mod_gemdivider {! $mod_gemdivider}}
+         )
+         (mod_nocrowd
+            {set $mod_nocrowd {! $mod_nocrowd}}
+         )
+         (mod_nocrowd_off
+            {set $mod_nocrowd {! $mod_nocrowd}}
+         )
+         (mod_nomuting
+            {set $mod_nomuting {! $mod_nomuting}}
+         )
+         (mod_nomuting_off
+            {set $mod_nomuting {! $mod_nomuting}}
+         )
+         (mod_noflames
+            {set $mod_noflames {! $mod_noflames}}
+         )
+         (mod_noflames_off
+            {set $mod_noflames {! $mod_noflames}}
+         )
          (mod_flashbang
             {set $mod_flashbang {! $mod_flashbang}}
          )
          (mod_flashbang_off
             {set $mod_flashbang {! $mod_flashbang}}
-         )
-         (mod_fakejuke
-            {set $mod_fakejuke {! $mod_fakejuke}}
-         )
-         (mod_fakejuke_off
-            {set $mod_fakejuke {! $mod_fakejuke}}
          )
       }
       LIST_HANDLER ;run our list reset routine after any result is selected
