@@ -34,6 +34,7 @@
       {if_else $mod_nomuting mod_nomuting mod_nomuting_off}
       {if_else $mod_noflames mod_noflames mod_noflames_off}
       {if_else $mod_flashbang mod_flashbang mod_flashbang_off}
+      {if_else $nosavemode no_save_mode no_save_mode_off}
       os_blnk
    )
 )
@@ -411,6 +412,12 @@
          )
          (mod_flashbang_off
             {set $mod_flashbang {! $mod_flashbang}}
+         )
+         (no_save_mode
+            {set $nosavemode {! $nosavemode}}
+         )
+         (no_save_mode_off
+            {set $nosavemode {! $nosavemode}}
          )
       }
       LIST_HANDLER ;run our list reset routine after any result is selected

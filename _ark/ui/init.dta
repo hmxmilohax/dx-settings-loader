@@ -11,6 +11,9 @@
 {platform_mgr set_notify_ui_location kOSNotifyBottomCenter}
 {set $saveload_skip_upload FALSE}
 
+;show custom settings loaded message ingame
+{set $loadcustomsettings TRUE}
+
 ;sets default track speed. 1.15 is 115%, 1.30 is 130% and so on.
 {set $trackspeed 1.0}
 
@@ -87,6 +90,11 @@
          }
          {set $slot5_color
             {elem {find $entry gem_colors} 5}
+         }
+      }
+      {if {== {elem $entry 0} {basename no_save_mode}}
+         {set $nosavemode
+            {elem {find $entry no_save_mode} 1}
          }
       }
       {if {== {elem $entry 0} {basename track_speed}}

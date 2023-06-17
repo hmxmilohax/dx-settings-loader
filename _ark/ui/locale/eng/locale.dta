@@ -106,6 +106,9 @@
 (mod_flashbang "Firework Gems: ON")
 (mod_flashbang_off "Firework Gems: OFF")
 
+(no_save_mode "Disable Saving: ON")
+(no_save_mode_off "Disable Saving: OFF")
+
 (gemcolor_0 "green") ;strings for gem colors and related shit
 (gemcolor_1 "red")
 (gemcolor_2 "yellow")

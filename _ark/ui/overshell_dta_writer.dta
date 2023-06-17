@@ -3,6 +3,9 @@
    {write_file #ifdef HX_XBOX "GAME:/dx.dta" #endif #ifdef HX_PS3 "GD:/dev_hdd0/game/BLUS30147/USRDIR/dx.dta" #endif
       {array
         (
+            (no_save_mode
+               (no_save_mode $nosavemode)
+            )
             (gem_colors
                (gem_colors $slot1_color $slot2_color $slot3_color $slot4_color $slot5_color)
             )
@@ -128,6 +131,9 @@
             )
             (mod_flashbang
                (mod_flashbang {if_else $mod_flashbang TRUE FALSE})
+            )
+            (load_custom_settings
+               (load_custom_settings $loadcustomsettings)
             )
          )
       }
