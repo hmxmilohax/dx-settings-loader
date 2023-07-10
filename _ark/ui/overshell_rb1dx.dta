@@ -2,8 +2,8 @@
 #define RB1DX_DATA
 (
    (
-      {if_else $mod_blackvenue mod_blackvenue mod_blackvenue_off}
       {if_else $mod_nofail mod_nofail mod_nofail_off}
+      {if_else $mod_blackvenue mod_blackvenue mod_blackvenue_off}
       {if_else $mod_nocrowd mod_nocrowd mod_nocrowd_off}
       os_blnk
    )
