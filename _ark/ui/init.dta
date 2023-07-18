@@ -38,8 +38,14 @@
 ;streak texture
 {set $streak "rb4"}
 
-;overdrive texture
-{set $spotlight "rb4"}
+;overdrive texture (guitar)
+{set $spotlightgtr "rb4"}
+
+;overdrive texture (bass)
+{set $spotlightbass "rb4"}
+
+;overdrive texture (drums)
+{set $spotlightdrum "rb4"}
 
 ;multiplier ring texture
 {set $multiring "rb2dx"}
@@ -127,9 +133,19 @@
             {elem {find $entry streak_texture} 1}
          }
       }
-      {if {== {elem $entry 0} {basename spotlight_texture}}
-         {set $spotlight
-            {elem {find $entry spotlight_texture} 1}
+      {if {== {elem $entry 0} {basename spotlight_guitar_texture}}
+         {set $spotlightgtr
+            {elem {find $entry spotlight_guitar_texture} 1}
+         }
+      }
+      {if {== {elem $entry 0} {basename spotlight_bass_texture}}
+         {set $spotlightbass
+            {elem {find $entry spotlight_bass_texture} 1}
+         }
+      }
+      {if {== {elem $entry 0} {basename spotlight_drums_texture}}
+         {set $spotlightdrum
+            {elem {find $entry spotlight_drums_texture} 1}
          }
       }
       {if {== {elem $entry 0} {basename multiring_texture}}

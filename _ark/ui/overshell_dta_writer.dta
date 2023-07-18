@@ -27,8 +27,14 @@
             (streak_texture
                (streak_texture $streak)
             )
-            (spotlight_texture
-               (spotlight_texture $spotlight)
+            (spotlight_guitar_texture
+               (spotlight_guitar_texture $spotlightgtr)
+            )
+            (spotlight_bass_texture
+               (spotlight_bass_texture $spotlightbass)
+            )
+            (spotlight_drums_texture
+               (spotlight_drums_texture $spotlightdrum)
             )
             (multiring_texture
                (multiring_texture $multiring)
