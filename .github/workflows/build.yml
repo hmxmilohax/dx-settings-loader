@@ -14,6 +14,7 @@ jobs:
           chmod +x dependencies/linux/arkhelper
           chmod +x dependencies/linux/dtab
           chmod +x dependencies/linux/superfreq
+          find . -name "*.*_ps3" -type f -delete
           dependencies/linux/arkhelper dir2ark ./_ark ./_build/xbox/gen -n "dxsl_xbox" -e -v 5 -s 4073741823
       
       - name: Upload result
