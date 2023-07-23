@@ -29,8 +29,9 @@ Additionally, DXSL can save universal settings that are shared between each game
 
 # Downloads
 
-[DX Settings Loader for Xbox 360](https://nightly.link/hmxmilohax/dx-settings-loader/workflows/build/main/DXSL-Xbox.zip)
-[DX Settings Loader for PS3](https://nightly.link/hmxmilohax/dx-settings-loader/workflows/build/main/DXSL-PS3.zip) (ALPHA)
+### [DX Settings Loader for Xbox 360](https://nightly.link/hmxmilohax/dx-settings-loader/workflows/build/main/DXSL-Xbox.zip)
+
+### [DX Settings Loader for PS3](https://nightly.link/hmxmilohax/dx-settings-loader/workflows/build/main/DXSL-PS3.zip)
 
 # How to Use
 
@@ -43,13 +44,13 @@ Additionally, DXSL can save universal settings that are shared between each game
 * Download [DXSL for Xbox 360](https://nightly.link/hmxmilohax/dx-settings-loader/workflows/build/main/DXSL-Xbox.zip) and drag'n'drop the contents of the downloaded file into either it's own folder or the folder of another supported DX game.
 * In Xenia, go to File > Open... (or use the ctrl+o keybind) and open the dx-settings-loader.xex file in the location you dropped it.
 
-## Installing on PS3 Hardware (ALPHA)
+## Installing on PS3 Hardware
 
 *You WILL need a modded console and the Webman application. I hope this is clear*
 * Download [DXSL for PS3](https://nightly.link/hmxmilohax/dx-settings-loader/workflows/build/main/DXSL-PS3.zip) and either place it in your PS3's GAMES directory over FTP or place it in a GAMES folder in the root of a USB
 * Open the Webman Games folder after booting your console and select DXSL in the list
 
-## Installing on RPCS3 (ALPHA)
+## Installing on RPCS3
 
 * Download [DXSL for PS3](https://nightly.link/hmxmilohax/dx-settings-loader/workflows/build/main/DXSL-PS3.zip) and drag'n'drop the contents of the downloaded file into it's own subfolder in RPCS3's games directory.
 * Restart RPCS3 if you've already opened it and click on DXSL in the list.
