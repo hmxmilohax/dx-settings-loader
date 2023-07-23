@@ -13,7 +13,8 @@
 
 # Features
 
-In it's current state, DXSL can generate dx.dta files for the following games:
+DXSL can generate dx.dta files for the following games:
+* [Rock Band 1 DX](https://github.com/hmxmilohax/rock-band-1-deluxe)
 * [Rock Band 2 DX](https://github.com/hmxmilohax/rock-band-2-deluxe)
 * and [LEGO Rock Band DX](https://github.com/hmxmilohax/lego-rock-band-deluxe)
 
@@ -24,7 +25,12 @@ Additionally, DXSL can save universal settings that are shared between each game
 ### DXSL requires one of the following:
 
 * For console: a **modded/hacked Xbox 360 or PS3** and a way to transfer files to it; we reccomend using FTP
-* For emulator: a **mid-to-high-end PC** capable of running Xenia or RPCS3
+* For emulator: a PC
+
+# Downloads
+
+[DX Settings Loader for Xbox 360](https://nightly.link/hmxmilohax/dx-settings-loader/workflows/build/main/DXSL-Xbox.zip)
+[DX Settings Loader for PS3](https://nightly.link/hmxmilohax/dx-settings-loader/workflows/build/main/DXSL-PS3.zip) (ALPHA)
 
 # How to Use
 
@@ -34,18 +40,18 @@ Additionally, DXSL can save universal settings that are shared between each game
 
 ## Installing on Xenia
 
-* Grab the [latest main branch action build](https://github.com/hmxmilohax/dx-settings-loader/actions) and drag'n'drop the contents of the downloaded file into either it's own folder or the folder of another supported DX game.
+* Download [DXSL for Xbox 360](https://nightly.link/hmxmilohax/dx-settings-loader/workflows/build/main/DXSL-Xbox.zip) and drag'n'drop the contents of the downloaded file into either it's own folder or the folder of another supported DX game.
 * In Xenia, go to File > Open... (or use the ctrl+o keybind) and open the dx-settings-loader.xex file in the location you dropped it.
 
-## Installing on PS3 Hardware
+## Installing on PS3 Hardware (ALPHA)
 
 *You WILL need a modded console and the Webman application. I hope this is clear*
-* Grab the [latest ps3_merge branch action build](https://github.com/hmxmilohax/dx-settings-loader/actions) and either place it in your PS3's GAMES directory over FTP or place it in a GAMES folder in the root of a USB
+* Download [DXSL for PS3](https://nightly.link/hmxmilohax/dx-settings-loader/workflows/build/main/DXSL-PS3.zip) and either place it in your PS3's GAMES directory over FTP or place it in a GAMES folder in the root of a USB
 * Open the Webman Games folder after booting your console and select DXSL in the list
 
-## Installing on RPCS3
+## Installing on RPCS3 (ALPHA)
 
-* Grab the [latest ps3_merge branch action build](https://github.com/hmxmilohax/dx-settings-loader/actions) and drag'n'drop the contents of the downloaded file into it's own subfolder in RPCS3's games directory.
+* Download [DXSL for PS3](https://nightly.link/hmxmilohax/dx-settings-loader/workflows/build/main/DXSL-PS3.zip) and drag'n'drop the contents of the downloaded file into it's own subfolder in RPCS3's games directory.
 * Restart RPCS3 if you've already opened it and click on DXSL in the list.
 
 ## Use
