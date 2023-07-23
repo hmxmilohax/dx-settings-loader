@@ -10,10 +10,6 @@
 
 ### 📥 [Download](#%EF%B8%8F-what-youll-need)
 
-<br/>
-
-<img src="dependencies/images/rb2dx.gif" width="100%" alt="RB2DX">
-
 </div>
 <br/>
 
