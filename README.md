@@ -1,62 +1,128 @@
-# DX Settings Loader
+<div align="center">
 
-![Header Image](dependencies/header.png)
+<img src="dependencies/header.png" width="100%" alt="Header Image">
 
-# Introduction
+## *DX Settings Loader* is an on-console Xbox 360 application for generating configuration files for *Rock Band Deluxe* games.
 
-### DXSL is an on-console application for generating dx.dta files for [MiloHax](https://github.com/hmxmilohax)'s Rock Band Deluxe modifications
+### You can use this application to save your *Deluxe Settings* for select *Deluxe* games and have them set to your liking every time.
 
-# Table of Contents
-- [Features](#features)
-- [What You'll Need](#what-youll-need)
-- [How to Use](#how-to-use)
+### ❓ [What can it do?](#-what-can-it-do-1)
 
-# Features
+### 📥 [Download](#%EF%B8%8F-what-youll-need)
 
-DXSL can generate dx.dta files for the following games:
-* [Rock Band 1 DX](https://github.com/hmxmilohax/rock-band-1-deluxe)
-* [Rock Band 2 DX](https://github.com/hmxmilohax/rock-band-2-deluxe)
-* and [LEGO Rock Band DX](https://github.com/hmxmilohax/lego-rock-band-deluxe)
+<br/>
 
-Additionally, DXSL can save universal settings that are shared between each game.
+<img src="dependencies/images/rb2dx.gif" width="100%" alt="RB2DX">
 
-# What You'll Need
+</div>
+<br/>
 
-### DXSL requires one of the following:
+# ❓ What can it do?
 
-* For console: a **modded/hacked Xbox 360 or PS3** and a way to transfer files to it; we reccomend using FTP
-* For emulator: a PC
+### ***DX Settings Loader* can save your *Deluxe Settings* to a configuration file (dx.dta) for use in the following games:**
+* **[Rock Band 1 Deluxe](https://github.com/hmxmilohax/rock-band-1-deluxe)**
+* **[Rock Band 2 Deluxe](https://github.com/hmxmilohax/rock-band-2-deluxe)**
+* and **[LEGO Rock Band Deluxe](https://github.com/hmxmilohax/lego-rock-band-deluxe)**
 
-# Downloads
+<br/>
 
-### [DX Settings Loader for Xbox 360](https://nightly.link/hmxmilohax/dx-settings-loader/workflows/build/main/DXSL-Xbox.zip)
+> All other *Deluxe* games can save your *Deluxe Settings* within the game itself.
+> 
+> While this application is for Xbox 360, **your generated configuration file will also work on PS3**.
+>
+> As of now, you *cannot* use DX Settings Loader itself to customize your track theme, but you can if you **manually edit your configuration file**.
 
-### [DX Settings Loader for PS3](https://nightly.link/hmxmilohax/dx-settings-loader/workflows/build/main/DXSL-PS3.zip)
+<br/>
 
-# How to Use
+# 👉 Usage
 
-## Installing on 360 hardware
+### ***DX Settings Loader* is very straightforward.**
+<br/>
 
-* placeholder text oops
+> Each compatible game has its own subsection to which you can change it's individual settings in conjunction with the universal settings.
+> 
+> The settings available for change in *DX Settings Loader* are the same as the settings available to you in each respective game, minus anything mentioned above.
+> 
+> Change each setting as you wish. When you're done, hit the **[SAVE SETTINGS]** button near the top of the main menu.
 
-## Installing on Xenia
+<br/>
 
-* Download [DXSL for Xbox 360](https://nightly.link/hmxmilohax/dx-settings-loader/workflows/build/main/DXSL-Xbox.zip) and drag'n'drop the contents of the downloaded file into either it's own folder or the folder of another supported DX game.
-* In Xenia, go to File > Open... (or use the ctrl+o keybind) and open the dx-settings-loader.xex file in the location you dropped it.
+# ✍️ What You'll Need
 
-## Installing on PS3 Hardware
+### *DX Settings Loader* requires one of the following:
 
-*You WILL need a modded console and the Webman application. I hope this is clear*
-* Download [DXSL for PS3](https://nightly.link/hmxmilohax/dx-settings-loader/workflows/build/main/DXSL-PS3.zip) and either place it in your PS3's GAMES directory over FTP or place it in a GAMES folder in the root of a USB
-* Open the Webman Games folder after booting your console and select DXSL in the list
+- Either: A **modded/hacked Xbox 360** and a way to transfer files to it.
+- Or: A PC to run *DX Settings Loader* on Xenia.
 
-## Installing on RPCS3
+<br/>
 
-* Download [DXSL for PS3](https://nightly.link/hmxmilohax/dx-settings-loader/workflows/build/main/DXSL-PS3.zip) and drag'n'drop the contents of the downloaded file into it's own subfolder in RPCS3's games directory.
-* Restart RPCS3 if you've already opened it and click on DXSL in the list.
+# 📥 Download
 
-## Use
+*DX Settings Loader recieves very frequent updates. You can click the `Watch` button (All Activity) to be notified about any updates that occur.*
 
-DXSL use is very straightforward. Each game has it's own subsection to which you can change it's individual settings in conjunction with the universal settings.
-The settings available for change in DXSL are the same as the settings available to you in each respective game.
-Change each setting as you wish and once done, hit the **[SAVE SETTINGS]** button near the top of the main menu.
+![last updated:](https://img.shields.io/github/last-commit/hmxmilohax/dx-settings-loader?label=last%20updated%3A)
+### 📥 [DX Settings Loader](https://nightly.link/hmxmilohax/dx-settings-loader/workflows/build/main/DXSL-Xbox.zip)
+
+> The most recent Nightly build of *DX Settings Loader*.
+
+Continue to: 
+    - [Installing on Xbox 360](#-installing-on-xbox-360)
+    - [Installing on Xenia](#-installing-on-xenia)
+
+<br/>
+
+## 📩 Installing on Xbox 360
+
+* Download [**DX Settings Loader**](https://nightly.link/hmxmilohax/dx-settings-loader/workflows/build/main/DXSL-Xbox.zip).
+  * **Copy the contents of it to where your desired *Deluxe* game is installed** (we recommend using FTP to do so).
+  * Select `Yes` to overwrite the files if it asks you to.
+
+### ✅ ***DX Settings Loader is now installed!***
+
+Open a file manager, navigate to where your *Deluxe* game of choice is installed, and launch `dx-settings-loader.xex` to run the application.
+
+<br/>
+
+## 📩 Installing on Xenia
+
+### Installing Required Dependencies
+
+* Go to the **[Releases](https://github.com/hmxmilohax/rock-band-2-deluxe/releases)** of this repo and **download and run the two `.exe` files**.
+* Install both of them with their default options.
+
+### Initializing the Repo
+
+* **Download `_init_repo.bat`** from **[Releases](https://github.com/hmxmilohax/rock-band-2-deluxe/releases)** as well.
+  * Make a new **empty** folder, **put `_init_repo.bat` in the folder, and run it**. This will pull the repo down for you and make sure you're completely up to date. **This will take some time.**
+
+### Building and Running
+
+* **Run `_build_xenia.bat` to automatically update, build, and run *DX Settings Loader*.**
+
+*The default keyboard controls are:*
+
+> **Directions**: WASD
+> 
+> **A**: Semicolon ( **;** )
+> 
+> **B**: Apostrophe ( **'** ) 
+
+### ✅ ***DX Settings Loader is now installed and running!***
+
+Your configuration file will be saved to `_build/xbox/dx.dta`. You can copy this file to any compatible *Deluxe* installation on Xbox 360 or PS3.
+
+<br/>
+
+# 🖥️ Dependencies
+
+[Git for Windows](https://gitforwindows.org/) - CLI application to allow auto updating Deluxe repo files
+
+[Dot Net 6.0 Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/6.0/runtime) - Needed to run ArkHelper
+
+[Python](https://www.python.org/downloads/) - For user script functionality (NOTE: 3.9 or newer is highly recommended!)
+
+[Mackiloha](https://github.com/PikminGuts92/Mackiloha) - ArkHelper for building Deluxe - SuperFreq for building .bmp_xbox highway images
+
+[swap_rb_art_bytes.py](https://github.com/PikminGuts92/re-notes/blob/master/scripts/swap_rb_art_bytes.py) - Python script for converting Xbox images to PS3
+
+[dtab](https://github.com/mtolly/dtab) - For serializing `.dtb` script files
