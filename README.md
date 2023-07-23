@@ -20,9 +20,9 @@
 # ❓ What can it do?
 
 ### ***DX Settings Loader* can save your *Deluxe Settings* to a configuration file (dx.dta) for use in the following games:**
-* **[Rock Band 1 Deluxe](https://github.com/hmxmilohax/rock-band-1-deluxe)**
-* **[Rock Band 2 Deluxe](https://github.com/hmxmilohax/rock-band-2-deluxe)**
-* and **[LEGO Rock Band Deluxe](https://github.com/hmxmilohax/lego-rock-band-deluxe)**
+* **[Rock Band 1 Deluxe](https://github.com/hmxmilohax/rock-band-1-deluxe#readme)**
+* **[Rock Band 2 Deluxe](https://github.com/hmxmilohax/rock-band-2-deluxe#readme)**
+* and **[LEGO Rock Band Deluxe](https://github.com/hmxmilohax/lego-rock-band-deluxe#readme)**
 
 <br/>
 
