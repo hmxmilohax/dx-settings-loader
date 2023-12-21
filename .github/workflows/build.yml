@@ -14,7 +14,8 @@ jobs:
           chmod +x dependencies/linux/arkhelper
           chmod +x dependencies/linux/dtab
           chmod +x dependencies/linux/superfreq
-          find . -name "*.milo_ps3" -type f -delete
+          find . -name "*_ps3" -type f -delete
+          find . -name "ps3_*" -type f -delete
           dependencies/linux/arkhelper dir2ark ./_ark ./_build/xbox/gen -n "dxsl_xbox" -e -v 5 -s 4073741823
       
       - name: Upload result
@@ -31,7 +32,8 @@ jobs:
 
       - name: Remove Xbox files
         run: 
-          Get-ChildItem _ark/ -recurse -include *.*_xbox | remove-item
+          Get-ChildItem _ark/ -recurse -include *_xbox | remove-item
+          Get-ChildItem _ark/ -recurse -include xbox_* | remove-item
 
       - name: Build ARK
         run: 
