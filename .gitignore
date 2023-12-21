@@ -7,7 +7,7 @@ _build/xbox/videos/*.bik
 _build_rpcs3.bat
 main_ps3
 _build/wii/
-_xenia/cache/*
+_xenia/cache_host/*
 _xenia/content/45410829/Headers/*
 _xenia/xenia.log
 _xenia/content/45410829/00000001/RB1DISCCUSTOMPACKWITHUNEXPORTABLES
