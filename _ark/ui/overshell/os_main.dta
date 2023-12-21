@@ -21,7 +21,7 @@
       {sel_section.lst set circular 0}
       {title.lbl set text_token os_dxsettings}
       {$this pause_if_local}
-      {unless {file_exists #ifdef HX_XBOX "GAME:/dx.dta" #endif #ifdef HX_PS3 "GD:/dev_hdd0/game/BLUS30463/USRDIR/dx.dta" #endif} {ui push_screen welcome_warning_screen}}
+      {unless {file_exists #ifdef HX_XBOX "GAME:/dx.dta" #endif #ifdef HX_PS3 "GD:/dev_hdd0/game/BLUS30147/USRDIR/dx.dta" #endif} {ui push_screen welcome_warning_screen}}
    )
    (SELECT_MSG
       {switch {$component selected_sym}
