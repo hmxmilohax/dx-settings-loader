@@ -25,9 +25,9 @@
       {set $os_appearence_pos {sel_section.lst selected_sym}}
       {sel_section.lst set_data OS_APPEARENCE_DATA}
       {sel_section.lst set_selected $os_appearence_pos}
-      FORWARD_SFX
+      PLAY_FORWARD_SFX
    )
-   (SCROLL_MSG SCROLL_SFX)
+   (SCROLL_MSG PLAY_SCROLL_SFX)
    (BUTTON_DOWN_MSG OS_BACK_HANDLER)
 }
 {new

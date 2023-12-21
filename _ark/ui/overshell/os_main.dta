@@ -59,9 +59,9 @@
       {set $os_main_pos {sel_section.lst selected_sym}}
       {sel_section.lst set_data OS_MAIN_DATA}
       {sel_section.lst set_selected $os_main_pos}
-      FORWARD_SFX
+      PLAY_FORWARD_SFX
    )
-   (SCROLL_MSG SCROLL_SFX)
+   (SCROLL_MSG PLAY_SCROLL_SFX)
 }
 {new
    UIScreen

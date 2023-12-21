@@ -13,15 +13,15 @@
             {set $picked_number 2}
          }
       }
-      {{sprint "confirm_clip" $picked_number} set file "sfx/streams/overshell/nav.mogg"}
+      {{sprint "confirm_clip" $picked_number} set file "sfx/streams/nav.mogg"}
       {if {exists confirm_clip1}
          {confirm_clip1 set loop FALSE}
-         {confirm_clip1 set volume -5}
+         {confirm_clip1 set volume -12}
          {confirm_clip1 play}
       }
       {if {exists confirm_clip2}
          {confirm_clip2 set loop FALSE}
-         {confirm_clip2 set volume -5}
+         {confirm_clip2 set volume -12}
          {confirm_clip2 play}
       }
    )
@@ -41,15 +41,15 @@
             {set $picked_number 2}
          }
       }
-      {{sprint "back_clip" $picked_number} set file "sfx/streams/overshell/nav.mogg"}
+      {{sprint "back_clip" $picked_number} set file "sfx/streams/nav.mogg"}
       {if {exists back_clip1}
          {back_clip1 set loop FALSE}
-         {back_clip1 set volume -5}
+         {back_clip1 set volume -12}
          {back_clip1 play}
       }
       {if {exists back_clip2}
          {back_clip2 set loop FALSE}
-         {back_clip2 set volume -5}
+         {back_clip2 set volume -12}
          {back_clip2 play}
       }
    )
@@ -69,15 +69,15 @@
             {set $picked_number 2}
          }
       }
-      {{sprint "scroll_clip" $picked_number} set file "sfx/streams/overshell/nav.mogg"}
+      {{sprint "scroll_clip" $picked_number} set file "sfx/streams/nav.mogg"}
       {if {exists scroll_clip1}
          {scroll_clip1 set loop FALSE}
-         {scroll_clip1 set volume -5}
+         {scroll_clip1 set volume -12}
          {scroll_clip1 play}
       }
       {if {exists scroll_clip2}
          {scroll_clip2 set loop FALSE}
-         {scroll_clip2 set volume -5}
+         {scroll_clip2 set volume -12}
          {scroll_clip2 play}
       }
    )

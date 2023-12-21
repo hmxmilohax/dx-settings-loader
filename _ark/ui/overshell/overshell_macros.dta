@@ -2,6 +2,7 @@
 (
    {sel_section.lst disable_data os_blnk}
 )
+
 #define OS_ENTER_HANDLER
 (
    {$this iterate UILabel $i {$i set_type 'farnhamdisplay-bold(63)'}} ;force the font for the header of these screens
@@ -12,20 +13,28 @@
    {sel_section.lst set_local_pos_index 2 60} ;move the list around to fit the imported milo
    DISABLE_BLANK_DATA
 )
-#define OS_BACK_HANDLER
-(
-   {if {== $action kAction_Cancel}
-      #ifdef HX_XBOX {demo_launcher_panel back_sfx} #endif ;play back tone
-      {ui pop_screen} ;leave the current screen
-   }
-   kDataUnhandled
-)
-#define FORWARD_SFX
+
+#define PLAY_FORWARD_SFX
 (
    #ifdef HX_XBOX {demo_launcher_panel forward_sfx} #endif
    DISABLE_BLANK_DATA
 )
-#define SCROLL_SFX
+
+#define PLAY_BACK_SFX
+(
+   #ifdef HX_XBOX {demo_launcher_panel back_sfx} #endif ;play back tone
+)
+
+#define PLAY_SCROLL_SFX
 (
    #ifdef HX_XBOX {demo_launcher_panel scroll_sfx} #endif
+)
+
+#define OS_BACK_HANDLER
+(
+   {if {== $action kAction_Cancel}
+      PLAY_BACK_SFX
+      {ui pop_screen} ;leave the current screen
+   }
+   kDataUnhandled
 )
