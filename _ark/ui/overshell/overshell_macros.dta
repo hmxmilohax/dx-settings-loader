@@ -2,10 +2,6 @@
 (
    {sel_section.lst disable_data os_blnk}
 )
-#define LIST_RESET_HANDLER
-(
-   {set $modifierpos {sel_section.lst selected_sym}}
-)
 #define OS_ENTER_HANDLER
 (
    {$this iterate UILabel $i {$i set_type 'farnhamdisplay-bold(63)'}} ;force the font for the header of these screens
