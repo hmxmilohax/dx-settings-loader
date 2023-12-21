@@ -1,0 +1,69 @@
+#define INIT_DTA_WRITER
+(
+   {write_file #ifdef HX_XBOX "GAME:/dx.dta" #endif #ifdef HX_PS3 "GD:/dev_hdd0/game/BLUS30147/USRDIR/dx.dta" #endif
+      {array
+         (
+            (track_speed
+               (track_speed $trackspeed)
+            )
+            (song_speed
+               (song_speed $speedmod)
+            )
+            (emulate_fps
+               (emulate_fps $emulatefps)
+            )
+            (mod_nofail
+               (mod_nofail {if_else $mod_nofail TRUE FALSE})
+            )
+            (mod_doublespeed
+               (mod_doublespeed {if_else $mod_doublespeed TRUE FALSE})
+            )
+            (mod_nohud
+               (mod_nohud {if_else $mod_nohud TRUE FALSE})
+            )
+            (mod_newvenuesonly
+               (mod_newvenuesonly {if_else $mod_newvenuesonly TRUE FALSE})
+            )
+            (mod_awesome
+               (mod_awesome {if_else $mod_awesome TRUE FALSE})
+            )
+            (mod_blackvenue
+               (mod_blackvenue {if_else $mod_blackvenue TRUE FALSE})
+            )
+            (mod_songtitle
+               (mod_songtitle {if_else $mod_songtitle TRUE FALSE})
+            )
+            (mod_songtitlestats
+               (mod_songtitlestats {if_else $mod_songtitlestats TRUE FALSE})
+            )
+            (mod_staticfills
+               (mod_staticfills {if_else $mod_staticfills TRUE FALSE})
+            )
+            (mod_mididrum
+               (mod_mididrum {if_else $mod_mididrum TRUE FALSE})
+            )
+            (mod_padguitar
+               (mod_padguitar {if_else $mod_padguitar TRUE FALSE})
+            )
+            (mod_paddrum
+               (mod_paddrum {if_else $mod_paddrum TRUE FALSE})
+            )
+            (mod_noquickrestart
+               (mod_noquickrestart {if_else $mod_noquickrestart TRUE FALSE})
+            )
+            (mod_vocalgender
+               (mod_vocalgender {if_else $mod_vocalgender TRUE FALSE})
+            )
+            (mod_noflames
+               (mod_noflames {if_else $mod_noflames TRUE FALSE})
+            )
+            (mod_flashbang
+               (mod_flashbang {if_else $mod_flashbang TRUE FALSE})
+            )
+            (load_custom_settings
+               (load_custom_settings $loadcustomsettings)
+            )
+         )
+      }
+   }
+)

@@ -1,0 +1,35 @@
+#define DISABLE_BLANK_DATA
+(
+   {sel_section.lst disable_data os_blnk}
+)
+#define LIST_RESET_HANDLER
+(
+   {set $modifierpos {sel_section.lst selected_sym}}
+)
+#define OS_ENTER_HANDLER
+(
+   {$this iterate UILabel $i {$i set_type 'farnhamdisplay-bold(63)'}} ;force the font for the header of these screens
+   {full_selection.mesh set_showing FALSE} ;hide the practice selection bar
+   {$this iterate Mat $m {$m set prelit FALSE}} ;fix some texture issues on the imported milo
+   {$this iterate Mat $m {$m set use_environ FALSE}} ;fix some texture issues on the imported milo
+   {sel_section.lst set_local_pos_index 0 10} ;move the list around to fit the imported milo
+   {sel_section.lst set_local_pos_index 2 60} ;move the list around to fit the imported milo
+   DISABLE_BLANK_DATA
+)
+#define OS_BACK_HANDLER
+(
+   {if {== $action kAction_Cancel}
+      #ifdef HX_XBOX {demo_launcher_panel back_sfx} #endif ;play back tone
+      {ui pop_screen} ;leave the current screen
+   }
+   kDataUnhandled
+)
+#define FORWARD_SFX
+(
+   #ifdef HX_XBOX {demo_launcher_panel forward_sfx} #endif
+   DISABLE_BLANK_DATA
+)
+#define SCROLL_SFX
+(
+   #ifdef HX_XBOX {demo_launcher_panel scroll_sfx} #endif
+)

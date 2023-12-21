@@ -1,0 +1,100 @@
+#define INIT_DTA_READER
+(
+   {foreach $entry {read_file #ifdef HX_XBOX "GAME:/dx.dta" #endif #ifdef HX_PS3 "GD:/dev_hdd0/game/BLUS30147/USRDIR/dx.dta" #endif}
+      {if {== {elem $entry 0} {basename track_speed}}
+         {set $trackspeed
+            {elem {find $entry track_speed} 1}
+         }
+      }
+      {if {== {elem $entry 0} {basename song_speed}}
+         {set $speedmod
+            {elem {find $entry song_speed} 1}
+         }
+      }
+      {if {== {elem $entry 0} {basename emulate_fps}}
+         {set $emulatefps
+            {elem {find $entry emulate_fps} 1}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_nofail}}
+         {set $mod_nofail
+            {elem {find $entry mod_nofail} 1}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_doublespeed}}
+         {set $mod_doublespeed
+            {elem {find $entry mod_doublespeed} 1}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_nohud}}
+         {set $mod_nohud
+            {elem {find $entry mod_nohud} 1}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_newvenuesonly}}
+         {set $mod_newvenuesonly
+            {elem {find $entry mod_newvenuesonly} 1}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_awesome}}
+         {set $mod_awesome
+            {elem {find $entry mod_awesome} 1}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_blackvenue}}
+         {set $mod_blackvenue
+            {elem {find $entry mod_blackvenue} 1}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_songtitle}}
+         {set $mod_songtitle
+            {elem {find $entry mod_songtitle} 1}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_songtitlestats}}
+         {set $mod_songtitlestats
+            {elem {find $entry mod_songtitlestats} 1}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_staticfills}}
+         {set $mod_staticfills
+            {elem {find $entry mod_staticfills} 1}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_mididrum}}
+         {set $mod_mididrum
+            {elem {find $entry mod_mididrum} 1}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_padguitar}}
+         {set $mod_padguitar
+            {elem {find $entry mod_padguitar} 1}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_paddrum}}
+         {set $mod_paddrum
+            {elem {find $entry mod_paddrum} 1}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_noquickrestart}}
+         {set $mod_noquickrestart
+            {elem {find $entry mod_noquickrestart} 1}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_vocalgender}}
+         {set $mod_vocalgender
+            {elem {find $entry mod_vocalgender} 1}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_noflames}}
+         {set $mod_noflames
+            {elem {find $entry mod_noflames} 1}
+         }
+      }
+      {if {== {elem $entry 0} {basename mod_flashbang}}
+         {set $mod_flashbang
+            {elem {find $entry mod_flashbang} 1}
+         }
+      }
+   }
+)

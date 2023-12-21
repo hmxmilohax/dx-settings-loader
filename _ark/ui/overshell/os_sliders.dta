@@ -2,7 +2,7 @@
    UIPanel
    options_milo_panel
    (file
-      "options/options_audio.milo")
+      "../options/options_audio.milo")
    (focus background_music.btn)
    (enter
 	  {background.sld set_num_steps 41} ;number of steps for note speed slider
@@ -164,7 +164,7 @@
 {new
    UIPanel
    overshell_blank_panel
-   (file options/practice_sel_section.milo)
+   (file "../options/practice_sel_section.milo")
    (focus sel_section.lst)
    (enter
       {sel_section.lst set_showing FALSE}
@@ -175,7 +175,7 @@
    UIPanel
    options_color_panel
    (file
-      "options/options_color.milo")
+      "../options/options_color.milo")
    (focus instruments.btn)
    (load
 ;      {content_mgr start_refresh}

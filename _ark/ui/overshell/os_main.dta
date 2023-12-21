@@ -1,0 +1,71 @@
+#define OS_MAIN_DATA
+(
+   (
+      #ifdef HX_XBOX {if_else {file_exists "GAME:/default.xex"} "os_launchgame" "os_nogame"} #endif
+      os_writefile
+      os_blnk
+      os_modifiers
+      os_spd
+      os_appearence
+      os_cam_sfx
+   )
+)
+{new
+   UIPanel
+   overshell_main_panel
+   (file "overshell_list.milo")
+   (focus sel_section.lst)
+   (enter
+      {sel_section.lst set_data OS_MAIN_DATA}
+      OS_ENTER_HANDLER
+      {sel_section.lst set circular 0}
+      {title.lbl set text_token os_dxsettings}
+      {$this pause_if_local}
+      {unless {file_exists #ifdef HX_XBOX "GAME:/dx.dta" #endif #ifdef HX_PS3 "GD:/dev_hdd0/game/BLUS30463/USRDIR/dx.dta" #endif} {ui push_screen welcome_warning_screen}}
+   )
+   (SELECT_MSG
+      {switch {$component selected_sym}
+         (os_launchgame
+            {if_else {|| {&& {file_exists "GAME:/gen/main_xbox.hdr"} {file_exists "GAME:/gen/main_xbox_0.ark"}}
+                          {&& {file_exists "GAME:/gen/main.hdr"} {file_exists "GAME:/gen/main_0.ark"}}
+                      }
+               {do INIT_DTA_WRITER {launch_demo ''}}
+               {ui push_screen nogame_warning_screen}
+            }
+         )
+         (os_nogame
+            {ui push_screen noxex_warning_screen}
+         )
+         (os_writefile
+            INIT_DTA_WRITER
+            {if_else {file_exists #ifdef HX_XBOX "GAME:/dx.dta" #endif #ifdef HX_PS3 "GD:/dev_hdd0/game/BLUS30147/USRDIR/dx.dta" #endif}
+               {ui push_screen dxdta_success_screen}
+               {ui push_screen dxdta_warning_screen}
+            }
+         )
+         (os_modifiers
+            {ui push_screen overshell_modifiers_screen}
+         )
+         (os_spd
+            {ui push_screen options_milo_screen}
+         )
+         (os_appearence
+            {ui push_screen overshell_appearence_screen}
+         )
+         (os_cam_sfx
+            {ui push_screen overshell_cam_sfx_screen}
+         )
+      }
+      {set $os_main_pos {sel_section.lst selected_sym}}
+      {sel_section.lst set_data OS_MAIN_DATA}
+      {sel_section.lst set_selected $os_main_pos}
+      FORWARD_SFX
+   )
+   (SCROLL_MSG SCROLL_SFX)
+}
+{new
+   UIScreen
+   overshell_main_screen
+   (panels os_blank_panel overshell_main_panel os_blank_panel2 vinette_panel)
+   (focus overshell_main_panel)
+}

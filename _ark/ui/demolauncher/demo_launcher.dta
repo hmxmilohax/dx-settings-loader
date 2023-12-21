@@ -13,15 +13,7 @@
             {set $picked_number 2}
          }
       }
-      {{sprint "confirm_clip" $picked_number} set file
-         {if_else {|| {== $simpledx 1} {== $simpledx 2}}
-            "sfx/streams/rb2_shell/button_select.mogg"
-            {if_else  {== $simpledx lrb}
-               "sfx/streams/lrb_shell/select_forward.mogg"
-               "sfx/streams/proj9_shell/button_select_guitar_01.mogg"
-            }
-         }
-      }
+      {{sprint "confirm_clip" $picked_number} set file "sfx/streams/overshell/nav.mogg"}
       {if {exists confirm_clip1}
          {confirm_clip1 set loop FALSE}
          {confirm_clip1 set volume -5}
@@ -49,15 +41,7 @@
             {set $picked_number 2}
          }
       }
-      {{sprint "back_clip" $picked_number} set file
-         {if_else {|| {== $simpledx 1} {== $simpledx 2}}
-            "sfx/streams/rb2_shell/button_back.mogg"
-            {if_else  {== $simpledx lrb}
-               "sfx/streams/lrb_shell/select_back.mogg"
-               "sfx/streams/proj9_shell/button_back_guitar_01.mogg"
-            }
-         }
-      }
+      {{sprint "back_clip" $picked_number} set file "sfx/streams/overshell/nav.mogg"}
       {if {exists back_clip1}
          {back_clip1 set loop FALSE}
          {back_clip1 set volume -5}
@@ -85,12 +69,7 @@
             {set $picked_number 2}
          }
       }
-      {{sprint "scroll_clip" $picked_number} set file
-         {if_else {|| {== $simpledx 1} {== $simpledx 2} {== $simpledx lrb}}
-            "sfx/streams/rb2_shell/button_toggle.mogg"
-            "sfx/streams/proj9_shell/button_toggle_guitar_01.mogg"
-         }
-      }
+      {{sprint "scroll_clip" $picked_number} set file "sfx/streams/overshell/nav.mogg"}
       {if {exists scroll_clip1}
          {scroll_clip1 set loop FALSE}
          {scroll_clip1 set volume -5}

@@ -1,0 +1,66 @@
+;show custom settings loaded message ingame
+{set $loadcustomsettings TRUE}
+
+;sets default track speed. 1.15 is 115%, 1.30 is 130% and so on.
+{set $trackspeed 1.0}
+
+;sets default song speed 1.15 is 115%, 1.30 is 130% and so on.
+{set $speedmod 1.0}
+
+;set default venue fps.
+{set $emulatefps 24}
+
+{set $slot1_color 0} ;0 = green, preset colors to GRYBO
+{set $slot2_color 1} ;1 = red
+{set $slot3_color 2} ;2 = yellow
+{set $slot4_color 3} ;3 = blue
+{set $slot5_color 4} ;4 = orange
+
+;gem texture
+{set $gem "rb2dx"}
+
+;smasher texture
+{set $smasher "rb2dx"}
+
+;streak texture
+{set $streak "rb4"}
+
+;overdrive texture (guitar)
+{set $spotlightgtr "rb4"}
+
+;overdrive texture (bass)
+{set $spotlightbass "rb4"}
+
+;overdrive texture (drums)
+{set $spotlightdrum "rb4"}
+
+;multiplier ring texture
+{set $multiring "rb2dx"}
+
+;overdrive bar texture
+{set $odbar "rb2dx"}
+
+;rails texture
+{set $rails "none"}
+
+;flames texture
+{set $flames "rb2dx"}
+
+;score texture
+{set $scoretex "rb4"}
+
+;vocal arrow texture
+{set $voxarrow "rb2dx"}
+
+;vocal notes texture
+{set $voxnotes "rb2dx"}
+
+;vocal overdrive texture
+{set $voxod "none"}
+
+;vocal highway texture
+{set $voxhw "none"}
+
+;track angle presets that closely match the source games
+;available options: "rb2", "rb3", "rb4", "rr" "none"
+{set $anglepreset "rb2"}

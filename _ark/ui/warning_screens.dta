@@ -166,3 +166,18 @@
             {ui pop_screen})
          (opt2.btn
             {ui pop_screen})})}
+   {new
+   UIScreen
+   dxdta_restore_screen
+   (panels dialog_panel)
+   (focus dialog_panel)
+   (enter
+      {dialog_panel set_custom os_dxdtarestored os_okay store_cache_button_cancel opt1.btn})
+   (SELECT_MSG
+      #ifdef HX_XBOX {demo_launcher_panel forward_sfx} #endif
+      {switch
+         $component
+         (opt1.btn
+            {ui pop_screen})
+         (opt2.btn
+            {ui pop_screen})})}

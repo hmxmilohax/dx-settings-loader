@@ -1,0 +1,105 @@
+#define OS_MODIFIERS_DATA
+(
+   (
+      {if_else $mod_nofail mod_nofail_on mod_nofail_off}
+      {if_else $mod_doublespeed mod_doublespeed_on mod_doublespeed_off}
+      {if_else $mod_nohud mod_nohud_on mod_nohud_off}
+      {if_else $mod_newvenuesonly mod_newvenuesonly_on mod_newvenuesonly_off}
+      {if_else $mod_awesome mod_awesome_on mod_awesome_off}
+      {if_else $mod_blackvenue mod_blackvenue_on mod_blackvenue_off}
+      {if_else $mod_songtitle mod_songtitle_on mod_songtitle_off}
+      {if_else $mod_songtitlestats mod_songtitlestats_on mod_songtitlestats_off}
+      {if_else $mod_staticfills mod_staticfills_on mod_staticfills_off}
+      {if_else $mod_mididrum mod_mididrum_on mod_mididrum_off}
+      {if_else $mod_padguitar mod_padguitar_on mod_padguitar_off}
+      {if_else $mod_paddrum mod_paddrum_on mod_paddrum_off}
+      {if_else $mod_noquickrestart mod_noquickrestart_on mod_noquickrestart_off}
+      {if_else $mod_vocalgender mod_vocalgender_on mod_vocalgender_off}
+      {if_else $mod_noflames mod_noflames_on mod_noflames_off}
+      {if_else $mod_flashbang mod_flashbang_on mod_flashbang_off}
+      os_blnk
+   )
+)
+{new
+   UIPanel
+   overshell_modifiers_panel
+   (file "overshell_list.milo")
+   (focus sel_section.lst)
+   (enter
+      {sel_section.lst set_data OS_MODIFIERS_DATA}
+      OS_ENTER_HANDLER
+      {sel_section.lst set circular 1}
+      {title.lbl set text_token os_modifiers}
+      {$this pause_if_local}
+   )
+   (SELECT_MSG
+      {switch {$component selected_sym}
+         ((mod_nofail_on mod_nofail_off)
+            {set $mod_nofail {! $mod_nofail}}
+         )
+         ((mod_doublespeed_on mod_doublespeed_off)
+            {set $mod_doublespeed {! $mod_doublespeed}}
+         )
+         ((mod_nohud_on mod_nohud_off)
+            {set $mod_nohud {! $mod_nohud}}
+            {set $mod_blackvenue FALSE}
+         )
+         ((mod_newvenuesonly_on mod_newvenuesonly_off)
+            {set $mod_newvenuesonly {! $mod_newvenuesonly}}
+         )
+         ((mod_awesome_on mod_awesome_off)
+            {set $mod_awesome {! $mod_awesome}}
+         )
+         ((mod_blackvenue_on mod_blackvenue_off)
+            {set $mod_blackvenue {! $mod_blackvenue}}
+            {set $mod_nohud FALSE}
+         )
+         ((mod_songtitle_on mod_songtitle_off)
+            {set $mod_songtitle {! $mod_songtitle}}
+         )
+         ((mod_songtitlestats_on mod_songtitlestats_off)
+            {set $mod_songtitlestats {! $mod_songtitlestats}}
+         )
+         ((mod_staticfills_on mod_staticfills_off)
+            {set $mod_staticfills {! $mod_staticfills}}
+         )
+         ((mod_mididrum_on mod_mididrum_off)
+            {set $mod_mididrum {! $mod_mididrum}}
+         )
+         ((mod_padguitar_on mod_padguitar_off)
+            {set $mod_padguitar {! $mod_padguitar}}
+            {set $mod_paddrum FALSE}
+         )
+         ((mod_paddrum_on mod_paddrum_off)
+            {set $mod_paddrum {! $mod_paddrum}}
+            {set $mod_padguitar FALSE}
+         )
+         ((mod_noquickrestart_on mod_noquickrestart_off)
+            {set $mod_noquickrestart {! $mod_noquickrestart}}
+         )
+         ((mod_vocalgender_on mod_vocalgender_off)
+            {set $mod_vocalgender {! $mod_vocalgender}}
+         )
+         ((mod_noflames_on mod_noflames_off)
+            {set $mod_noflames {! $mod_noflames}}
+            {set $mod_flashbang FALSE}
+         )
+         ((mod_flashbang_on mod_flashbang_off)
+            {set $mod_flashbang {! $mod_flashbang}}
+            {set $mod_noflames FALSE}
+         )
+      }
+      {set $os_modifiers_pos {sel_section.lst selected_sym}}
+      {sel_section.lst set_data OS_MODIFIERS_DATA}
+      {sel_section.lst set_selected $os_modifiers_pos}
+      FORWARD_SFX
+   )
+   (SCROLL_MSG SCROLL_SFX)
+   (BUTTON_DOWN_MSG OS_BACK_HANDLER)
+}
+{new
+   UIScreen
+   overshell_modifiers_screen
+   (panels os_blank_panel overshell_modifiers_panel os_blank_panel2 vinette_panel)
+   (focus overshell_modifiers_panel)
+}

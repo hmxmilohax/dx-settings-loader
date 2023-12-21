@@ -1,0 +1,38 @@
+#define OS_APPEARENCE_DATA
+(
+   (
+      os_nothing
+   )
+)
+{new
+   UIPanel
+   overshell_appearence_panel
+   (file "overshell_list.milo")
+   (focus sel_section.lst)
+   (enter
+      {sel_section.lst set_data OS_APPEARENCE_DATA}
+      OS_ENTER_HANDLER
+      {sel_section.lst set circular 0}
+      {title.lbl set text_token os_appearence}
+      {$this pause_if_local}
+   )
+   (SELECT_MSG
+      {switch {$component selected_sym}
+         (os_nothing
+            kDataUnhandled
+         )
+      }
+      {set $os_appearence_pos {sel_section.lst selected_sym}}
+      {sel_section.lst set_data OS_APPEARENCE_DATA}
+      {sel_section.lst set_selected $os_appearence_pos}
+      FORWARD_SFX
+   )
+   (SCROLL_MSG SCROLL_SFX)
+   (BUTTON_DOWN_MSG OS_BACK_HANDLER)
+}
+{new
+   UIScreen
+   overshell_appearence_screen
+   (panels os_blank_panel overshell_appearence_panel os_blank_panel2 vinette_panel)
+   (focus overshell_appearence_panel)
+}

@@ -63,7 +63,7 @@
 #endif
 (objects
    #include objects.dta)
-(locale ../ui/locale/eng/locale.dta)
+(locale ../ui/locale/locale.dta)
 #ifdef HX_PS3
 (venues VENUES)
 (song_select
