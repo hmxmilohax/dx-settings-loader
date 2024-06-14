@@ -1,12 +1,3 @@
-_build/ps3/USRDIR/gen/patch_ps3_0.ark
-_build/ps3/USRDIR/gen/patch_ps3.hdr
-_build_rpcs3.bat
-_build/xbox/gen/*.ark
-_build/xbox/gen/*.hdr
-_build/xbox/videos/*.bik
-_build_rpcs3.bat
-main_ps3
-_build/wii/
 _xenia/cache_host/*
 _xenia/content/45410829/Headers/*
 _xenia/xenia.log
@@ -21,19 +12,17 @@ _xenia/xinput1_2.dll
 _xenia/xinput1_3.dll
 _xenia/xinput1_4.dll
 _xenia/xinput9_1_0.dll
-_build_xbox - Copy.bat
-_run_xenia - Copy.bat
 _xenia/recent.toml
 _xenia/content/454108B1
 _xenia/content/454108E7
 _xenia/content/45410914
 _xenia/content/575207F0
-_build/xbox/dx.dta
-_build/ps3/gen/main_ps3.hdr
-_build/ps3/gen/main_ps3_0.ark
-_build/ps3/gen/main_ps3_1.ark
+
 .DS_Store
-_build/ps3/USRDIR/gen/main_ps3.hdr
-_build/ps3/USRDIR/gen/main_ps3_0.ark
-_build/ps3/PS3_GAME/USRDIR/gen/main_ps3_0.ark
-_build/ps3/PS3_GAME/USRDIR/gen/main_ps3.hdr
+*.pyc
+*.tmp
+*.ninja
+.ninja_log
+
+obj
+out
