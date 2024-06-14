@@ -61,21 +61,7 @@ if args.fun:
     print_color_text(f"|____/_/\\_\\____/|_____|\n", "1;36")  # Cyan text
 
 gen_folder = "gen"
-#Wii should always use patchcreator
-if args.platform == "wii":
-    patchcreator = True
 
-#THIS IS TEMPLATE YOU CAN REMOVE IF YOU DONT NEED IT
-if args.platform == "ps2":
-    #all milo ps2 games from gh to rb use MAIN_0.ARK
-    hdr_name = "MAIN"
-    gen_folder = "GEN"
-    if new_gen == False:
-        #pre rb2 does not use miloVersion for superfreq image generation on ps2
-        miloVersion = " "
-        #remove these two if rock band 1
-        ark_encrypt = " "
-        dtb_encrypt = "-E"
 
 ninja.variable("dtb_encrypt", dtb_encrypt)
 ninja.variable("ark_encrypt", ark_encrypt)
@@ -84,6 +70,11 @@ ninja.variable("miloVersion", miloVersion)
 #new gen games (rb2 onward) add platform suffix to ark name
 if new_gen == True:
     hdr_name = hdr_name + "_" + args.platform
+
+if args.platform not in ["xbox", "ps3"]:
+    print("Unsupported platform. Only 'ps3' and 'xbox' are supported.")
+    sys.exit()
+
 
 print(f"Configuring {game_name}...")
 print(f"Platform: {args.platform}")
@@ -129,10 +120,6 @@ match args.platform:
         out_dir = Path("out", args.platform, "USRDIR", gen_folder)
     case "xbox":
         out_dir = Path("out", args.platform, gen_folder)
-    case "wii":
-        out_dir = Path("out", args.platform, "files", gen_folder)
-    case "ps2":
-        out_dir = Path("out", args.platform, gen_folder)
 
 #building an ark
 if patchcreator == False:
@@ -142,32 +129,6 @@ if patchcreator == False:
         description="Building ark",
     )
 
-#patchcreating an ark
-if patchcreator == True:
-    #patch creator time!
-    #patchcreator forces into a gen folder itself it sucks
-    out_dir = out_dir.parent
-    #force using main as the root name
-    hdr_name = "main"
-    #append platform if this is new style ark
-    if new_gen == True:
-        hdr_name = hdr_name + "_" + args.platform
-    #this is fucking hilarious
-    exec_path = "README.md"
-    match args.platform:
-        case "wii":
-            hdr_path = "platform/" + args.platform + "/files/" + gen_folder + "/" + hdr_name + ".hdr"
-        case "ps2":
-            hdr_path = "platform/" + args.platform + "/" + gen_folder + "/" + hdr_name.upper() + ".HDR"
-        case "ps3":
-            hdr_path = "platform/" + args.platform + "/USRDIR/" + gen_folder + "/" + hdr_name + ".hdr"
-        case "xbox":
-            hdr_path = "platform/" + args.platform + "/" + gen_folder + "/" + hdr_name + ".hdr"
-    ninja.rule(
-        "ark",
-        f"$arkhelper patchcreator -a {ark_dir} -o {out_dir} {hdr_path} {exec_path} --logLevel error",
-        description="Building ark",
-    )
 
 ninja.rule(
     "sfreq",
@@ -292,8 +253,6 @@ for texture_list_path in [root_path.joinpath(path) for path in custom_texture_pa
 
 # build ark
 ark_part = "0"
-if patchcreator == True:
-    ark_part = new_ark_part
 match args.platform:
     case "ps3":
         hdr = str(Path("out", args.platform, "USRDIR", hdr_name + ".hdr"))
@@ -301,12 +260,6 @@ match args.platform:
     case "xbox":
         hdr = str(Path("out", args.platform, hdr_name + ".hdr"))
         ark = str(Path("out", args.platform, hdr_name + "_" + ark_part + ".ark"))
-    case "wii":
-        hdr = str(Path("out", args.platform, "files", hdr_name + ".hdr"))
-        ark = str(Path("out", args.platform, "files", hdr_name + "_" + ark_part + ".ark"))
-    case "ps2":
-        hdr = str(Path("out", args.platform, hdr_name + ".HDR"))
-        ark = str(Path("out", args.platform, hdr_name + "_" + ark_part + ".ARK"))
 ninja.build(
     ark,
     "ark",
