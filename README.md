@@ -61,7 +61,7 @@
 
 ### ✅ ***DX Settings Loader is now installed and running!***
 
-Your configuration file will be saved to `_build/xbox/dx.dta`. You can copy this file to where you have *Rock Band 2 Deluxe* installed on Xbox 360 or PS3.
+Your configuration file will be saved to `out/xbox/dx.dta`. You can copy this file to where you have *Rock Band 2 Deluxe* installed on Xbox 360 or PS3.
 
 > For PS3, copy the file to `dev_hdd0/game/BLUS30147/USRDIR` (RB2DX's install path).
 
