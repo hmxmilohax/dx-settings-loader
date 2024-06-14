@@ -15,7 +15,7 @@ echo:ARK not found, building
 call _build_xenia.bat
 ) ELSE (
 call _init-dta2b >nul 2>&1
-START "" "%~dp0_xenia\xenia_canary" "%~dp0_build\Xbox\dx-settings-loader.xex"
+START "" "%~dp0_xenia\xenia_canary" "%~dp0out/xbox/dx-settings-loader.xex"
 )
 ) ELSE (
 echo:Fetching latest updates and building ARK

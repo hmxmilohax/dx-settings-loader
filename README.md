@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="dependencies/header.png" width="50%" alt="Header Image">
+<img src="dependencies/media/header.png" width="50%" alt="Header Image">
 
 ## *DX Settings Loader* is an on-console Xbox 360 application for generating configuration files for *[Rock Band 2 Deluxe](https://rb2deluxe.neocities.org/)*.
 
@@ -61,7 +61,7 @@
 
 ### ✅ ***DX Settings Loader is now installed and running!***
 
-Your configuration file will be saved to `_build/xbox/dx.dta`. You can copy this file to where you have *Rock Band 2 Deluxe* installed on Xbox 360 or PS3.
+Your configuration file will be saved to `out/xbox/dx.dta`. You can copy this file to where you have *Rock Band 2 Deluxe* installed on Xbox 360 or PS3.
 
 > For PS3, copy the file to `dev_hdd0/game/BLUS30147/USRDIR` (RB2DX's install path).
 
