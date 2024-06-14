@@ -143,7 +143,7 @@ ninja.build("_always", "phony")
 build_files = []
 
 # copy whatever arbitrary files you need to output
-for f in filter(lambda x: x.is_file(), Path("platform", args.platform).rglob("*")):
+for f in filter(lambda x: x.is_file(), Path("dependencies", "platform", args.platform).rglob("*")):
     index = f.parts.index(args.platform)
     out_path = Path("out", args.platform).joinpath(*f.parts[index + 1 :])
     ninja.build(str(out_path), "copy", str(f))

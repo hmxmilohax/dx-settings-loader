@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="dependencies/header.png" width="50%" alt="Header Image">
+<img src="dependencies/media/header.png" width="50%" alt="Header Image">
 
 ## *DX Settings Loader* is an on-console Xbox 360 application for generating configuration files for *[Rock Band 2 Deluxe](https://rb2deluxe.neocities.org/)*.
 
