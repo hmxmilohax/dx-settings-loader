@@ -16,6 +16,7 @@ ninja = ninja_syntax.Writer(open("build.ninja", "w+"))
 #rb3, dc, blitz - "-v 6"
 ninja.variable("ark_version", "-v 5")
 
+
 #set True for rb1 and newer 
 new_gen = True
 
@@ -41,8 +42,23 @@ parser.add_argument("platform")
 parser.add_argument(
     "--no-updates", action="store_true", help="disable dx song updates"
 )
+parser.add_argument(
+    "--fun", action="store_true", help="break CI and annoy Dark at the same time"
+)
 
 args = parser.parse_args()
+
+def print_color_text(*args):
+    text = " ".join(map(str, args[:-1]))
+    color_code = args[-1]
+    print(f"\033[{color_code}m{text}\033[0m")
+
+if args.fun:
+    print_color_text(f" ______  ______  _    ", "1;36")  # Cyan text
+    print_color_text(f"|  _ \\ \\/ / ___|| |  ", "1;36")  # Cyan text
+    print_color_text(f"| | | \\  /\\___ \\| |   ", "1;36")  # Cyan text
+    print_color_text(f"| |_| /  \\ ___) | |___ ", "1;36")  # Cyan text
+    print_color_text(f"|____/_/\\_\\____/|_____|\n", "1;36")  # Cyan text
 
 gen_folder = "gen"
 #Wii should always use patchcreator
@@ -196,7 +212,6 @@ ark_files = []
 for f in filter(ark_file_filter, Path("_ark").rglob("*")):
     match f.suffixes:
         case [".png"]:
-            print(f.stem)
             output_directory = Path("obj", args.platform, "ark").joinpath(
                 *f.parent.parts[2:]
             )
